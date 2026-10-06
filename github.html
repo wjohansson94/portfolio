@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub profile finder | Wilhelm Johansson</title>
+    <link rel="stylesheet" href="github.css" />
+    <script src="github.js" defer></script>
+  </head>
+  <body>
+    <main class="lookup-shell">
+      <a class="back-link" href="index.html">Back to profile</a>
+
+      <header class="page-heading">
+        <p class="eyebrow">Portfolio project 03</p>
+        <h1>GitHub profile finder</h1>
+        <p>Explore a public profile and its recently updated repositories.</p>
+      </header>
+
+      <form id="search-form">
+        <label for="username">GitHub username</label>
+        <div class="search-row">
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="e.g. octocat"
+            autocomplete="off"
+            autocapitalize="none"
+            spellcheck="false"
+            required
+          />
+          <button type="submit">Search</button>
+        </div>
+      </form>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <section id="empty-state" class="empty-state">
+        <p id="empty-message">Enter a GitHub username to get started.</p>
+      </section>
+
+      <section
+        id="results"
+        class="results"
+        aria-label="GitHub profile results"
+        hidden
+      >
+        <article class="profile-summary" aria-labelledby="profile-name">
+          <img id="avatar" class="profile-avatar" alt="" />
+          <div class="profile-details">
+            <p class="eyebrow">Public GitHub profile</p>
+            <h2 id="profile-name"></h2>
+            <a id="profile-login" target="_blank" rel="noreferrer"></a>
+            <p id="bio" class="profile-bio"></p>
+            <p id="location" class="profile-location" hidden></p>
+          </div>
+          <a
+            id="view-profile"
+            class="profile-link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View profile on GitHub
+          </a>
+        </article>
+
+        <dl class="stats" aria-label="Profile statistics">
+          <div>
+            <dt>Repositories</dt>
+            <dd id="public-repos"></dd>
+          </div>
+          <div>
+            <dt>Followers</dt>
+            <dd id="followers"></dd>
+          </div>
+          <div>
+            <dt>Following</dt>
+            <dd id="following"></dd>
+          </div>
+        </dl>
+
+        <section class="repositories" aria-labelledby="repositories-heading">
+          <div class="section-heading">
+            <h2 id="repositories-heading">Recently updated repositories</h2>
+            <p id="repo-status" aria-live="polite"></p>
+          </div>
+          <ul id="repo-list" class="repo-list"></ul>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

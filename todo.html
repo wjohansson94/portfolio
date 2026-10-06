@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do list | Wilhelm Johansson</title>
+    <link rel="stylesheet" href="todo.css" />
+    <script src="todo.js" defer></script>
+  </head>
+  <body>
+    <main class="todo-card">
+      <a class="back-link" href="index.html">Back to profile</a>
+      <h1>My to-do list</h1>
+      <p class="intro">Add a task, then remove it when you are finished.</p>
+
+      <form id="todo-form">
+        <label for="task-input">New task</label>
+        <div class="form-row">
+          <input
+            id="task-input"
+            name="task"
+            type="text"
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Add task</button>
+        </div>
+      </form>
+
+      <div class="filters" role="group" aria-label="Filter tasks">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="active" aria-pressed="false">
+          Active
+        </button>
+        <button type="button" data-filter="completed" aria-pressed="false">
+          Completed
+        </button>
+      </div>
+
+      <p id="status" class="status" aria-live="polite"></p>
+      <ul id="task-list"></ul>
+    </main>
+  </body>
+</html>

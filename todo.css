@@ -1,0 +1,229 @@
+:root {
+  --ink: #1f2933;
+  --muted: #667085;
+  --paper: #fffdf8;
+  --accent: #2878a8;
+  --accent-dark: #1d5f87;
+  --soft: #f9f4ee;
+  --line: #eadfd3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 32px 20px;
+  color: var(--ink);
+  background: #f3ece3;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.todo-card {
+  max-width: 680px;
+  padding: clamp(28px, 6vw, 64px);
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 8px solid var(--accent);
+  box-shadow: 0 24px 60px rgba(75, 55, 40, 0.14);
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--accent);
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-underline-offset: 4px;
+}
+
+h1 {
+  margin: 36px 0 8px;
+  font-size: clamp(2.25rem, 7vw, 4rem);
+  line-height: 1;
+}
+
+.intro {
+  margin-top: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+label {
+  display: block;
+  margin: 28px 0 8px;
+  font-weight: bold;
+}
+
+.form-row {
+  display: flex;
+  gap: 8px;
+}
+
+input,
+button {
+  min-height: 44px;
+  font: inherit;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 12px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid #b9c5cc;
+}
+
+button {
+  padding: 8px 16px;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover,
+button:focus-visible {
+  background: var(--accent-dark);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #e59b3c;
+  outline-offset: 3px;
+}
+
+.status {
+  min-height: 1.6em;
+  margin: 18px 0 8px;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.filters button {
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent);
+}
+
+.filters button[aria-pressed="true"],
+.filters button:hover,
+.filters button:focus-visible {
+  color: #fff;
+  background: var(--accent-dark);
+}
+
+#task-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#task-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  background: var(--soft);
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 2px 0 rgba(75, 55, 40, 0.05);
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+#task-list li:hover {
+  border-left-color: var(--accent-dark);
+  transform: translateX(3px);
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  gap: 10px;
+}
+
+.task-content input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+}
+
+.task-actions,
+.edit-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.task-actions {
+  flex: 0 0 auto;
+}
+
+.edit-form {
+  flex: 1;
+  min-width: 0;
+}
+
+.edit-form input {
+  flex: 1;
+  width: auto;
+  min-width: 0;
+}
+
+.task-content span {
+  overflow-wrap: anywhere;
+}
+
+.completed {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+#task-list li button {
+  min-height: 36px;
+  padding: 6px 10px;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent);
+}
+
+#task-list li button:hover,
+#task-list li button:focus-visible {
+  color: #fff;
+  background: var(--accent-dark);
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  .todo-card {
+    min-height: 100vh;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}
