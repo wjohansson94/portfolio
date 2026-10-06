@@ -1,12 +1,12 @@
-# Wilhelm Johansson | Portfolio
+# Wilhelm Johansson | Profile
 
 This repository contains a small static portfolio website built with HTML, CSS, and JavaScript. It showcases a profile page alongside two interactive browser apps: a to-do list and a GitHub profile finder.
 
 ## Live site
 
-- [Profile page](https://wjohansson94.github.io/my-profile/)
-- [To-do list demo](https://wjohansson94.github.io/my-profile/todo.html)
-- [GitHub profile finder demo](https://wjohansson94.github.io/my-profile/github.html)
+- [Profile page](https://wjohansson94.github.io/portfolio/)
+- [To-do list demo](https://wjohansson94.github.io/portfolio/todo.html)
+- [GitHub profile finder demo](https://wjohansson94.github.io/portfolio/github.html)
 
 ## Overview
 
