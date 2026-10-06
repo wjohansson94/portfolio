@@ -1,61 +1,76 @@
-# Wilhelm Johansson - Profile
+# Wilhelm Johansson | Portfolio
 
-My personal profile website, built while learning web development.
+This repository contains a small static portfolio website built with HTML, CSS, and JavaScript. It showcases a profile page alongside two interactive browser apps: a to-do list and a GitHub profile finder.
 
-## Live Website
+## Live site
 
-[View the live profile](https://wjohansson94.github.io/my-profile/)
+- [Profile page](https://wjohansson94.github.io/my-profile/)
+- [To-do list demo](https://wjohansson94.github.io/my-profile/todo.html)
+- [GitHub profile finder demo](https://wjohansson94.github.io/my-profile/github.html)
 
-## Find Me Online
+## Overview
 
-- [GitHub](https://github.com/wjohansson94)
-- [LinkedIn](https://www.linkedin.com/in/wilhelm-johansson94)
-- [Instagram](https://www.instagram.com/wilhelmbuilds/)
+### 1. Interactive profile page
+A responsive portfolio page presenting Wilhelm Johansson, his skills, and selected projects. The page includes:
 
-## Projects
+- a profile image and introduction
+- accessible navigation and skip link
+- a greeting button with a dynamic status message
+- project cards with live/demo links
+- social links and contact call-to-action
 
-### Interactive Profile Page
+### 2. JavaScript to-do list
+A task manager that lets the user:
 
-A responsive profile page introducing Wilhelm and showcasing his skills and projects. It includes a profile photo, keyboard-accessible controls, an interactive greeting, and project previews.
+- add tasks
+- mark tasks as complete or active
+- edit existing tasks
+- delete tasks
+- filter tasks by All, Active, and Completed
+- persist tasks in `localStorage`
 
-[Live profile](https://wjohansson94.github.io/my-profile/) · [Source code](https://github.com/wjohansson94/my-profile)
+### 3. GitHub profile finder
+A simple client-side GitHub lookup app that:
 
-### JavaScript To-Do List
+- searches for a public GitHub username
+- displays profile details such as avatar, bio, location, and stats
+- lists recently updated repositories
+- handles loading, empty, timeout, network, not-found, and rate-limit states
 
-A task manager built with HTML, CSS, and JavaScript. Tasks can be added, edited, completed, deleted, filtered by status, and saved in the browser with `localStorage`.
+## Project structure
 
-[Live demo](https://wjohansson94.github.io/my-profile/todo.html) · [Source code](https://github.com/wjohansson94/my-profile)
+- `index.html` — portfolio landing page
+- `style.css` — profile page styling
+- `script.js` — interactive greeting logic
+- `todo.html` — to-do list page
+- `todo.css` — to-do list styling
+- `todo.js` — task logic and persistence
+- `github.html` — GitHub finder page
+- `github.css` — GitHub finder styling
+- `github.js` — GitHub API requests and rendering
+- `profile.jpg` — profile image
+- `favicon.png` — browser favicon
+- `Profile page.png` — profile page preview
+- `To-do list.png` — to-do app preview
+- `github-finder.png` — GitHub finder preview
 
-### GitHub Profile Finder
+## Getting started
 
-A GitHub REST API project that looks up public profiles, displays avatars and account statistics, and lists up to six recently updated repositories. It provides loading, not-found, timeout, network, and rate-limit feedback.
+Because this is a static site, there is no build step or package installation required.
 
-[Live demo](https://wjohansson94.github.io/my-profile/github.html) · [Source code](https://github.com/wjohansson94/my-profile)
+1. Clone or download the repository.
+2. Open `index.html` in your browser to view the profile page.
+3. Open `todo.html` and `github.html` to use the other projects.
 
-## Built With
+## Deployment
 
-- HTML
-- CSS
-- JavaScript
-- GitHub REST API
-- Browser storage with `localStorage`
-- GitHub Pages
+The site is published through GitHub Pages and uses direct static file hosting.
 
-## Project Files
+## Skills practiced
 
-- `index.html` and `style.css` - profile page content and styling
-- `script.js` - interactive greeting
-- `todo.html`, `todo.css`, and `todo.js` - to-do list structure, styling, and behavior
-- `github.html`, `github.css`, and `github.js` - GitHub profile finder
-- `profile.jpg` and `favicon.png` - profile image and browser icon
-- `Profile page.png`, `To-do list.png`, and `github-finder.png` - project preview images
-
-## What I Am Learning
-
-- Semantic HTML and accessible controls
-- Responsive CSS layouts
-- JavaScript events and DOM updates
-- Browser storage with `localStorage`
-- Fetching and displaying data from public APIs
-- Loading, success, and error states
-- Publishing websites with GitHub Pages
+- semantic HTML and accessible UI patterns
+- responsive CSS layouts
+- DOM manipulation with JavaScript
+- browser storage with `localStorage`
+- consuming a public REST API
+- handling asynchronous loading and error states
