@@ -16,7 +16,9 @@ A responsive portfolio page presenting Wilhelm Johansson, his skills, and select
 
 - a profile image and introduction
 - accessible navigation and skip link
-- project cards with live/demo links
+- About and skills panels
+- a two-column project grid on desktop that stacks on smaller screens
+- project cards with demo links for the interactive apps and source links
 - social links and contact call-to-action
 - a coordinated dark theme with teal and violet accents shared by the project demos
 
