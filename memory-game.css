@@ -142,7 +142,7 @@ button {
   color: #07151d;
   background: var(--accent);
   border: 1px solid var(--accent);
-  border-radius: 5px;
+  border-radius: 999px;
   cursor: pointer;
   font: bold 0.9rem Arial, sans-serif;
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;

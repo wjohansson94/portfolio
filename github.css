@@ -138,7 +138,7 @@ input {
   color-scheme: dark;
   background: #0c1420;
   border: 1px solid #30465a;
-  border-radius: 5px;
+  border-radius: 999px;
 }
 
 button {
@@ -146,7 +146,7 @@ button {
   color: #07151d;
   background: var(--accent);
   border: 1px solid var(--accent);
-  border-radius: 5px;
+  border-radius: 999px;
   cursor: pointer;
   font-family: Arial, sans-serif;
   font-weight: bold;
@@ -260,7 +260,7 @@ input:focus-visible {
   padding: 10px 12px;
   color: var(--accent-dark);
   border: 1px solid #3a596b;
-  border-radius: 5px;
+  border-radius: 999px;
   font-family: Arial, sans-serif;
   font-size: 0.9rem;
   font-weight: bold;

@@ -37,6 +37,7 @@ body {
   padding: 10px 14px;
   color: #fff;
   background: var(--ink);
+  border-radius: 999px;
   transform: translateY(calc(-100% - 12px));
 }
 
@@ -176,26 +177,49 @@ h1 {
 }
 
 .button {
-  display: inline-block;
-  padding: 11px 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
   color: #07151d;
-  background: #79e1e7;
-  border: 1px solid #79e1e7;
+  background: linear-gradient(135deg, #a7f0ef, #79dce5);
+  border: 1px solid rgba(180, 244, 245, 0.9);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(73, 195, 208, 0.16);
   font-family: Arial, sans-serif;
   font-size: 0.9rem;
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.button-arrow {
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform 160ms ease;
 }
 
 .button:hover,
 .button:focus-visible {
   color: #07151d;
-  background: #b4f4f5;
+  background: linear-gradient(135deg, #c7fbf8, #9cecf1);
   border-color: #b4f4f5;
-  box-shadow: 0 0 18px rgba(121, 225, 231, 0.22);
+  box-shadow: 0 8px 26px rgba(121, 225, 231, 0.3);
   transform: translateY(-2px);
+}
+
+.button:hover .button-arrow,
+.button:focus-visible .button-arrow {
+  transform: translateX(3px);
+}
+
+.button:active {
+  box-shadow: 0 3px 10px rgba(121, 225, 231, 0.2);
+  transform: translateY(0);
 }
 
 .details {
@@ -247,6 +271,7 @@ h2::after {
   color: #a7eaf0;
   background: #1a2b3c;
   border: 1px solid #30465a;
+  border-radius: 999px;
   font-family: Arial, sans-serif;
   font-size: 0.85rem;
 }

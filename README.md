@@ -18,10 +18,12 @@ A responsive portfolio page presenting Wilhelm Johansson, his skills, and select
 - accessible navigation and skip link
 - About and skills panels
 - a two-column project grid on desktop that stacks on smaller screens
-- project cards with demo links for the interactive apps and source links
+- interactive project demos before the portfolio source card
+- project cards with demo links and source links
 - social links and contact call-to-action
 - transparent attribution of GitHub Copilot as an AI coding assistant
 - a coordinated dark theme with teal and violet accents shared by the project demos
+- pill-shaped buttons, inputs, and skill tags, with softly rounded project cards
 
 ### 2. JavaScript to-do list
 A task manager that lets the user:
@@ -83,6 +85,7 @@ The site is published through GitHub Pages and uses direct static file hosting.
 ## Skills practiced
 
 - semantic HTML and accessible UI patterns
+- accessibility and responsive design
 - responsive CSS layouts
 - DOM manipulation with JavaScript
 - managing game state and timed interactions
