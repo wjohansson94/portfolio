@@ -20,7 +20,8 @@ A responsive portfolio page presenting Wilhelm Johansson, his skills, and select
 - a two-column project grid on desktop that stacks on smaller screens
 - interactive project demos before the portfolio source card
 - project cards with demo links and source links
-- social links and contact call-to-action
+- GitHub, LinkedIn, Instagram, and Threads social links with matching inline icons
+- a pill-shaped contact button with hover and keyboard-focus feedback
 - transparent attribution of GitHub Copilot as an AI coding assistant
 - a coordinated dark theme with teal and violet accents shared by the project demos
 - pill-shaped buttons, inputs, and skill tags, with softly rounded project cards
