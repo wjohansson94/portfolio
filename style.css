@@ -429,22 +429,43 @@ h2::after {
 .project-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 20px;
+  gap: 6px 18px;
   margin-top: 14px;
   font-family: Arial, sans-serif;
-  font-weight: bold;
 }
 
 .project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 0;
   color: var(--accent-dark);
-  text-decoration-color: rgba(121, 225, 231, 0.35);
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-decoration-color: rgba(121, 225, 231, 0.4);
   text-underline-offset: 3px;
-  transition: color 160ms ease, text-decoration-color 160ms ease;
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
+}
+
+.project-links a::after {
+  color: #a58bff;
+  content: "↗";
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: transform 160ms ease;
 }
 
 .project-links a:hover {
   color: #b4f4f5;
   text-decoration-color: currentColor;
+}
+
+.project-links a:hover::after {
+  transform: translate(2px, -2px);
 }
 
 :focus-visible {
