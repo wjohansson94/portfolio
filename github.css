@@ -1,12 +1,13 @@
 :root {
-  --ink: #1f2933;
-  --muted: #667085;
-  --paper: #fffdf8;
-  --accent: #2878a8;
-  --accent-dark: #1d5f87;
-  --highlight: #a83f2a;
-  --soft: #f9f4ee;
-  --line: #eadfd3;
+  color-scheme: dark;
+  --ink: #e8eef5;
+  --muted: #a9b6c5;
+  --paper: #111a26;
+  --accent: #79e1e7;
+  --accent-dark: #a7eaf0;
+  --highlight: #b7a5ff;
+  --soft: #182838;
+  --line: #2a3b4e;
 }
 
 * {
@@ -18,31 +19,65 @@ body {
   margin: 0;
   padding: 32px 20px;
   color: var(--ink);
-  background: #f3ece3;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(31, 91, 116, 0.38), transparent 38%),
+    radial-gradient(ellipse at 88% 82%, rgba(91, 61, 148, 0.28), transparent 34%),
+    linear-gradient(rgba(121, 225, 231, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(121, 225, 231, 0.035) 1px, transparent 1px),
+    #090f18;
+  background-size: auto, auto, 32px 32px, 32px 32px, auto;
   font-family: Georgia, "Times New Roman", serif;
   line-height: 1.6;
 }
 
 .lookup-shell {
+  position: relative;
+  overflow: hidden;
   max-width: 840px;
   padding: clamp(28px, 6vw, 64px);
   margin: 0 auto;
   background: var(--paper);
   border: 1px solid var(--line);
-  border-top: 8px solid var(--accent);
-  box-shadow: 0 24px 60px rgba(75, 55, 40, 0.14);
+  border-top: 2px solid var(--accent);
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 48px rgba(73, 195, 208, 0.08);
+}
+
+.lookup-shell::before {
+  position: absolute;
+  top: 0;
+  right: 8%;
+  width: 108px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--highlight));
+  content: "";
 }
 
 .back-link {
-  color: var(--accent);
+  color: var(--accent-dark);
   font-family: Arial, sans-serif;
   font-weight: bold;
   text-underline-offset: 4px;
 }
 
+.back-link:hover {
+  color: #b4f4f5;
+}
+
 .page-heading {
   padding: 36px 0 28px;
   border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.page-heading::after {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 72px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--highlight));
+  content: "";
 }
 
 .eyebrow {
@@ -65,6 +100,7 @@ h1 {
   margin-bottom: 8px;
   font-size: 2.75rem;
   line-height: 1.1;
+  text-shadow: 0 0 24px rgba(121, 225, 231, 0.14);
 }
 
 .page-heading > p:last-child {
@@ -99,22 +135,30 @@ input {
   min-width: 0;
   padding: 8px 12px;
   color: var(--ink);
-  background: #fff;
-  border: 1px solid #b9c5cc;
+  color-scheme: dark;
+  background: #0c1420;
+  border: 1px solid #30465a;
+  border-radius: 5px;
 }
 
 button {
   padding: 8px 18px;
-  color: #fff;
+  color: #07151d;
   background: var(--accent);
-  border: 0;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
   cursor: pointer;
   font-family: Arial, sans-serif;
   font-weight: bold;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
-button:hover {
-  background: var(--accent-dark);
+button:hover,
+button:focus-visible {
+  background: #b4f4f5;
+  border-color: #b4f4f5;
+  box-shadow: 0 0 18px rgba(121, 225, 231, 0.22);
+  transform: translateY(-2px);
 }
 
 a:focus-visible,
@@ -133,18 +177,20 @@ input:focus-visible {
 }
 
 .status[data-state="error"] {
-  color: #a22d25;
+  color: #ff9da8;
 }
 
 .status[data-state="success"] {
-  color: #286642;
+  color: #91e6b0;
 }
 
 .empty-state {
   padding: 18px 20px;
   margin-top: 12px;
   background: var(--soft);
+  border: 1px solid #26394c;
   border-left: 4px solid var(--accent);
+  border-radius: 4px 8px 8px 4px;
 }
 
 .empty-state p {
@@ -165,6 +211,7 @@ input:focus-visible {
   gap: 22px;
   padding: 32px 0;
   border-bottom: 1px solid var(--line);
+  position: relative;
 }
 
 .profile-avatar {
@@ -172,8 +219,9 @@ input:focus-visible {
   width: 112px;
   aspect-ratio: 1;
   object-fit: cover;
-  border: 4px solid var(--soft);
+  border: 3px solid #30465a;
   border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(121, 225, 231, 0.1), 0 0 24px rgba(121, 225, 231, 0.14);
 }
 
 .profile-details .eyebrow {
@@ -211,7 +259,8 @@ input:focus-visible {
   align-self: center;
   padding: 10px 12px;
   color: var(--accent-dark);
-  border: 1px solid var(--accent);
+  border: 1px solid #3a596b;
+  border-radius: 5px;
   font-family: Arial, sans-serif;
   font-size: 0.9rem;
   font-weight: bold;
@@ -220,8 +269,9 @@ input:focus-visible {
 }
 
 .profile-link:hover {
-  color: #fff;
-  background: var(--accent-dark);
+  color: #07151d;
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .stats {
@@ -243,6 +293,11 @@ input:focus-visible {
   margin: 2px 0 0;
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.stats div {
+  padding-left: 12px;
+  border-left: 2px solid #32788a;
 }
 
 .repositories {
@@ -279,6 +334,12 @@ input:focus-visible {
 .repo-list li {
   padding: 16px 0;
   border-bottom: 1px solid var(--line);
+  transition: padding 160ms ease, border-color 160ms ease;
+}
+
+.repo-list li:hover {
+  padding-left: 8px;
+  border-bottom-color: #3e6578;
 }
 
 .repo-details h3 {
@@ -350,5 +411,14 @@ input:focus-visible {
 
   .search-row button {
     align-self: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Play a neon-themed memory matching game by Wilhelm Johansson."
+    />
+    <title>Memory match | Wilhelm Johansson</title>
+    <link rel="stylesheet" href="memory-game.css" />
+    <script src="memory-game.js" defer></script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <a class="back-link" href="index.html">Back to profile</a>
+
+      <header class="page-heading">
+        <p class="eyebrow">Portfolio project 04</p>
+        <h1>Memory match</h1>
+        <p>Find all eight pairs. Try to do it in as few moves as you can.</p>
+      </header>
+
+      <section class="game" aria-label="Memory matching game">
+        <div class="game-toolbar">
+          <dl class="game-stats" aria-label="Game statistics">
+            <div>
+              <dt>Moves</dt>
+              <dd id="move-count">0</dd>
+            </div>
+            <div>
+              <dt>Time</dt>
+              <dd id="timer">0:00</dd>
+            </div>
+          </dl>
+          <button id="restart-button" class="restart-button" type="button">
+            Restart
+          </button>
+        </div>
+
+        <p id="game-status" class="game-status" role="status" aria-live="polite">
+          Choose any card to begin.
+        </p>
+        <div
+          id="game-board"
+          class="game-board"
+          role="group"
+          aria-label="Sixteen cards"
+        ></div>
+      </section>
+    </main>
+  </body>
+</html>
