@@ -412,6 +412,51 @@ h2::after {
   font-size: 0.9rem;
 }
 
+.certificate-viewer-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+}
+
+.certificate-viewer {
+  width: min(100%, 1200px);
+  padding: clamp(20px, 4vw, 40px);
+  background: rgba(17, 26, 38, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow), 0 0 48px rgba(73, 195, 208, 0.08);
+}
+
+.certificate-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  color: var(--accent-dark);
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: rgba(121, 225, 231, 0.4);
+  text-underline-offset: 3px;
+}
+
+.certificate-viewer h1 {
+  margin-bottom: 24px;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.certificate-viewer-image {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 220px);
+  object-fit: contain;
+  background: #090f18;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
 @media (max-width: 560px) {
   .projects {
     grid-template-columns: 1fr;

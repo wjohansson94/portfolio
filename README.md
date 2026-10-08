@@ -18,6 +18,7 @@ A responsive portfolio page presenting Wilhelm Johansson, his skills, and select
 - accessible navigation and skip link
 - About and skills panels
 - a responsive “My learning journey” gallery with certificate image previews and links to the original PDFs
+- a dark-themed certificate viewer with a link back to the gallery
 - a two-column project grid on desktop that stacks on smaller screens
 - interactive project demos before the portfolio source card
 - project cards with demo links and source links
@@ -55,6 +56,8 @@ A browser-based matching game that lets the player:
 ## Project structure
 
 - `index.html` — portfolio landing page
+- `certificate-viewer.html` — dark-themed certificate image viewer
+- `certificate-viewer.js` — certificate viewer content and selection
 - `style.css` — profile page styling
 - `todo.html` — to-do list page
 - `todo.css` — to-do list styling
