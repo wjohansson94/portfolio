@@ -397,10 +397,6 @@ h2::after {
   outline-offset: -4px;
 }
 
-.certificate-pdf-preview {
-  background: #202a36;
-}
-
 .certificate-copy {
   padding: 16px;
 }
@@ -414,23 +410,6 @@ h2::after {
   margin: 0;
   color: var(--muted);
   font-size: 0.9rem;
-}
-
-.certificate-link {
-  display: inline-flex;
-  margin-top: 10px;
-  color: var(--accent-dark);
-  font-family: Arial, sans-serif;
-  font-size: 0.85rem;
-  font-weight: bold;
-  text-decoration: underline;
-  text-decoration-color: rgba(121, 225, 231, 0.4);
-  text-underline-offset: 3px;
-}
-
-.certificate-link:hover {
-  color: #b4f4f5;
-  text-decoration-color: currentColor;
 }
 
 @media (max-width: 560px) {
