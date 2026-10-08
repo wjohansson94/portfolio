@@ -17,6 +17,7 @@ A responsive portfolio page presenting Wilhelm Johansson, his skills, and select
 - a profile image and introduction
 - accessible navigation and skip link
 - About and skills panels
+- a responsive “My learning journey” gallery with certificate image and PDF previews
 - a two-column project grid on desktop that stacks on smaller screens
 - interactive project demos before the portfolio source card
 - project cards with demo links and source links
@@ -67,6 +68,11 @@ A browser-based matching game that lets the player:
 - `memory-game.png` — memory game project screenshot
 - `profile.jpg` — profile image
 - `favicon.png` — browser favicon
+- `certificates/` — certificate files displayed in the portfolio:
+  - `ibm-software-engineering.jpeg`
+  - `michigan-python-basics.jpeg`
+  - `agentic-ai-cert.pdf`
+  - `microsoft-cert.pdf`
 - `Profile page.png` — profile page preview
 - `To-do list.png` — to-do app preview
 - `github-finder.png` — GitHub finder preview
