@@ -17,11 +17,12 @@ A responsive portfolio page presenting Wilhelm Johansson, his skills, and select
 - a profile image and introduction
 - accessible navigation and skip link
 - About and skills panels
+- a “Currently learning” section linking to an in-progress Coursera professional certificate
 - a responsive “My learning journey” gallery with certificate image previews and links to the original PDFs
 - a dark-themed certificate viewer with a link back to the gallery
 - a two-column project grid on desktop that stacks on smaller screens
-- interactive project demos before the portfolio source card
-- project cards with demo links and source links
+- project cards describing each project’s purpose, what was built, and what was learned
+- interactive project demos and source links
 - GitHub, LinkedIn, Instagram, and Threads social links with matching inline icons
 - a pill-shaped contact button with hover and keyboard-focus feedback
 - transparent attribution of GitHub Copilot as an AI coding assistant, alongside a commitment to hands-on learning, ongoing courses, and relevant certifications
@@ -72,8 +73,8 @@ A browser-based matching game that lets the player:
 - `profile.jpg` — profile image
 - `favicon.png` — browser favicon
 - `certificates/` — certificate files displayed in the portfolio:
-  - `ibm-software-engineering.jpeg`
-  - `michigan-python-basics.jpeg`
+  - `ibm-software-engineering.png` and `michigan-python-basics.png` — cropped display images used by the portfolio and viewer
+  - `ibm-software-engineering.jpeg` and `michigan-python-basics.jpeg` — original certificate images
   - `agentic-ai-cert.png`
   - `microsoft-cert.png`
   - `agentic-ai-cert.pdf`

@@ -59,6 +59,23 @@
           </ul>
         </div>
 
+        <section class="current-courses" aria-labelledby="current-courses-heading">
+          <h2 id="current-courses-heading">Currently learning</h2>
+          <article class="course-card">
+            <h3>IBM Front-End Developer Professional Certificate</h3>
+            <p>Coursera</p>
+            <div class="project-links">
+              <a
+                href="https://www.coursera.org/professional-certificates/ibm-frontend-developer"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View course
+              </a>
+            </div>
+          </article>
+        </section>
+
         <div class="projects">
           <h2 id="projects-heading" tabindex="-1">My projects</h2>
 
@@ -69,9 +86,14 @@
               alt="Screenshot of the to-do list app showing its task input and filters"
             />
             <h3>JavaScript to-do list</h3>
-            <p>
-              A task manager with add, edit, complete, delete, and filter
-              controls. Tasks are saved in the browser with localStorage.
+            <p class="project-context">
+              <strong>Purpose:</strong> Keep everyday tasks organized in one
+              simple place.
+            </p>
+            <p class="project-context">
+              <strong>What I built:</strong> A task manager with add, edit,
+              complete, delete, and filter controls. Tasks persist in the
+              browser with localStorage.
             </p>
             <p class="project-learning">
               <strong>What I learned:</strong> handling user events, updating
@@ -122,9 +144,14 @@
               alt="Screenshot of the GitHub profile finder displaying search results"
             />
             <h3>GitHub profile finder</h3>
-            <p>
-              Search public GitHub profiles, view account statistics, and
-              explore recently updated repositories using the GitHub REST API.
+            <p class="project-context">
+              <strong>Purpose:</strong> Make it easy to explore a public
+              developer profile and recent work from one place.
+            </p>
+            <p class="project-context">
+              <strong>What I built:</strong> A username search that uses the
+              GitHub REST API to show profile details, account statistics, and
+              recently updated repositories.
             </p>
             <p class="project-learning">
               <strong>What I learned:</strong> fetching API data, handling
@@ -169,9 +196,13 @@
               alt="Preview of the neon-themed memory match game with a grid of cards"
             />
             <h3>Memory match</h3>
-            <p>
-              Flip cards to find eight matching pairs in a themed memory game
-              with a move counter, timer, and restart button.
+            <p class="project-context">
+              <strong>Purpose:</strong> Build a small interactive game while
+              practicing JavaScript state and event handling.
+            </p>
+            <p class="project-context">
+              <strong>What I built:</strong> A themed card-matching game with
+              eight pairs, a move counter, timer, and restart button.
             </p>
             <p class="project-learning">
               <strong>What I learned:</strong> managing game state, handling
@@ -215,9 +246,14 @@
               alt="Screenshot of Wilhelm's profile page, skills, and projects"
             />
             <h3>Personal portfolio page</h3>
-            <p>
-              A responsive personal profile built with HTML and CSS, featuring
-              accessible navigation, project details, and social links.
+            <p class="project-context">
+              <strong>Purpose:</strong> Give visitors one place to learn about
+              me, explore my work, and get in touch.
+            </p>
+            <p class="project-context">
+              <strong>What I built:</strong> A responsive portfolio with
+              accessible navigation, project demos, certificates, and social
+              links.
             </p>
             <p class="project-learning">
               <strong>What I learned:</strong> semantic HTML, responsive
@@ -262,7 +298,7 @@
               >
                 <img
                   class="certificate-preview"
-                  src="certificates/ibm-software-engineering.jpeg"
+                  src="certificates/ibm-software-engineering.png"
                   alt="IBM course certificate for Introduction to Software Engineering, completed November 27, 2025"
                   loading="lazy"
                 />
@@ -290,7 +326,7 @@
               >
                 <img
                   class="certificate-preview"
-                  src="certificates/michigan-python-basics.jpeg"
+                  src="certificates/michigan-python-basics.png"
                   alt="University of Michigan course certificate for Python Basics, completed November 22, 2025"
                   loading="lazy"
                 />

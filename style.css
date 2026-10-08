@@ -358,6 +358,47 @@ h2::after {
   grid-column: 1 / -1;
 }
 
+.current-courses {
+  grid-column: 1 / -1;
+}
+
+.course-card {
+  position: relative;
+  padding: 16px;
+  background: #151f2c;
+  border: 1px solid #26394c;
+  border-left: 4px solid var(--accent);
+  border-radius: 4px 10px 10px 4px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.course-card::before {
+  position: absolute;
+  top: 0;
+  right: 16px;
+  width: 42px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-dark), #a58bff);
+  content: "";
+}
+
+.course-card:hover {
+  border-color: #3e6578;
+  border-left-color: #79e1e7;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2), 0 0 20px rgba(73, 195, 208, 0.08);
+  transform: translateY(-3px);
+}
+
+.course-card h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.course-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .certificates {
   grid-column: 1 / -1;
 }
@@ -373,23 +414,47 @@ h2::after {
 }
 
 .certificate-card {
-  overflow: hidden;
-  background: #151f2c;
+  position: relative;
+  padding: 16px;
   border: 1px solid #26394c;
-  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  background: #151f2c;
+  border-radius: 4px 10px 10px 4px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.certificate-card::before {
+  position: absolute;
+  top: 0;
+  right: 16px;
+  width: 42px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-dark), #a58bff);
+  content: "";
+}
+
+.certificate-card:hover {
+  border-color: #3e6578;
+  border-left-color: #79e1e7;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2), 0 0 20px rgba(73, 195, 208, 0.08);
+  transform: translateY(-3px);
 }
 
 .certificate-preview-link {
   display: block;
+  aspect-ratio: 4 / 3;
+  padding: 8px;
+  background: #0d1622;
+  border: 1px solid #30465a;
+  border-radius: 5px;
 }
 
 .certificate-preview {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 100%;
   border: 0;
-  border-bottom: 1px solid #30465a;
-  background: #fff;
+  background: transparent;
   object-fit: contain;
 }
 
@@ -398,7 +463,7 @@ h2::after {
 }
 
 .certificate-copy {
-  padding: 16px;
+  padding: 12px 0 0;
 }
 
 .certificate-copy h3 {
@@ -452,7 +517,8 @@ h2::after {
   width: 100%;
   max-height: calc(100vh - 220px);
   object-fit: contain;
-  background: #090f18;
+  padding: clamp(8px, 2vw, 20px);
+  background: #111a26;
   border: 1px solid var(--line);
   border-radius: 6px;
 }
