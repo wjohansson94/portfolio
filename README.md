@@ -61,6 +61,7 @@ A browser-based matching game that lets the player:
 ## Project structure
 
 - `index.html` — portfolio landing page
+- `favicon.svg` — teal-to-violet WJ monogram favicon used across the site
 - `certificate-viewer.html` — dark-themed certificate image viewer
 - `certificate-viewer.js` — certificate viewer content and selection
 - `style.css` — profile page styling
