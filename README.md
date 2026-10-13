@@ -23,9 +23,9 @@ A responsive portfolio page presenting Wilhelm Johansson, his skills, and select
 - a responsive “My learning journey” gallery with certificate image previews and links to the original PDFs
 - a dark-themed certificate viewer with a link back to the gallery
 - a two-column project grid on desktop that stacks on smaller screens
-- project cards describing each project’s purpose, what was built, and what was learned
+- concise project cards highlighting what each interactive project does
 - interactive project demos and source links
-- GitHub, LinkedIn, Instagram, Threads, Discord, and Bluesky social links with matching inline icons
+- GitHub, LinkedIn, and Instagram links with matching inline icons
 - a pill-shaped contact button with hover and keyboard-focus feedback
 - transparent attribution of GitHub Copilot as an AI coding assistant, alongside a commitment to hands-on learning, ongoing courses, and relevant certifications
 - a coordinated dark theme with teal and violet accents shared by the project demos

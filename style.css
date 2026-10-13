@@ -414,23 +414,6 @@ h2::after {
   font-weight: bold;
 }
 
-.course-list-heading {
-  margin: 18px 0 8px;
-  color: var(--muted);
-  font-family: Arial, sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.course-progress-list {
-  display: grid;
-  gap: 12px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
 .course-progress {
   height: 10px;
   margin-top: 7px;
@@ -635,7 +618,7 @@ h2::after {
   margin: 0;
 }
 
-.project-learning {
+.project-summary {
   padding-top: 10px;
   color: var(--muted);
   font-size: 0.92rem;
@@ -675,7 +658,7 @@ h2::after {
     text-decoration-color 160ms ease;
 }
 
-.project-links a::after {
+.project-links a[href^="https://"]::after {
   color: #a58bff;
   content: "↗";
   font-size: 0.75rem;
@@ -688,7 +671,7 @@ h2::after {
   text-decoration-color: currentColor;
 }
 
-.project-links a:hover::after {
+.project-links a[href^="https://"]:hover::after {
   transform: translate(2px, -2px);
 }
 
