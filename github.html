@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GitHub profile finder | Wilhelm Johansson</title>
+    <title>GitHub repository explorer | Wilhelm Johansson</title>
     <link rel="stylesheet" href="github.css" />
     <script src="github.js" defer></script>
   </head>
@@ -13,8 +13,8 @@
 
       <header class="page-heading">
         <p class="eyebrow">Portfolio project 03</p>
-        <h1>GitHub profile finder</h1>
-        <p>Explore a public profile and its recently updated repositories.</p>
+        <h1>GitHub repository explorer</h1>
+        <p>Explore a public profile and browse its repositories.</p>
       </header>
 
       <form id="search-form">
@@ -82,10 +82,51 @@
 
         <section class="repositories" aria-labelledby="repositories-heading">
           <div class="section-heading">
-            <h2 id="repositories-heading">Recently updated repositories</h2>
+            <h2 id="repositories-heading">Repositories</h2>
             <p id="repo-status" aria-live="polite"></p>
           </div>
+          <div class="repo-controls">
+            <div class="repo-search-control">
+              <label for="repo-search">Search loaded repositories</label>
+              <input
+                id="repo-search"
+                type="search"
+                placeholder="Search names and descriptions"
+              />
+            </div>
+            <div class="repo-filter-controls">
+              <div>
+                <label for="language-filter">Language</label>
+                <select id="language-filter">
+                  <option value="">All languages</option>
+                </select>
+              </div>
+              <div>
+                <label for="repo-sort">Sort by</label>
+                <select id="repo-sort">
+                  <option value="updated">Recently updated</option>
+                  <option value="name">Name (A–Z)</option>
+                  <option value="stars">Most stars</option>
+                </select>
+              </div>
+              <label class="favorites-filter">
+                <input id="favorites-only" type="checkbox" />
+                <span>Favorites only</span>
+              </label>
+            </div>
+          </div>
+          <p id="repo-empty-state" class="repo-empty-state" hidden></p>
           <ul id="repo-list" class="repo-list"></ul>
+          <div class="repo-pagination">
+            <button id="previous-page" type="button" disabled>
+              Previous
+            </button>
+            <p id="page-status" aria-live="polite"></p>
+            <button id="next-page" type="button" disabled>Next</button>
+          </div>
+          <button id="load-more" class="load-more-button" type="button" hidden>
+            Load more repositories
+          </button>
         </section>
       </section>
     </main>

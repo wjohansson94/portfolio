@@ -14,8 +14,28 @@ const publicRepos = document.querySelector("#public-repos");
 const followers = document.querySelector("#followers");
 const following = document.querySelector("#following");
 const repoStatus = document.querySelector("#repo-status");
+const repoSearch = document.querySelector("#repo-search");
+const languageFilter = document.querySelector("#language-filter");
+const repoSort = document.querySelector("#repo-sort");
+const favoritesOnlyFilter = document.querySelector("#favorites-only");
+const repoEmptyState = document.querySelector("#repo-empty-state");
 const repoList = document.querySelector("#repo-list");
+const previousPageButton = document.querySelector("#previous-page");
+const nextPageButton = document.querySelector("#next-page");
+const pageStatus = document.querySelector("#page-status");
+const loadMoreButton = document.querySelector("#load-more");
+
+const REPOSITORIES_PER_PAGE = 30;
+const VISIBLE_REPOSITORIES_PER_PAGE = 10;
 let activeController;
+let currentUsername = "";
+let repositories = [];
+let favoriteRepositories = new Set();
+let currentPage = 1;
+let hasMoreRepositories = false;
+let repositoryTotal = 0;
+let favoritesLoadError = false;
+let repositoryLoadError = "";
 
 function setStatus(message, state) {
   statusMessage.textContent = message;
@@ -60,6 +80,43 @@ function formatCount(value) {
   return new Intl.NumberFormat().format(value || 0);
 }
 
+function getFavoritesStorageKey(username) {
+  return `githubRepoFavorites:${username.toLowerCase()}`;
+}
+
+function loadFavorites(username) {
+  favoritesLoadError = false;
+
+  try {
+    const savedFavorites = localStorage.getItem(
+      getFavoritesStorageKey(username),
+    );
+    const favoriteNames = savedFavorites ? JSON.parse(savedFavorites) : [];
+
+    if (!Array.isArray(favoriteNames)) {
+      throw new Error("Saved favorites are not in the expected format.");
+    }
+
+    favoriteRepositories = new Set(favoriteNames);
+  } catch (error) {
+    favoriteRepositories = new Set();
+    favoritesLoadError = true;
+  }
+}
+
+function saveFavorites() {
+  try {
+    localStorage.setItem(
+      getFavoritesStorageKey(currentUsername),
+      JSON.stringify([...favoriteRepositories]),
+    );
+    return true;
+  } catch (error) {
+    setStatus("Favorites could not be saved in this browser.", "error");
+    return false;
+  }
+}
+
 function renderProfile(profile) {
   profileAvatar.src = profile.avatar_url;
   profileAvatar.alt = `GitHub avatar for ${profile.login}`;
@@ -84,6 +141,8 @@ function createRepositoryItem(repository) {
   const link = document.createElement("a");
   const description = document.createElement("p");
   const metadata = document.createElement("p");
+  const actions = document.createElement("div");
+  const favoriteButton = document.createElement("button");
 
   details.className = "repo-details";
   link.href = repository.html_url;
@@ -104,26 +163,238 @@ function createRepositoryItem(repository) {
   stars.textContent = `${formatCount(repository.stargazers_count)} stars`;
   metadata.append(stars);
 
+  const updated = document.createElement("span");
+  updated.textContent = `Updated ${new Intl.DateTimeFormat(undefined, {
+    dateStyle: "medium",
+  }).format(new Date(repository.updated_at))}`;
+  metadata.append(updated);
+
+  const isFavorite = favoriteRepositories.has(repository.full_name);
+  actions.className = "repo-actions";
+  favoriteButton.type = "button";
+  favoriteButton.className = "favorite-button";
+  favoriteButton.dataset.favoriteId = repository.full_name;
+  favoriteButton.setAttribute("aria-pressed", String(isFavorite));
+  favoriteButton.setAttribute(
+    "aria-label",
+    `${isFavorite ? "Remove" : "Save"} ${repository.name} ${
+      isFavorite ? "from" : "to"
+    } favorites`,
+  );
+  favoriteButton.textContent = isFavorite ? "★ Saved" : "☆ Save";
+  favoriteButton.addEventListener("click", function () {
+    const wasFavorite = favoriteRepositories.has(repository.full_name);
+    if (wasFavorite) {
+      favoriteRepositories.delete(repository.full_name);
+    } else {
+      favoriteRepositories.add(repository.full_name);
+    }
+
+    if (!saveFavorites()) {
+      if (wasFavorite) {
+        favoriteRepositories.add(repository.full_name);
+      } else {
+        favoriteRepositories.delete(repository.full_name);
+      }
+      return;
+    }
+
+    if (
+      favoritesOnlyFilter.checked &&
+      !favoriteRepositories.has(repository.full_name)
+    ) {
+      renderRepositories();
+      favoritesOnlyFilter.focus();
+      setStatus(`Removed ${repository.name} from favorites.`, "success");
+      return;
+    }
+
+    renderRepositories();
+    const updatedFavoriteButton = Array.from(
+      repoList.querySelectorAll(".favorite-button"),
+    ).find(function (button) {
+      return button.dataset.favoriteId === repository.full_name;
+    });
+    updatedFavoriteButton?.focus();
+    setStatus(
+      `${repository.name} ${
+        favoriteRepositories.has(repository.full_name)
+          ? "added to"
+          : "removed from"
+      } favorites.`,
+      "success",
+    );
+  });
+
   heading.append(link);
   details.append(heading, description, metadata);
-  item.append(details);
+  actions.append(favoriteButton);
+  item.append(details, actions);
 
   return item;
 }
 
-function renderRepositories(repositories) {
-  repoList.replaceChildren();
+function getFilteredRepositories() {
+  const searchTerm = repoSearch.value.trim().toLowerCase();
+  const selectedLanguage = languageFilter.value;
 
-  if (repositories.length === 0) {
-    repoStatus.textContent = "No public repositories found.";
-    return;
-  }
+  return repositories
+    .map(function (repository, index) {
+      return { repository, index };
+    })
+    .filter(function ({ repository }) {
+      const searchableText =
+        `${repository.name} ${repository.full_name} ${
+          repository.description || ""
+        }`.toLowerCase();
+      const matchesSearch = searchableText.includes(searchTerm);
+      const matchesLanguage =
+        !selectedLanguage || repository.language === selectedLanguage;
+      const matchesFavorites =
+        !favoritesOnlyFilter.checked ||
+        favoriteRepositories.has(repository.full_name);
 
-  repositories.forEach(function (repository) {
-    repoList.append(createRepositoryItem(repository));
+      return matchesSearch && matchesLanguage && matchesFavorites;
+    })
+    .sort(function (left, right) {
+      if (repoSort.value === "name") {
+        return (
+          left.repository.name.localeCompare(right.repository.name) ||
+          left.index - right.index
+        );
+      }
+
+      if (repoSort.value === "stars") {
+        return (
+          right.repository.stargazers_count -
+            left.repository.stargazers_count ||
+          left.repository.name.localeCompare(right.repository.name)
+        );
+      }
+
+      return (
+        right.repository.updated_at.localeCompare(
+          left.repository.updated_at,
+        ) || left.index - right.index
+      );
+    });
+}
+
+function updateLanguageOptions() {
+  const selectedLanguage = languageFilter.value;
+  const languages = [
+    ...new Set(
+      repositories
+        .map(function (repository) {
+          return repository.language;
+        })
+        .filter(Boolean),
+    ),
+  ].sort(function (left, right) {
+    return left.localeCompare(right);
   });
 
-  repoStatus.textContent = `${repositories.length} repositories`;
+  languageFilter.replaceChildren(new Option("All languages", ""));
+  languages.forEach(function (language) {
+    languageFilter.append(new Option(language, language));
+  });
+
+  if (languages.includes(selectedLanguage)) {
+    languageFilter.value = selectedLanguage;
+  }
+}
+
+function renderRepositories() {
+  updateLanguageOptions();
+  const filteredRepositories = getFilteredRepositories();
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredRepositories.length / VISIBLE_REPOSITORIES_PER_PAGE),
+  );
+  currentPage = Math.min(currentPage, totalPages);
+  const startIndex = (currentPage - 1) * VISIBLE_REPOSITORIES_PER_PAGE;
+  const currentRepositories = filteredRepositories.slice(
+    startIndex,
+    startIndex + VISIBLE_REPOSITORIES_PER_PAGE,
+  );
+
+  repoList.replaceChildren(
+    ...currentRepositories.map(function ({ repository }) {
+      return createRepositoryItem(repository);
+    }),
+  );
+
+  const firstShown = filteredRepositories.length === 0 ? 0 : startIndex + 1;
+  const lastShown = Math.min(
+    startIndex + VISIBLE_REPOSITORIES_PER_PAGE,
+    filteredRepositories.length,
+  );
+  repoStatus.textContent = repositories.length
+    ? `Showing ${formatCount(firstShown)}–${formatCount(lastShown)} of ${formatCount(
+        filteredRepositories.length,
+      )} matching · ${formatCount(repositories.length)} loaded`
+    : repositoryLoadError || `${formatCount(repositories.length)} loaded`;
+
+  pageStatus.textContent = `Page ${currentPage} of ${totalPages}`;
+  previousPageButton.disabled = currentPage <= 1;
+  nextPageButton.disabled = currentPage >= totalPages;
+
+  repoEmptyState.hidden = currentRepositories.length > 0;
+  if (repositories.length === 0) {
+    repoEmptyState.textContent = "No public repositories have been loaded.";
+  } else if (
+    filteredRepositories.length === 0 &&
+    favoritesOnlyFilter.checked
+  ) {
+    repoEmptyState.textContent =
+      "No loaded repositories are saved as favorites. Load more repositories or change the filters.";
+  } else if (filteredRepositories.length === 0) {
+    repoEmptyState.textContent =
+      "No loaded repositories match these filters. Load more repositories or change the filters.";
+  } else {
+    repoEmptyState.textContent = "";
+  }
+
+  loadMoreButton.hidden = !hasMoreRepositories;
+}
+
+function resetRepositoryExplorer(username) {
+  currentUsername = username;
+  repositories = [];
+  currentPage = 1;
+  hasMoreRepositories = false;
+  repositoryTotal = 0;
+  repositoryLoadError = "";
+  repoSearch.value = "";
+  languageFilter.value = "";
+  repoSort.value = "updated";
+  favoritesOnlyFilter.checked = false;
+  loadFavorites(username);
+  repoList.replaceChildren();
+  repoStatus.textContent = "Loading repositories...";
+  pageStatus.textContent = "";
+  repoEmptyState.hidden = true;
+  loadMoreButton.hidden = true;
+  previousPageButton.disabled = true;
+  nextPageButton.disabled = true;
+}
+
+async function fetchRepositoryPage(username, page, signal) {
+  const encodedUsername = encodeURIComponent(username);
+  return fetchJson(
+    `https://api.github.com/users/${encodedUsername}/repos?sort=updated&per_page=${REPOSITORIES_PER_PAGE}&page=${page}&type=owner`,
+    signal,
+  );
+}
+
+function setRepositoryError(error, fallbackMessage) {
+  repositoryLoadError =
+    error.name === "AbortError"
+      ? "Loading repositories took too long."
+      : error instanceof TypeError
+        ? "Could not connect to GitHub while loading repositories."
+        : error.message || fallbackMessage;
+  repoStatus.textContent = repositoryLoadError;
 }
 
 searchForm.addEventListener("submit", async function (event) {
@@ -147,8 +418,7 @@ searchForm.addEventListener("submit", async function (event) {
 
   emptyState.hidden = true;
   results.hidden = true;
-  repoList.replaceChildren();
-  repoStatus.textContent = "";
+  resetRepositoryExplorer(username);
   setStatus("Searching GitHub...");
 
   try {
@@ -162,14 +432,18 @@ searchForm.addEventListener("submit", async function (event) {
       return;
     }
 
+    currentUsername = profile.login;
+    repositoryTotal = profile.public_repos;
+    if (currentUsername.toLowerCase() !== username.toLowerCase()) {
+      loadFavorites(currentUsername);
+    }
     renderProfile(profile);
     results.hidden = false;
-    repoStatus.textContent = "Loading repositories...";
 
-    let repositoryError = "";
     try {
-      const repositories = await fetchJson(
-        `https://api.github.com/users/${encodedUsername}/repos?sort=updated&per_page=6&type=owner`,
+      const firstPage = await fetchRepositoryPage(
+        profile.login,
+        1,
         controller.signal,
       );
 
@@ -177,25 +451,25 @@ searchForm.addEventListener("submit", async function (event) {
         return;
       }
 
-      renderRepositories(repositories);
+      repositories = firstPage;
+      hasMoreRepositories = repositories.length < repositoryTotal;
+      renderRepositories();
+      setStatus(
+        favoritesLoadError
+          ? `Loaded @${profile.login}, but saved favorites could not be read.`
+          : `Loaded @${profile.login}.`,
+        favoritesLoadError ? "error" : "success",
+      );
     } catch (error) {
       if (activeController !== controller) {
         return;
       }
 
-      repositoryError =
-        error.name === "AbortError"
-          ? "Loading repositories took too long."
-          : error.message;
-      repoStatus.textContent = repositoryError;
-    }
-
-    if (activeController === controller) {
+      setRepositoryError(error, "Repositories could not be loaded.");
+      renderRepositories();
       setStatus(
-        repositoryError
-          ? `Loaded @${profile.login}, but repositories were unavailable.`
-          : `Loaded @${profile.login}.`,
-        repositoryError ? "error" : "success",
+        `Loaded @${profile.login}, but repositories were unavailable.`,
+        "error",
       );
     }
   } catch (error) {
@@ -213,6 +487,84 @@ searchForm.addEventListener("submit", async function (event) {
     setStatus("Search failed.", "error");
   } finally {
     window.clearTimeout(timeoutId);
+    if (activeController === controller) {
+      activeController = undefined;
+    }
+  }
+});
+
+function rerenderFromFirstPage() {
+  currentPage = 1;
+  renderRepositories();
+}
+
+repoSearch.addEventListener("input", rerenderFromFirstPage);
+languageFilter.addEventListener("change", rerenderFromFirstPage);
+repoSort.addEventListener("change", rerenderFromFirstPage);
+favoritesOnlyFilter.addEventListener("change", rerenderFromFirstPage);
+
+previousPageButton.addEventListener("click", function () {
+  currentPage -= 1;
+  renderRepositories();
+});
+
+nextPageButton.addEventListener("click", function () {
+  currentPage += 1;
+  renderRepositories();
+});
+
+loadMoreButton.addEventListener("click", async function () {
+  if (!currentUsername || !hasMoreRepositories) {
+    return;
+  }
+
+  if (activeController) {
+    activeController.abort();
+  }
+
+  const controller = new AbortController();
+  activeController = controller;
+  const timeoutId = window.setTimeout(function () {
+    controller.abort();
+  }, 15000);
+  const nextApiPage = Math.floor(
+    repositories.length / REPOSITORIES_PER_PAGE,
+  ) + 1;
+
+  loadMoreButton.disabled = true;
+  loadMoreButton.textContent = "Loading…";
+  repoStatus.textContent = "Loading more repositories...";
+
+  try {
+    const nextRepositories = await fetchRepositoryPage(
+      currentUsername,
+      nextApiPage,
+      controller.signal,
+    );
+
+    if (activeController !== controller) {
+      return;
+    }
+
+    repositories = repositories.concat(nextRepositories);
+    hasMoreRepositories = repositories.length < repositoryTotal;
+    repositoryLoadError = "";
+    renderRepositories();
+    setStatus(
+      `Loaded ${formatCount(repositories.length)} repositories for @${currentUsername}.`,
+      "success",
+    );
+  } catch (error) {
+    if (activeController !== controller) {
+      return;
+    }
+
+    setRepositoryError(error, "More repositories could not be loaded.");
+    setStatus("Could not load more repositories.", "error");
+  } finally {
+    window.clearTimeout(timeoutId);
+    loadMoreButton.disabled = false;
+    loadMoreButton.textContent = "Load more repositories";
     if (activeController === controller) {
       activeController = undefined;
     }

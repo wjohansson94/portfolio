@@ -46,12 +46,16 @@ A task manager that lets the user:
 - display helpful empty states when no tasks match the current view
 - persist tasks in `localStorage`
 
-### 3. GitHub profile finder
-A simple client-side GitHub lookup app that:
+### 3. GitHub repository explorer
+A client-side GitHub browser that:
 
 - searches for a public GitHub username
 - displays profile details such as avatar, bio, location, and stats
-- lists recently updated repositories
+- incrementally loads repositories and provides local pagination
+- searches loaded repositories by name and description
+- filters loaded repositories by programming language
+- sorts by update date, name, or star count
+- saves per-user favorite repositories in `localStorage`
 - handles loading, empty, timeout, network, not-found, and rate-limit states
 
 ### 4. Memory match
@@ -113,5 +117,7 @@ The site is published through GitHub Pages and uses direct static file hosting.
 - managing game state and timed interactions
 - browser storage with `localStorage`
 - handling dates and contextual empty states
+- incrementally paginating REST API results and exploring them with client-side filters
+- saving per-user preferences in browser storage
 - consuming a public REST API
 - handling asynchronous loading and error states

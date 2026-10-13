@@ -125,6 +125,7 @@ label {
 }
 
 input,
+select,
 button {
   min-height: 46px;
   font: inherit;
@@ -136,6 +137,15 @@ input {
   padding: 8px 12px;
   color: var(--ink);
   color-scheme: dark;
+  background: #0c1420;
+  border: 1px solid #30465a;
+  border-radius: 999px;
+}
+
+select {
+  width: 100%;
+  padding: 8px 12px;
+  color: var(--ink);
   background: #0c1420;
   border: 1px solid #30465a;
   border-radius: 999px;
@@ -163,7 +173,8 @@ button:focus-visible {
 
 a:focus-visible,
 button:focus-visible,
-input:focus-visible {
+input:focus-visible,
+select:focus-visible {
   outline: 3px solid var(--highlight);
   outline-offset: 3px;
 }
@@ -304,6 +315,46 @@ input:focus-visible {
   padding-top: 28px;
 }
 
+.repo-controls {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  margin-top: 16px;
+  background: #0c1420;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.repo-search-control label,
+.repo-filter-controls > div > label {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.repo-filter-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: end;
+  gap: 12px;
+}
+
+.favorites-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.favorites-filter input {
+  flex: 0 0 auto;
+  width: 18px;
+  min-height: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
 .section-heading {
   display: flex;
   flex-wrap: wrap;
@@ -324,6 +375,20 @@ input:focus-visible {
   font-size: 0.85rem;
 }
 
+.repo-empty-state {
+  padding: 16px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  text-align: center;
+  background: var(--soft);
+  border: 1px dashed #3a596b;
+  border-radius: 8px;
+}
+
+.repo-empty-state[hidden] {
+  display: none;
+}
+
 .repo-list {
   padding: 0;
   margin: 14px 0 0;
@@ -332,6 +397,10 @@ input:focus-visible {
 }
 
 .repo-list li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
   padding: 16px 0;
   border-bottom: 1px solid var(--line);
   transition: padding 160ms ease, border-color 160ms ease;
@@ -355,6 +424,10 @@ input:focus-visible {
   text-underline-offset: 3px;
 }
 
+.repo-details {
+  min-width: 0;
+}
+
 .repo-details > p {
   margin: 0;
   color: var(--muted);
@@ -368,6 +441,59 @@ input:focus-visible {
   color: var(--highlight) !important;
   font-family: Arial, sans-serif;
   font-size: 0.85rem;
+}
+
+.repo-actions {
+  flex: 0 0 auto;
+}
+
+.favorite-button,
+.repo-pagination button,
+.load-more-button {
+  min-height: 40px;
+  padding: 7px 12px;
+  color: var(--accent-dark);
+  background: transparent;
+  border: 1px solid #3a596b;
+}
+
+.favorite-button[aria-pressed="true"] {
+  color: #07151d;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.repo-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 16px;
+}
+
+.repo-pagination p {
+  margin: 0;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.repo-pagination button:disabled,
+.load-more-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+  box-shadow: none;
+}
+
+.load-more-button {
+  display: block;
+  margin: 16px auto 0;
+}
+
+.load-more-button[hidden] {
+  display: none;
 }
 
 @media (max-width: 600px) {
@@ -401,6 +527,16 @@ input:focus-visible {
   .profile-link {
     grid-column: 1 / -1;
     justify-self: start;
+  }
+
+  .repo-list li {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .repo-filter-controls {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
