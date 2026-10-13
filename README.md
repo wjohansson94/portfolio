@@ -18,8 +18,8 @@ A responsive portfolio page presenting Wilhelm Johansson, his skills, and select
 - accessible navigation and skip link
 - About and skills panels
 - a “Currently learning” section featuring Mimo's Front-End Development course
-- manually maintained progress indicators for Front-End Developer (7%), CSS (25%), JavaScript (6%), and Full-Stack Developer (5%), styled to match the portfolio and exposed as accessible progress bars
-- links from the Mimo course card to Mimo.org and to the portfolio's HTML and CSS source on GitHub
+- one manually maintained overall progress indicator for the Front-End Development course, shown as an accessible progress bar with its last-updated date
+- a link from the Mimo course card to Mimo.org
 - a responsive “My learning journey” gallery with certificate image previews and links to the original PDFs
 - a dark-themed certificate viewer with a link back to the gallery
 - a two-column project grid on desktop that stacks on smaller screens
@@ -31,7 +31,7 @@ A responsive portfolio page presenting Wilhelm Johansson, his skills, and select
 - a coordinated dark theme with teal and violet accents shared by the project demos
 - pill-shaped buttons, inputs, and skill tags, with softly rounded project cards
 
-The Mimo progress values are maintained manually in `index.html`; update the displayed percentage, `aria-valuenow`, and fill width together when progress changes. The source links point to the `main` branch on GitHub and reflect local edits after they are committed and pushed.
+The Mimo course progress is maintained manually in `index.html`; update the displayed percentage, `aria-valuenow`, fill width, and last-updated date together when progress changes. The source links point to the `main` branch on GitHub and reflect local edits after they are committed and pushed.
 
 ### 2. JavaScript to-do list
 A task manager that lets the user:
