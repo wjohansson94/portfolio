@@ -16,9 +16,9 @@
       <a class="back-link" href="index.html">Back to profile</a>
 
       <header class="page-heading">
-        <p class="eyebrow">Portfolio project 04</p>
+        <p class="eyebrow">Portfolio project 03</p>
         <h1>Memory match</h1>
-        <p>Find all eight pairs. Try to do it in as few moves as you can.</p>
+        <p>Choose a difficulty and find every matching pair.</p>
       </header>
 
       <section class="game" aria-label="Memory matching game">
@@ -32,10 +32,23 @@
               <dt>Time</dt>
               <dd id="timer">0:00</dd>
             </div>
+            <div>
+              <dt>Best</dt>
+              <dd id="best-score">—</dd>
+            </div>
           </dl>
           <button id="restart-button" class="restart-button" type="button">
-            Restart
+            New game
           </button>
+        </div>
+
+        <div class="difficulty-control">
+          <label for="difficulty-select">Difficulty</label>
+          <select id="difficulty-select">
+            <option value="easy">Easy · 6 pairs</option>
+            <option value="medium" selected>Medium · 8 pairs</option>
+            <option value="hard">Hard · 12 pairs</option>
+          </select>
         </div>
 
         <p id="game-status" class="game-status" role="status" aria-live="polite">
@@ -45,8 +58,19 @@
           id="game-board"
           class="game-board"
           role="group"
-          aria-label="Sixteen cards"
+          aria-label="Memory cards"
         ></div>
+        <section
+          id="win-panel"
+          class="win-panel"
+          aria-labelledby="win-heading"
+          hidden
+        >
+          <h2 id="win-heading">Board cleared!</h2>
+          <p id="win-message"></p>
+          <p id="best-message"></p>
+          <button id="play-again-button" type="button">Play again</button>
+        </section>
       </section>
     </main>
   </body>

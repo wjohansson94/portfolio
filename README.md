@@ -61,9 +61,10 @@ A client-side GitHub browser that:
 ### 4. Memory match
 A browser-based matching game that lets the player:
 
-- find eight pairs of themed cards
+- choose between easy, medium, and hard boards
 - track moves and elapsed time
-- restart with a freshly shuffled board
+- compare personal bests for each difficulty
+- restart or play again with a freshly shuffled board
 
 ## Project structure
 
@@ -113,6 +114,8 @@ The site is published through GitHub Pages and uses direct static file hosting.
 - accessibility and responsive design
 - responsive CSS layouts
 - DOM manipulation with JavaScript
+- configurable game difficulty and adaptive board layouts
+- persistent per-difficulty best scores with tie-breaking
 - combining search, filters, sorting, and derived task summaries
 - managing game state and timed interactions
 - browser storage with `localStorage`

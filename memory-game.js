@@ -7,6 +7,10 @@ const cardFaces = [
   { value: "art", symbol: "🎨", label: "Palette" },
   { value: "battery", symbol: "🔋", label: "Battery" },
   { value: "moon", symbol: "🌙", label: "Crescent moon" },
+  { value: "sun", symbol: "☀️", label: "Sun" },
+  { value: "star", symbol: "⭐", label: "Star" },
+  { value: "cloud", symbol: "☁️", label: "Cloud" },
+  { value: "fire", symbol: "🔥", label: "Flame" },
 ];
 
 const gameBoard = document.querySelector("#game-board");
@@ -14,6 +18,18 @@ const moveCount = document.querySelector("#move-count");
 const timerDisplay = document.querySelector("#timer");
 const gameStatus = document.querySelector("#game-status");
 const restartButton = document.querySelector("#restart-button");
+const difficultySelect = document.querySelector("#difficulty-select");
+const bestScoreDisplay = document.querySelector("#best-score");
+const winPanel = document.querySelector("#win-panel");
+const winMessage = document.querySelector("#win-message");
+const bestMessage = document.querySelector("#best-message");
+const playAgainButton = document.querySelector("#play-again-button");
+
+const difficulties = {
+  easy: { pairs: 6, columns: 4 },
+  medium: { pairs: 8, columns: 4 },
+  hard: { pairs: 12, columns: 6 },
+};
 
 let firstCard = null;
 let lockBoard = false;
@@ -22,6 +38,8 @@ let moves = 0;
 let secondsElapsed = 0;
 let timerInterval = null;
 let mismatchTimeout = null;
+let gameFinished = false;
+let activePairCount = difficulties[difficultySelect.value].pairs;
 
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
@@ -68,8 +86,73 @@ function updateTimer() {
 function finishGame() {
   window.clearInterval(timerInterval);
   timerInterval = null;
+  gameFinished = true;
+  const difficulty = difficultySelect.value;
+  const previousBest = getBestScore(difficulty);
+  const isNewBest =
+    previousBest === null ||
+    moves < previousBest.moves ||
+    (moves === previousBest.moves && secondsElapsed < previousBest.seconds);
+  const score = { moves, seconds: secondsElapsed };
+  let savedNewBest = true;
+
+  if (isNewBest) {
+    savedNewBest = saveBestScore(difficulty, score);
+  }
+
   gameStatus.textContent =
-    `You found all eight pairs in ${moves} moves and ${formatTime(secondsElapsed)}. Nice work!`;
+    `Board cleared in ${moves} moves and ${formatTime(secondsElapsed)}.`;
+  winMessage.textContent =
+    `${difficultySelect.options[difficultySelect.selectedIndex].text.split(" · ")[0]}: ${moves} moves in ${formatTime(secondsElapsed)}.`;
+  bestMessage.textContent = !savedNewBest
+    ? "Could not save your new personal best in this browser."
+    : isNewBest
+      ? "New personal best!"
+    : `Best: ${previousBest.moves} moves in ${formatTime(previousBest.seconds)}.`;
+  winPanel.hidden = false;
+  updateBestScore();
+}
+
+function getBestScore(difficulty) {
+  try {
+    const savedScore = localStorage.getItem(`memoryGameBest:${difficulty}`);
+    if (!savedScore) {
+      return null;
+    }
+
+    const score = JSON.parse(savedScore);
+    if (
+      !Number.isInteger(score.moves) ||
+      score.moves < 1 ||
+      !Number.isInteger(score.seconds) ||
+      score.seconds < 0
+    ) {
+      throw new Error("Saved best score is not valid.");
+    }
+    return score;
+  } catch (error) {
+    gameStatus.textContent = "Could not read saved best scores in this browser.";
+    return null;
+  }
+}
+
+function saveBestScore(difficulty, score) {
+  try {
+    localStorage.setItem(
+      `memoryGameBest:${difficulty}`,
+      JSON.stringify(score),
+    );
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+function updateBestScore() {
+  const bestScore = getBestScore(difficultySelect.value);
+  bestScoreDisplay.textContent = bestScore
+    ? `${bestScore.moves} · ${formatTime(bestScore.seconds)}`
+    : "—";
 }
 
 function handleCardClick(event) {
@@ -78,6 +161,7 @@ function handleCardClick(event) {
   if (
     selectedCard === null ||
     lockBoard ||
+    gameFinished ||
     selectedCard === firstCard ||
     selectedCard.classList.contains("is-matched") ||
     selectedCard.classList.contains("is-flipped")
@@ -115,10 +199,12 @@ function handleCardClick(event) {
     firstCard = null;
     matchedPairs += 1;
 
-    if (matchedPairs === cardFaces.length) {
+    if (matchedPairs === activePairCount) {
       finishGame();
     } else {
-      gameStatus.textContent = `Match found! ${cardFaces.length - matchedPairs} pairs left.`;
+      gameStatus.textContent = `Match found! ${
+        activePairCount - matchedPairs
+      } pairs left.`;
     }
 
     return;
@@ -149,16 +235,24 @@ function startGame() {
   matchedPairs = 0;
   moves = 0;
   secondsElapsed = 0;
+  gameFinished = false;
   moveCount.textContent = "0";
   updateTimer();
+  updateBestScore();
   gameStatus.textContent = "Choose any card to begin.";
+  winPanel.hidden = true;
 
+  const difficulty = difficulties[difficultySelect.value];
+  activePairCount = difficulty.pairs;
+  const selectedFaces = cardFaces.slice(0, difficulty.pairs);
   const cards = shuffle(
-    cardFaces.flatMap(function (face) {
+    selectedFaces.flatMap(function (face) {
       return [face, face];
     }),
   );
 
+  gameBoard.style.setProperty("--columns", difficulty.columns);
+  gameBoard.setAttribute("aria-label", `${cards.length} memory cards`);
   gameBoard.replaceChildren(
     ...cards.map(function (face, index) {
       return createCard(face, index);
@@ -168,4 +262,6 @@ function startGame() {
 
 gameBoard.addEventListener("click", handleCardClick);
 restartButton.addEventListener("click", startGame);
+playAgainButton.addEventListener("click", startGame);
+difficultySelect.addEventListener("change", startGame);
 startGame();
