@@ -26,7 +26,21 @@
           />
           <button type="submit">Add task</button>
         </div>
+        <div class="due-date-row">
+          <label for="task-due-date">Due date (optional)</label>
+          <input id="task-due-date" name="due-date" type="date" />
+        </div>
       </form>
+
+      <div class="search-row">
+        <label for="task-search">Search tasks</label>
+        <input
+          id="task-search"
+          name="search"
+          type="search"
+          placeholder="Search tasks"
+        />
+      </div>
 
       <div class="filters" role="group" aria-label="Filter tasks">
         <button type="button" data-filter="all" aria-pressed="true">All</button>
@@ -38,7 +52,18 @@
         </button>
       </div>
 
+      <div class="sort-row">
+        <label for="task-sort">Sort by</label>
+        <select id="task-sort" name="sort">
+          <option value="added">Added order</option>
+          <option value="due-date">Due date (earliest first)</option>
+          <option value="name">Name (A–Z)</option>
+        </select>
+      </div>
+
+      <p id="task-summary">0 total · 0 active · 0 completed</p>
       <p id="status" class="status" aria-live="polite"></p>
+      <p id="empty-state" class="empty-state" hidden></p>
       <ul id="task-list"></ul>
     </main>
   </body>

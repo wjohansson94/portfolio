@@ -41,6 +41,9 @@ A task manager that lets the user:
 - edit existing tasks
 - delete tasks
 - filter tasks by All, Active, and Completed
+- search tasks by name and view total, active, and completed counts
+- assign optional due dates, see overdue tasks, and sort by added order, due date, or name
+- display helpful empty states when no tasks match the current view
 - persist tasks in `localStorage`
 
 ### 3. GitHub profile finder
@@ -106,7 +109,9 @@ The site is published through GitHub Pages and uses direct static file hosting.
 - accessibility and responsive design
 - responsive CSS layouts
 - DOM manipulation with JavaScript
+- combining search, filters, sorting, and derived task summaries
 - managing game state and timed interactions
 - browser storage with `localStorage`
+- handling dates and contextual empty states
 - consuming a public REST API
 - handling asynchronous loading and error states

@@ -100,6 +100,7 @@ label {
 }
 
 input,
+select,
 button {
   min-height: 44px;
   font: inherit;
@@ -111,6 +112,14 @@ input {
   padding: 8px 12px;
   color: var(--ink);
   color-scheme: dark;
+  background: #0c1420;
+  border: 1px solid #30465a;
+  border-radius: 999px;
+}
+
+select {
+  padding: 8px 12px;
+  color: var(--ink);
   background: #0c1420;
   border: 1px solid #30465a;
   border-radius: 999px;
@@ -137,9 +146,25 @@ button:focus-visible {
 
 a:focus-visible,
 button:focus-visible,
-input:focus-visible {
+input:focus-visible,
+select:focus-visible {
   outline: 3px solid var(--violet);
   outline-offset: 3px;
+}
+
+.due-date-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.due-date-row label,
+.sort-row label {
+  margin: 16px 0 8px;
+}
+
+.due-date-row input {
+  flex: 0 1 220px;
 }
 
 .status {
@@ -148,6 +173,18 @@ input:focus-visible {
   color: var(--muted);
   font-family: Arial, sans-serif;
   font-size: 0.9rem;
+}
+
+.sort-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.sort-row label {
+  margin: 0;
 }
 
 .filters {
@@ -169,6 +206,15 @@ input:focus-visible {
   color: #07151d;
   background: var(--accent);
   border-color: var(--accent);
+}
+
+.empty-state {
+  padding: 16px;
+  color: var(--muted);
+  text-align: center;
+  background: #0c1420;
+  border: 1px dashed #3a596b;
+  border-radius: 8px;
 }
 
 #task-list {
@@ -212,6 +258,12 @@ input:focus-visible {
   gap: 10px;
 }
 
+.task-details {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
 .task-content input[type="checkbox"] {
   flex: 0 0 auto;
   width: 18px;
@@ -232,6 +284,7 @@ input:focus-visible {
 .edit-form {
   flex: 1;
   min-width: 0;
+  flex-wrap: wrap;
 }
 
 .edit-form input {
@@ -240,8 +293,22 @@ input:focus-visible {
   min-width: 0;
 }
 
+.edit-form input[type="date"] {
+  flex: 0 1 180px;
+}
+
 .task-content span {
   overflow-wrap: anywhere;
+}
+
+.task-due-date {
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+}
+
+.task-due-date.overdue {
+  color: #ff9d9d;
 }
 
 .completed {
@@ -284,5 +351,21 @@ input:focus-visible {
 
   .form-row {
     flex-direction: column;
+  }
+
+  .due-date-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .due-date-row input {
+    flex-basis: auto;
+  }
+
+  .sort-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 4px;
   }
 }
