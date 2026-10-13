@@ -197,8 +197,14 @@ h1 {
     background 160ms ease;
 }
 
+.button-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
 .button-arrow {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   line-height: 1;
   transition: transform 160ms ease;
 }
@@ -214,7 +220,7 @@ h1 {
 
 .button:hover .button-arrow,
 .button:focus-visible .button-arrow {
-  transform: translateX(3px);
+  transform: translate(2px, -2px);
 }
 
 .button:active {
