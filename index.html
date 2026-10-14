@@ -42,6 +42,7 @@
     />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <script src="theme.js"></script>
+    <script src="projects.js" defer></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="theme.css" />
   </head>
@@ -137,177 +138,35 @@
           <article>
             <img
               class="project-preview"
-              src="todo-list.webp"
+              src="helpdesk.webp"
               width="1000"
-              height="760"
+              height="563"
               loading="lazy"
               decoding="async"
-              alt="Screenshot of the to-do list app showing its task input and filters"
+              alt="Screenshot of the helpdesk ticket app showing search, filters and a critical sample ticket with status and note controls"
             />
-            <h3>JavaScript to-do list</h3>
-            <p class="project-summary">
-              A task manager for adding, editing, completing, filtering, and
-              saving tasks in the browser.
-            </p>
+            <h3>Helpdesk tickets</h3>
+            <p class="project-summary">Ticket tracker with status workflow, notes, filters and JSON export.</p>
             <ul class="project-tech" aria-label="Technologies used">
               <li>HTML</li>
               <li>CSS</li>
               <li>JavaScript</li>
               <li>localStorage</li>
             </ul>
-            <div class="project-notes">
-              <p>
-                <strong>What I learned:</strong> saving data as JSON in
-                localStorage and rebuilding the list from it, including
-                converting older saved tasks to the newer format. Also
-                combining a filter, search and sort at the same time.
-              </p>
-              <p>
-                <strong>Challenge:</strong> edit and delete have to act on the
-                right task even when the visible list is filtered or sorted, so
-                each task keeps track of its original position.
-              </p>
-            </div>
+            <details class="project-notes">
+              <summary>What I learned</summary>
+              <p><strong>What I learned:</strong> structuring data as objects in an array, checking saved data before trusting it, building the page with createElement and textContent instead of innerHTML, and moving keyboard focus after changes.</p>
+              <p><strong>Challenge:</strong> keeping the list, counters and filters in sync after every change, and making sure ticket numbers like HD-001 are never reused after a delete.</p>
+            </details>
             <div class="project-links">
-              <a href="todo.html">Live demo</a>
+              <a href="helpdesk.html">Live demo</a>
               <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/todo.html"
+                href="https://github.com/wjohansson94/portfolio/blob/main/helpdesk.js"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Code for Helpdesk tickets on GitHub"
               >
-                HTML source
-              </a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/todo.css"
-                target="_blank"
-                rel="noreferrer"
-              >
-                CSS source
-              </a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/todo.js"
-                target="_blank"
-                rel="noreferrer"
-              >
-                JavaScript source
-              </a>
-            </div>
-          </article>
-
-          <article>
-            <img
-              class="project-preview"
-              src="github-finder.webp"
-              width="1000"
-              height="750"
-              loading="lazy"
-              decoding="async"
-              alt="Screenshot of the GitHub repository explorer showing search and filter controls with repository results"
-            />
-            <h3>GitHub repository explorer</h3>
-            <p class="project-summary">
-              Explore GitHub profiles and search, filter, sort, page through,
-              and save favorite repositories.
-            </p>
-            <ul class="project-tech" aria-label="Technologies used">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>GitHub REST API</li>
-            </ul>
-            <div class="project-notes">
-              <p>
-                <strong>What I learned:</strong> fetching data from a public
-                REST API with async/await, showing loading, not-found and
-                rate-limit messages, and paging through results.
-              </p>
-              <p>
-                <strong>Challenge:</strong> slow or repeated searches. Requests
-                time out after 15 seconds and an older response is ignored when
-                a newer search has started.
-              </p>
-            </div>
-            <div class="project-links">
-              <a href="github.html">Live demo</a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/github.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                HTML source
-              </a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/github.css"
-                target="_blank"
-                rel="noreferrer"
-              >
-                CSS source
-              </a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/github.js"
-                target="_blank"
-                rel="noreferrer"
-              >
-                JavaScript source
-              </a>
-            </div>
-          </article>
-
-          <article>
-            <img
-              class="project-preview"
-              src="memory-game.webp"
-              width="950"
-              height="713"
-              loading="lazy"
-              decoding="async"
-              alt="Preview of the neon-themed memory match game with a grid of cards"
-            />
-            <h3>Memory match</h3>
-            <p class="project-summary">
-              A themed card-matching game with three difficulty levels, a move
-              counter, timer, and personal best scores.
-            </p>
-            <ul class="project-tech" aria-label="Technologies used">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>localStorage</li>
-            </ul>
-            <div class="project-notes">
-              <p>
-                <strong>What I learned:</strong> keeping game state in
-                variables, using timers (setInterval and setTimeout), shuffling
-                the cards, and saving a best score per difficulty.
-              </p>
-              <p>
-                <strong>Challenge:</strong> resetting everything cleanly. Timers
-                must be cleared on restart, and the board is locked briefly
-                after a mismatch so a third card can't be flipped.
-              </p>
-            </div>
-            <div class="project-links">
-              <a href="memory-game.html">Live demo</a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/memory-game.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                HTML source
-              </a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/memory-game.css"
-                target="_blank"
-                rel="noreferrer"
-              >
-                CSS source
-              </a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/memory-game.js"
-                target="_blank"
-                rel="noreferrer"
-              >
-                JavaScript source
+                Code
               </a>
             </div>
           </article>
@@ -317,59 +176,33 @@
               class="project-preview"
               src="weather.webp"
               width="1000"
-              height="750"
+              height="563"
               loading="lazy"
               decoding="async"
               alt="Screenshot of the weather app showing current conditions and a seven-day forecast"
             />
             <h3>Weather app</h3>
-            <p class="project-summary">
-              Search for a city or use your location to see current weather and
-              a 7-day forecast, with °C/°F switching and recent searches.
-            </p>
+            <p class="project-summary">City search, current weather and a 7-day forecast from Open-Meteo.</p>
             <ul class="project-tech" aria-label="Technologies used">
               <li>HTML</li>
               <li>CSS</li>
               <li>JavaScript</li>
               <li>Open-Meteo API</li>
-              <li>Geolocation API</li>
-              <li>localStorage</li>
             </ul>
-            <div class="project-notes">
-              <p>
-                <strong>What I learned:</strong> chaining two API calls
-                (geocoding first, then the forecast), turning weather codes into
-                readable text, and announcing results to screen readers with
-                aria-live.
-              </p>
-              <p>
-                <strong>Challenge:</strong> handling every state: loading,
-                no match for a city, network errors, and denied location
-                permission.
-              </p>
-            </div>
+            <details class="project-notes">
+              <summary>What I learned</summary>
+              <p><strong>What I learned:</strong> chaining two API calls (geocoding first, then the forecast), turning weather codes into readable text, and announcing results to screen readers with aria-live.</p>
+              <p><strong>Challenge:</strong> handling every state: loading, no match for a city, network errors, and denied location permission.</p>
+            </details>
             <div class="project-links">
               <a href="weather.html">Live demo</a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/weather.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                HTML source
-              </a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/weather.css"
-                target="_blank"
-                rel="noreferrer"
-              >
-                CSS source
-              </a>
               <a
                 href="https://github.com/wjohansson94/portfolio/blob/main/weather.js"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Code for Weather app on GitHub"
               >
-                JavaScript source
+                Code
               </a>
             </div>
           </article>
@@ -377,60 +210,35 @@
           <article>
             <img
               class="project-preview"
-              src="helpdesk.webp"
+              src="github-finder.webp"
               width="1000"
-              height="750"
+              height="563"
               loading="lazy"
               decoding="async"
-              alt="Screenshot of the helpdesk ticket app showing search, filters and a critical sample ticket with status and note controls"
+              alt="Screenshot of the GitHub repository explorer showing search and filter controls with repository results"
             />
-            <h3>Helpdesk tickets</h3>
-            <p class="project-summary">
-              A small ticket tracker inspired by IT support work: create
-              tickets, move them through Open, In progress, Resolved and
-              Closed, add notes, search, filter and export to JSON.
-            </p>
+            <h3>GitHub repository explorer</h3>
+            <p class="project-summary">Search a GitHub user and browse, filter and favourite their repos.</p>
             <ul class="project-tech" aria-label="Technologies used">
               <li>HTML</li>
               <li>CSS</li>
               <li>JavaScript</li>
-              <li>localStorage</li>
+              <li>GitHub REST API</li>
             </ul>
-            <div class="project-notes">
-              <p>
-                <strong>What I learned:</strong> structuring data as objects
-                in an array, checking saved data before trusting it, building
-                the page with createElement and textContent instead of
-                innerHTML, and moving keyboard focus after changes.
-              </p>
-              <p>
-                <strong>Challenge:</strong> keeping the list, counters and
-                filters in sync after every change, and making sure ticket
-                numbers like HD-001 are never reused after a delete.
-              </p>
-            </div>
+            <details class="project-notes">
+              <summary>What I learned</summary>
+              <p><strong>What I learned:</strong> fetching data from a public REST API with async/await, showing loading, not-found and rate-limit messages, and paging through results.</p>
+              <p><strong>Challenge:</strong> slow or repeated searches. Requests time out after 15 seconds and an older response is ignored when a newer search has started.</p>
+            </details>
             <div class="project-links">
-              <a href="helpdesk.html">Live demo</a>
+              <a href="github.html">Live demo</a>
               <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/helpdesk.html"
+                href="https://github.com/wjohansson94/portfolio/blob/main/github.js"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Code for GitHub repository explorer on GitHub"
               >
-                HTML source
-              </a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/helpdesk.css"
-                target="_blank"
-                rel="noreferrer"
-              >
-                CSS source
-              </a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/helpdesk.js"
-                target="_blank"
-                rel="noreferrer"
-              >
-                JavaScript source
+                Code
               </a>
             </div>
           </article>
@@ -440,60 +248,106 @@
               class="project-preview"
               src="quiz.webp"
               width="1000"
-              height="750"
+              height="563"
               loading="lazy"
               decoding="async"
               alt="Screenshot of the IT and security quiz showing a question about password reuse with the correct answer marked and an explanation"
             />
             <h3>IT &amp; security quiz</h3>
-            <p class="project-summary">
-              A quiz with 40 questions I wrote on phishing, passwords,
-              networking, Windows and Microsoft 365, backups and IT support.
-              Pick a category and length, get instant explanations and track
-              your best score.
-            </p>
+            <p class="project-summary">40 IT and security questions with explanations and saved stats.</p>
             <ul class="project-tech" aria-label="Technologies used">
               <li>HTML</li>
               <li>CSS</li>
               <li>JavaScript</li>
               <li>localStorage</li>
             </ul>
-            <div class="project-notes">
-              <p>
-                <strong>What I learned:</strong> storing questions as an array
-                of objects, shuffling with the Fisher-Yates method, filtering
-                by category and level, and saving stats in localStorage after
-                checking that the saved data has the right shape.
-              </p>
-              <p>
-                <strong>Challenge:</strong> making the quiz work with a
-                keyboard and screen reader, using radio buttons, moving focus
-                to the feedback, and not relying on colour alone to show right
-                and wrong answers.
-              </p>
-            </div>
+            <details class="project-notes">
+              <summary>What I learned</summary>
+              <p><strong>What I learned:</strong> storing questions as an array of objects, shuffling with the Fisher-Yates method, filtering by category and level, and saving stats in localStorage after checking that the saved data has the right shape.</p>
+              <p><strong>Challenge:</strong> making the quiz work with a keyboard and screen reader, using radio buttons, moving focus to the feedback, and not relying on colour alone to show right and wrong answers.</p>
+            </details>
             <div class="project-links">
               <a href="quiz.html">Live demo</a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/quiz.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                HTML source
-              </a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/quiz.css"
-                target="_blank"
-                rel="noreferrer"
-              >
-                CSS source
-              </a>
               <a
                 href="https://github.com/wjohansson94/portfolio/blob/main/quiz.js"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Code for IT and security quiz on GitHub"
               >
-                JavaScript source
+                Code
+              </a>
+            </div>
+          </article>
+
+          <div class="project-more" id="more-projects">
+          <article>
+            <img
+              class="project-preview"
+              src="todo-list.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the to-do list app showing its task input and filters"
+            />
+            <h3>JavaScript to-do list</h3>
+            <p class="project-summary">Add, edit, filter and save tasks in the browser.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>localStorage</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I learned</summary>
+              <p><strong>What I learned:</strong> saving data as JSON in localStorage and rebuilding the list from it, including converting older saved tasks to the newer format. Also combining a filter, search and sort at the same time.</p>
+              <p><strong>Challenge:</strong> edit and delete have to act on the right task even when the visible list is filtered or sorted, so each task keeps track of its original position.</p>
+            </details>
+            <div class="project-links">
+              <a href="todo.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/todo.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for JavaScript to-do list on GitHub"
+              >
+                Code
+              </a>
+            </div>
+          </article>
+
+          <article>
+            <img
+              class="project-preview"
+              src="memory-game.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Preview of the neon-themed memory match game with a grid of cards"
+            />
+            <h3>Memory match</h3>
+            <p class="project-summary">Card matching game with three levels, timer and best scores.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>localStorage</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I learned</summary>
+              <p><strong>What I learned:</strong> keeping game state in variables, using timers (setInterval and setTimeout), shuffling the cards, and saving a best score per difficulty.</p>
+              <p><strong>Challenge:</strong> resetting everything cleanly. Timers must be cleared on restart, and the board is locked briefly after a mismatch so a third card can't be flipped.</p>
+            </details>
+            <div class="project-links">
+              <a href="memory-game.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/memory-game.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for Memory match on GitHub"
+              >
+                Code
               </a>
             </div>
           </article>
@@ -503,64 +357,37 @@
               class="project-preview"
               src="password.webp"
               width="1000"
-              height="750"
+              height="563"
               loading="lazy"
               decoding="async"
               alt="Screenshot of the password checker showing a weak password, the strength meter, an entropy estimate and the privacy note"
             />
             <h3>Password checker &amp; generator</h3>
-            <p class="project-summary">
-              Checks how guessable a password is (length, character types,
-              common passwords, repeats, sequences and keyboard patterns) and
-              generates random passwords or passphrases. Nothing leaves the
-              browser.
-            </p>
+            <p class="project-summary">Password strength checker and secure generator, all in your browser.</p>
             <ul class="project-tech" aria-label="Technologies used">
               <li>HTML</li>
               <li>CSS</li>
               <li>JavaScript</li>
               <li>Web Crypto API</li>
             </ul>
-            <div class="project-notes">
-              <p>
-                <strong>What I learned:</strong> why generators should use
-                crypto.getRandomValues instead of Math.random, how entropy
-                (length times the size of the character pool) gives a rough
-                strength estimate, and how to copy to the clipboard with a
-                fallback.
-              </p>
-              <p>
-                <strong>Challenge:</strong> picking random characters fairly
-                (a plain modulo favours some values, so I used rejection
-                sampling) and writing pattern checks that do not count the
-                same characters twice. The strength result is only an estimate.
-              </p>
-            </div>
+            <details class="project-notes">
+              <summary>What I learned</summary>
+              <p><strong>What I learned:</strong> why generators should use crypto.getRandomValues instead of Math.random, how entropy (length times the size of the character pool) gives a rough strength estimate, and how to copy to the clipboard with a fallback.</p>
+              <p><strong>Challenge:</strong> picking random characters fairly (a plain modulo favours some values, so I used rejection sampling) and writing pattern checks that do not count the same characters twice. The strength result is only an estimate.</p>
+            </details>
             <div class="project-links">
               <a href="password.html">Live demo</a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/password.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                HTML source
-              </a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/password.css"
-                target="_blank"
-                rel="noreferrer"
-              >
-                CSS source
-              </a>
               <a
                 href="https://github.com/wjohansson94/portfolio/blob/main/password.js"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Code for Password checker and generator on GitHub"
               >
-                JavaScript source
+                Code
               </a>
             </div>
           </article>
+          </div>
         </section>
 
         <section class="about" id="about" aria-labelledby="about-heading">
