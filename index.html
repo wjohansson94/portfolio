@@ -3,17 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wilhelm Johansson | Profile</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Wilhelm Johansson | Aspiring Front-End Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Wilhelm Johansson, an IT Support Specialist learning front-end development. Browse his HTML, CSS and JavaScript projects, tech stack and learning journey."
+    />
+    <meta name="author" content="Wilhelm Johansson" />
+    <meta name="theme-color" content="#090f18" />
+    <link rel="canonical" href="https://wjohansson94.github.io/portfolio/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Wilhelm Johansson" />
+    <meta
+      property="og:title"
+      content="Wilhelm Johansson | Aspiring Front-End Developer"
+    />
+    <meta
+      property="og:description"
+      content="IT Support Specialist learning front-end development. Projects, tech stack and learning journey."
+    />
+    <meta property="og:url" content="https://wjohansson94.github.io/portfolio/" />
+    <meta
+      property="og:image"
+      content="https://wjohansson94.github.io/portfolio/profile.jpg"
+    />
+    <meta property="og:image:alt" content="Portrait of Wilhelm Johansson" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Wilhelm Johansson | Aspiring Front-End Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="IT Support Specialist learning front-end development. Projects, tech stack and learning journey."
+    />
+    <meta
+      name="twitter:image"
+      content="https://wjohansson94.github.io/portfolio/profile.jpg"
+    />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="theme.css" />
   </head>
   <body>
     <a class="skip-link" href="#projects-heading">Skip to projects</a>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <nav class="site-nav" aria-label="Main">
+          <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#stack">Stack</a></li>
+            <li><a href="#learning">Learning</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme">
+          <span aria-hidden="true" data-theme-icon>☀</span>
+          <span data-theme-label>Light</span>
+        </button>
+      </div>
+    </header>
     <main class="profile-card">
       <section class="intro">
         <img
           class="avatar"
-          src="profile.jpg"
+          src="profile.webp"
+          width="400"
+          height="533"
           alt="Portrait of Wilhelm Johansson"
         />
         <div class="intro-copy">
@@ -61,13 +117,17 @@
       </section>
 
       <section class="details" aria-label="Profile details">
-        <div class="projects">
+        <section class="projects" id="projects" aria-labelledby="projects-heading">
           <h2 id="projects-heading" tabindex="-1">My projects</h2>
 
           <article>
             <img
               class="project-preview"
-              src="To-do%20list.png"
+              src="todo-list.webp"
+              width="1000"
+              height="760"
+              loading="lazy"
+              decoding="async"
               alt="Screenshot of the to-do list app showing its task input and filters"
             />
             <h3>JavaScript to-do list</h3>
@@ -81,14 +141,21 @@
               <li>JavaScript</li>
               <li>localStorage</li>
             </ul>
+            <div class="project-notes">
+              <p>
+                <strong>What I learned:</strong> saving data as JSON in
+                localStorage and rebuilding the list from it, including
+                converting older saved tasks to the newer format. Also
+                combining a filter, search and sort at the same time.
+              </p>
+              <p>
+                <strong>Challenge:</strong> edit and delete have to act on the
+                right task even when the visible list is filtered or sorted, so
+                each task keeps track of its original position.
+              </p>
+            </div>
             <div class="project-links">
-              <a
-                href="https://wjohansson94.github.io/portfolio/todo.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Live demo
-              </a>
+              <a href="todo.html">Live demo</a>
               <a
                 href="https://github.com/wjohansson94/portfolio/blob/main/todo.html"
                 target="_blank"
@@ -116,7 +183,11 @@
           <article>
             <img
               class="project-preview"
-              src="github-finder.png"
+              src="github-finder.webp"
+              width="1000"
+              height="750"
+              loading="lazy"
+              decoding="async"
               alt="Screenshot of the GitHub repository explorer showing search and filter controls with repository results"
             />
             <h3>GitHub repository explorer</h3>
@@ -130,6 +201,18 @@
               <li>JavaScript</li>
               <li>GitHub REST API</li>
             </ul>
+            <div class="project-notes">
+              <p>
+                <strong>What I learned:</strong> fetching data from a public
+                REST API with async/await, showing loading, not-found and
+                rate-limit messages, and paging through results.
+              </p>
+              <p>
+                <strong>Challenge:</strong> slow or repeated searches. Requests
+                time out after 15 seconds and an older response is ignored when
+                a newer search has started.
+              </p>
+            </div>
             <div class="project-links">
               <a href="github.html">Live demo</a>
               <a
@@ -159,19 +242,36 @@
           <article>
             <img
               class="project-preview"
-              src="memory-game.png"
+              src="memory-game.webp"
+              width="950"
+              height="713"
+              loading="lazy"
+              decoding="async"
               alt="Preview of the neon-themed memory match game with a grid of cards"
             />
             <h3>Memory match</h3>
             <p class="project-summary">
-              A themed card-matching game with eight pairs, a move counter,
-              timer, and restart button.
+              A themed card-matching game with three difficulty levels, a move
+              counter, timer, and personal best scores.
             </p>
             <ul class="project-tech" aria-label="Technologies used">
               <li>HTML</li>
               <li>CSS</li>
               <li>JavaScript</li>
+              <li>localStorage</li>
             </ul>
+            <div class="project-notes">
+              <p>
+                <strong>What I learned:</strong> keeping game state in
+                variables, using timers (setInterval and setTimeout), shuffling
+                the cards, and saving a best score per difficulty.
+              </p>
+              <p>
+                <strong>Challenge:</strong> resetting everything cleanly. Timers
+                must be cleared on restart, and the board is locked briefly
+                after a mismatch so a third card can't be flipped.
+              </p>
+            </div>
             <div class="project-links">
               <a href="memory-game.html">Live demo</a>
               <a
@@ -197,9 +297,71 @@
               </a>
             </div>
           </article>
-        </div>
 
-        <div>
+          <article>
+            <img
+              class="project-preview"
+              src="weather.webp"
+              width="1000"
+              height="750"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the weather app showing current conditions and a seven-day forecast"
+            />
+            <h3>Weather app</h3>
+            <p class="project-summary">
+              Search for a city or use your location to see current weather and
+              a 7-day forecast, with °C/°F switching and recent searches.
+            </p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Open-Meteo API</li>
+              <li>Geolocation API</li>
+              <li>localStorage</li>
+            </ul>
+            <div class="project-notes">
+              <p>
+                <strong>What I learned:</strong> chaining two API calls
+                (geocoding first, then the forecast), turning weather codes into
+                readable text, and announcing results to screen readers with
+                aria-live.
+              </p>
+              <p>
+                <strong>Challenge:</strong> handling every state: loading,
+                no match for a city, network errors, and denied location
+                permission.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="weather.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/weather.html"
+                target="_blank"
+                rel="noreferrer"
+              >
+                HTML source
+              </a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/weather.css"
+                target="_blank"
+                rel="noreferrer"
+              >
+                CSS source
+              </a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/weather.js"
+                target="_blank"
+                rel="noreferrer"
+              >
+                JavaScript source
+              </a>
+            </div>
+          </article>
+        </section>
+
+        <div class="about">
           <h2>About me</h2>
           <p>
             I'm an IT Support Specialist who enjoys solving technical problems
@@ -214,54 +376,91 @@
           </p>
         </div>
 
-        <div>
-          <h2>Skills I am learning</h2>
-          <ul class="skills">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Responsive design</li>
-            <li>Accessibility</li>
-          </ul>
-        </div>
-
-        <section class="current-courses" aria-labelledby="current-courses-heading">
-          <h2 id="current-courses-heading">Courses in progress</h2>
-          <article class="course-card">
-            <h3>Front-End Development</h3>
-            <p>Currently studying HTML, CSS, and JavaScript with Mimo.</p>
-            <div class="course-progress-copy">
-              <span>Overall course progress</span>
-              <span>7%</span>
+        <section class="stack" id="stack" aria-labelledby="stack-heading">
+          <h2 id="stack-heading">My stack</h2>
+          <p class="stack-intro">
+            I'm still early in my developer journey. This is what I use in my
+            projects and what I'm actively learning, not a claim of expertise.
+          </p>
+          <div class="stack-grid">
+            <div class="stack-group">
+              <h3>Front-end</h3>
+              <p class="stack-status">Actively learning</p>
+              <ul class="stack-list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Responsive design</li>
+                <li>Accessibility</li>
+              </ul>
             </div>
-            <div
-              class="course-progress"
-              role="progressbar"
-              aria-label="Front-End Development course progress"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              aria-valuenow="7"
-            >
-              <span class="course-progress-fill" style="width: 7%"></span>
+            <div class="stack-group">
+              <h3>Tools</h3>
+              <p class="stack-status">Used in my projects</p>
+              <ul class="stack-list">
+                <li>Git</li>
+                <li>GitHub</li>
+                <li>GitHub Pages</li>
+                <li>GitHub Copilot</li>
+              </ul>
             </div>
-            <p class="course-progress-note">Last updated: October 13, 2026</p>
-            <div class="project-links">
-              <a
-                href="https://mimo.org"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Mimo
-              </a>
+            <div class="stack-group">
+              <h3>Other</h3>
+              <p class="stack-status">First steps and background</p>
+              <ul class="stack-list">
+                <li>REST APIs</li>
+                <li>localStorage</li>
+                <li>Python basics</li>
+                <li>IT support</li>
+              </ul>
             </div>
-          </article>
+          </div>
         </section>
 
-        <section class="certificates" aria-labelledby="certificates-heading">
-          <h2 id="certificates-heading">My learning journey</h2>
-          <p class="certificates-intro">
-            A few milestones from my ongoing learning journey.
+        <section class="learning" id="learning" aria-labelledby="learning-heading">
+          <h2 id="learning-heading">My learning journey</h2>
+          <p class="learning-intro">
+            Milestones so far, plus what I'm aiming for next.
           </p>
+          <ol class="timeline">
+            <li class="timeline-item">
+              <time class="timeline-date" datetime="2025-11">Nov 2025</time>
+              <h3>Python Basics</h3>
+              <p>University of Michigan on Coursera. My first step into programming.</p>
+            </li>
+            <li class="timeline-item">
+              <time class="timeline-date" datetime="2025-11">Nov 2025</time>
+              <h3>Introduction to Software Engineering</h3>
+              <p>IBM on Coursera.</p>
+            </li>
+            <li class="timeline-item">
+              <time class="timeline-date" datetime="2025-12">Dec 2025</time>
+              <h3>Microsoft IT Support Specialist</h3>
+              <p>Professional certificate on Coursera, building on my IT support work.</p>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-date">Certificate</span>
+              <h3>Understanding Agentic AI</h3>
+              <p>Agent Academy. An introduction to how AI agents work.</p>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-date">Hands-on</span>
+              <h3>First JavaScript projects</h3>
+              <p>A to-do list, a GitHub repository explorer and a memory game, followed by a weather app.</p>
+            </li>
+            <li class="timeline-item">
+              <time class="timeline-date" datetime="2026-10">Oct 2026</time>
+              <h3>Mimo Front-End Development course</h3>
+              <p>Studying HTML, CSS and JavaScript more systematically.</p>
+            </li>
+            <li class="timeline-item is-goal">
+              <span class="timeline-date">Next goal</span>
+              <h3>Finish the Mimo course and build a bigger JavaScript project</h3>
+              <p>Apply what I learn in a larger project, with accessibility in mind from the start.</p>
+            </li>
+          </ol>
+
+          <h3 class="learning-subheading" id="certificates-heading">Certificates</h3>
           <div class="certificate-grid">
             <article class="certificate-card">
               <a
@@ -273,14 +472,17 @@
               >
                 <img
                   class="certificate-preview"
-                  src="certificates/ibm-software-engineering.png"
+                  src="certificates/ibm-software-engineering.webp"
+                  width="1018"
+                  height="768"
                   alt="IBM course certificate for Introduction to Software Engineering, completed November 27, 2025"
                   loading="lazy"
+                  decoding="async"
                 />
               </a>
               <div class="certificate-copy">
-                <h3>Introduction to Software Engineering</h3>
-                <p>IBM · Coursera · November 27, 2025</p>
+                <h4>Introduction to Software Engineering</h4>
+                <p>IBM · Coursera · Nov 27, 2025</p>
                 <div class="project-links">
                   <a
                     href="certificate-viewer.html?certificate=ibm-software-engineering"
@@ -301,14 +503,17 @@
               >
                 <img
                   class="certificate-preview"
-                  src="certificates/michigan-python-basics.png"
+                  src="certificates/michigan-python-basics.webp"
+                  width="1018"
+                  height="768"
                   alt="University of Michigan course certificate for Python Basics, completed November 22, 2025"
                   loading="lazy"
+                  decoding="async"
                 />
               </a>
               <div class="certificate-copy">
-                <h3>Python Basics</h3>
-                <p>University of Michigan · Coursera · November 22, 2025</p>
+                <h4>Python Basics</h4>
+                <p>University of Michigan · Coursera · Nov 22, 2025</p>
                 <div class="project-links">
                   <a
                     href="certificate-viewer.html?certificate=michigan-python-basics"
@@ -329,13 +534,16 @@
               >
                 <img
                   class="certificate-preview"
-                  src="certificates/agentic-ai-cert.png"
+                  src="certificates/agentic-ai-cert.webp"
+                  width="1000"
+                  height="707"
                   alt="Screenshot of the Understanding Agentic AI certificate from Agent Academy"
                   loading="lazy"
+                  decoding="async"
                 />
               </a>
               <div class="certificate-copy">
-                <h3>Understanding Agentic AI</h3>
+                <h4>Understanding Agentic AI</h4>
                 <p>Agent Academy</p>
                 <div class="project-links">
                   <a
@@ -357,14 +565,17 @@
               >
                 <img
                   class="certificate-preview"
-                  src="certificates/microsoft-cert.png"
+                  src="certificates/microsoft-cert.webp"
+                  width="1000"
+                  height="773"
                   alt="Screenshot of the Microsoft IT Support Specialist certificate"
                   loading="lazy"
+                  decoding="async"
                 />
               </a>
               <div class="certificate-copy">
-                <h3>Microsoft IT Support Specialist</h3>
-                <p>Microsoft · Coursera · December 10, 2025</p>
+                <h4>Microsoft IT Support Specialist</h4>
+                <p>Microsoft · Coursera · Dec 10, 2025</p>
                 <div class="project-links">
                   <a
                     href="certificate-viewer.html?certificate=microsoft-it-support"
@@ -375,10 +586,50 @@
               </div>
             </article>
           </div>
+
+          <section class="current-courses" aria-labelledby="current-courses-heading">
+            <h3 class="learning-subheading" id="current-courses-heading">Courses in progress</h3>
+            <article class="course-card">
+              <h4>Front-End Development · Mimo</h4>
+              <p>Currently studying HTML, CSS, and JavaScript.</p>
+              <div class="course-progress-copy">
+                <span>Overall course progress</span>
+                <span>7%</span>
+              </div>
+              <div
+                class="course-progress"
+                role="progressbar"
+                aria-label="Front-End Development course progress"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="7"
+              >
+                <span class="course-progress-fill" style="width: 7%"></span>
+              </div>
+              <p class="course-progress-note">
+                Last updated: October 13, 2026 ·
+                <a href="https://mimo.org" target="_blank" rel="noreferrer">Mimo</a>
+              </p>
+            </article>
+          </section>
         </section>
 
-        <div class="links">
-          <h2>Find me online</h2>
+        <div class="links" id="contact">
+          <h2>Contact &amp; find me online</h2>
+          <a
+            href="mailto:wjohansson94@outlook.com"
+            aria-label="Email wjohansson94@outlook.com"
+          >
+            <svg
+              class="social-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+              <path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            </svg>
+          </a>
           <a
             href="https://github.com/wjohansson94"
             target="_blank"

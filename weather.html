@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather app | Wilhelm Johansson</title>
+    <meta
+      name="description"
+      content="A weather app by Wilhelm Johansson: search a city or use your location to see current conditions and a 7-day forecast, powered by Open-Meteo."
+    />
+    <meta name="theme-color" content="#090f18" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="weather.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <script src="weather.js" defer></script>
+  </head>
+  <body>
+    <main class="weather-shell">
+      <a class="back-link" href="index.html">Back to profile</a>
+
+      <header class="page-heading">
+        <p class="eyebrow">Portfolio project 04</p>
+        <h1>Weather app</h1>
+        <p>Search for a city or use your location to see the weather.</p>
+      </header>
+
+      <form id="search-form" class="search-form" role="search">
+        <label for="city">City</label>
+        <div class="search-row">
+          <input
+            id="city"
+            name="city"
+            type="search"
+            placeholder="e.g. Stockholm"
+            autocomplete="off"
+            spellcheck="false"
+            required
+          />
+          <button class="primary-button" type="submit">Search</button>
+          <button
+            id="locate-button"
+            class="chip-button"
+            type="button"
+            aria-label="Use my current location"
+          >
+            <span aria-hidden="true">⌖</span> My location
+          </button>
+        </div>
+      </form>
+
+      <div class="toolbar">
+        <div class="unit-toggle" role="group" aria-label="Temperature unit">
+          <button
+            class="chip-button"
+            type="button"
+            data-unit="c"
+            aria-pressed="true"
+          >
+            °C
+          </button>
+          <button
+            class="chip-button"
+            type="button"
+            data-unit="f"
+            aria-pressed="false"
+          >
+            °F
+          </button>
+        </div>
+      </div>
+
+      <section class="history" id="history" aria-labelledby="history-heading" hidden>
+        <div class="history-header">
+          <h2 id="history-heading">Recent searches</h2>
+          <button id="clear-history" class="link-button" type="button">
+            Clear history
+          </button>
+        </div>
+        <ul id="history-list" class="history-list"></ul>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <p id="error" class="error-message" role="alert" hidden></p>
+
+      <section
+        id="matches"
+        class="matches"
+        aria-labelledby="matches-heading"
+        hidden
+      >
+        <h2 id="matches-heading">Other matches</h2>
+        <ul id="matches-list" class="history-list"></ul>
+      </section>
+
+      <section
+        id="results"
+        class="results"
+        aria-labelledby="place-name"
+        aria-live="polite"
+        aria-busy="false"
+        hidden
+      >
+        <div class="current">
+          <h2 id="place-name" tabindex="-1">Weather</h2>
+          <p class="current-main">
+            <span id="current-icon" class="weather-icon" aria-hidden="true"></span>
+            <span id="current-temp" class="current-temp"></span>
+          </p>
+          <p id="current-summary" class="current-summary"></p>
+          <dl class="current-details">
+            <div>
+              <dt>Feels like</dt>
+              <dd id="current-feels"></dd>
+            </div>
+            <div>
+              <dt>Humidity</dt>
+              <dd id="current-humidity"></dd>
+            </div>
+            <div>
+              <dt>Wind</dt>
+              <dd id="current-wind"></dd>
+            </div>
+          </dl>
+        </div>
+
+        <h2 class="forecast-heading" id="forecast-heading">7-day forecast</h2>
+        <ul id="forecast" class="forecast" aria-labelledby="forecast-heading"></ul>
+      </section>
+
+      <p class="attribution">
+        Weather data by
+        <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo.com</a>
+        (free, no API key).
+      </p>
+    </main>
+  </body>
+</html>
