@@ -120,7 +120,7 @@ html[data-theme="light"] .intro h1 {
 }
 
 html[data-theme="light"]
-  :is(.profile-card, .todo-card, .lookup-shell, .game-shell, .certificate-viewer) {
+  :is(.profile-card, .todo-card, .lookup-shell, .game-shell, .certificate-viewer, .weather-shell, .helpdesk-shell) {
   box-shadow: 0 18px 44px rgba(20, 33, 46, 0.12);
 }
 
@@ -183,7 +183,8 @@ html[data-theme="light"] .project-links a[href^="https://"]::after {
 
 /* To-do, GitHub explorer, memory game, weather: forms and buttons */
 html[data-theme="light"] input,
-html[data-theme="light"] select {
+html[data-theme="light"] select,
+html[data-theme="light"] textarea {
   color: var(--ink);
   color-scheme: light;
   background: var(--input-bg);
@@ -315,12 +316,12 @@ html[data-theme="light"] .back-link {
 }
 
 /* Weather */
-html[data-theme="light"] :is(.current, .forecast-day) {
+html[data-theme="light"] :is(.current, .forecast-day, .counters div) {
   border-color: var(--border);
   border-left-color: var(--accent);
 }
 
-html[data-theme="light"] .error-message {
+html[data-theme="light"] :is(.error-message, .field-error) {
   color: var(--danger);
   background: #fdecea;
   border-color: var(--danger);
