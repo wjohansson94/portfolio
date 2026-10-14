@@ -497,6 +497,70 @@
               </a>
             </div>
           </article>
+
+          <article>
+            <img
+              class="project-preview"
+              src="password.webp"
+              width="1000"
+              height="750"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the password checker showing a weak password, the strength meter, an entropy estimate and the privacy note"
+            />
+            <h3>Password checker &amp; generator</h3>
+            <p class="project-summary">
+              Checks how guessable a password is (length, character types,
+              common passwords, repeats, sequences and keyboard patterns) and
+              generates random passwords or passphrases. Nothing leaves the
+              browser.
+            </p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Web Crypto API</li>
+            </ul>
+            <div class="project-notes">
+              <p>
+                <strong>What I learned:</strong> why generators should use
+                crypto.getRandomValues instead of Math.random, how entropy
+                (length times the size of the character pool) gives a rough
+                strength estimate, and how to copy to the clipboard with a
+                fallback.
+              </p>
+              <p>
+                <strong>Challenge:</strong> picking random characters fairly
+                (a plain modulo favours some values, so I used rejection
+                sampling) and writing pattern checks that do not count the
+                same characters twice. The strength result is only an estimate.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="password.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/password.html"
+                target="_blank"
+                rel="noreferrer"
+              >
+                HTML source
+              </a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/password.css"
+                target="_blank"
+                rel="noreferrer"
+              >
+                CSS source
+              </a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/password.js"
+                target="_blank"
+                rel="noreferrer"
+              >
+                JavaScript source
+              </a>
+            </div>
+          </article>
         </section>
 
         <section class="about" id="about" aria-labelledby="about-heading">
