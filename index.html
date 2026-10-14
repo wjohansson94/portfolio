@@ -387,6 +387,42 @@
               </a>
             </div>
           </article>
+
+          <article>
+            <img
+              class="project-preview"
+              src="wordle.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the Word guess game in dark mode with three guesses coloured green, amber and grey and an on-screen keyboard"
+            />
+            <h3>Word guess game</h3>
+            <p class="project-summary">A five-letter word guessing game with six attempts and saved stats.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>localStorage</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I learned</summary>
+              <p><strong>What I learned:</strong> splitting game logic into small pure functions (scoring a guess, validating saved stats) that I could test in Node, building the board and keyboard with createElement, and making a game usable with both keyboard and screen readers through aria-labels and a live status message.</p>
+              <p><strong>Challenge:</strong> marking repeated letters correctly (a letter can only be yellow as many times as it is still unused in the answer) and stopping the physical Enter key from also pressing a focused on-screen button. The word lists are small, so some real words are rejected.</p>
+            </details>
+            <div class="project-links">
+              <a href="wordle.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/wordle.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for Word guess game on GitHub"
+              >
+                Code
+              </a>
+            </div>
+          </article>
           </div>
         </section>
 
