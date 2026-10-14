@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wilhelm Johansson | Aspiring Front-End Developer</title>
+    <title>Wilhelm Johansson | IT Support to Front-End Developer</title>
     <meta
       name="description"
-      content="Portfolio of Wilhelm Johansson, an IT Support Specialist learning front-end development. Browse his HTML, CSS and JavaScript projects, tech stack and learning journey."
+      content="Portfolio of Wilhelm Johansson, an IT Support Specialist learning front-end development. Browse his HTML, CSS and JavaScript projects, IT background, career path and learning journey."
     />
     <meta name="author" content="Wilhelm Johansson" />
     <meta name="theme-color" content="#090f18" />
@@ -15,11 +15,11 @@
     <meta property="og:site_name" content="Wilhelm Johansson" />
     <meta
       property="og:title"
-      content="Wilhelm Johansson | Aspiring Front-End Developer"
+      content="Wilhelm Johansson | IT Support to Front-End Developer"
     />
     <meta
       property="og:description"
-      content="IT Support Specialist learning front-end development. Projects, tech stack and learning journey."
+      content="IT Support Specialist learning front-end development. Projects, IT background, career path and learning journey."
     />
     <meta property="og:url" content="https://wjohansson94.github.io/portfolio/" />
     <meta
@@ -30,11 +30,11 @@
     <meta name="twitter:card" content="summary" />
     <meta
       name="twitter:title"
-      content="Wilhelm Johansson | Aspiring Front-End Developer"
+      content="Wilhelm Johansson | IT Support to Front-End Developer"
     />
     <meta
       name="twitter:description"
-      content="IT Support Specialist learning front-end development. Projects, tech stack and learning journey."
+      content="IT Support Specialist learning front-end development. Projects, IT background, career path and learning journey."
     />
     <meta
       name="twitter:image"
@@ -52,6 +52,8 @@
         <nav class="site-nav" aria-label="Main">
           <ul>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#path">Path</a></li>
             <li><a href="#stack">Stack</a></li>
             <li><a href="#learning">Learning</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -76,7 +78,14 @@
           <p class="eyebrow">Hello, I am</p>
           <h1>Wilhelm Johansson</h1>
           <p class="role">
-            Aspiring Front-End Developer &amp; Technology Enthusiast
+            <span>IT Support</span>
+            <span class="role-arrow" aria-hidden="true">→</span>
+            <span class="visually-hidden">to</span>
+            <span>Front-End Developer</span>
+          </p>
+          <p class="tagline">
+            Building the bridge between IT, security and modern web
+            development.
           </p>
           <p class="bio">
             I work in IT Support while building my skills in front-end
@@ -85,6 +94,10 @@
             responsive and user-friendly web experiences while exploring
             modern technologies, AI and cybersecurity.
           </p>
+          <div class="hero-actions">
+          <a class="button button-secondary" href="#projects">
+            See my projects <span class="button-arrow" aria-hidden="true">↓</span>
+          </a>
           <a class="button" href="mailto:wjohansson94@outlook.com">
             <svg
               class="button-icon"
@@ -113,6 +126,7 @@
             </svg>
             Contact me <span class="button-arrow" aria-hidden="true">↗</span>
           </a>
+          </div>
         </div>
       </section>
 
@@ -422,57 +436,215 @@
           </article>
         </section>
 
-        <div class="about">
-          <h2>About me</h2>
-          <p>
+        <section class="about" id="about" aria-labelledby="about-heading">
+          <h2 id="about-heading">About me &amp; my IT background</h2>
+          <p class="section-intro">
             I'm an IT Support Specialist who enjoys solving technical problems
             and supporting people. Outside work, I build front-end projects to
             grow my skills in HTML, CSS, JavaScript, responsive design, and
-            accessibility.
+            accessibility. I use GitHub Copilot as an assistant, while
+            reviewing and understanding the code I build.
           </p>
-          <p>
-            I enjoy building practical, user-friendly experiences—from API
-            integrations to interactive browser apps. I use GitHub Copilot as
-            an assistant, while reviewing and understanding the code I build.
+          <div class="panel-grid">
+            <article class="panel">
+              <h3>What I do today</h3>
+              <ul class="plain-list">
+                <li>IT support and troubleshooting</li>
+                <li>End user support in Microsoft 365</li>
+                <li>Identity and access management</li>
+                <li>Support for collaboration platforms</li>
+                <li>IT administration and operations</li>
+              </ul>
+              <p class="panel-note">
+                I work with colleagues, business users, system owners, support
+                functions and operations and infrastructure teams.
+              </p>
+            </article>
+            <article class="panel advantage">
+              <h3>My advantage</h3>
+              <p>
+                Most front-end developers focus on code, frameworks and UI
+                components. My background also includes:
+              </p>
+              <ul class="stack-list">
+                <li>IT operations</li>
+                <li>Microsoft 365</li>
+                <li>Security awareness</li>
+                <li>User support experience</li>
+                <li>Business understanding</li>
+              </ul>
+              <p class="panel-note">
+                The goal: a developer who understands both users and
+                technology.
+              </p>
+            </article>
+          </div>
+
+          <h3 class="learning-subheading" id="workflow-heading">How I work in IT support</h3>
+          <ol class="workflow" aria-labelledby="workflow-heading">
+            <li>Receive request</li>
+            <li>Investigate &amp; troubleshoot</li>
+            <li>Resolve &amp; implement</li>
+            <li>Document &amp; follow up</li>
+            <li>Improve &amp; share knowledge</li>
+          </ol>
+          <p class="panel-note">
+            My Helpdesk tickets project borrows from this flow: tickets, a
+            status workflow and notes.
           </p>
-        </div>
+
+          <details class="glance">
+            <summary>At a glance: my career infographic</summary>
+            <a
+              href="infographic.webp"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open the full-size career infographic (opens in a new tab)"
+            >
+              <img
+                src="infographic.webp"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                alt="Infographic summarising Wilhelm Johansson's path from IT Support to Front-End Developer: who he is, what he does today, his workflow, tools, career journey, current development focus and long-term vision."
+              />
+            </a>
+            <p class="panel-note">
+              The same content as text is on this page. Select the image to
+              open it full size.
+            </p>
+          </details>
+        </section>
+
+        <section class="path" id="path" aria-labelledby="path-heading">
+          <h2 id="path-heading">My career path</h2>
+          <p class="section-intro">
+            A roadmap, not a claim: I'm at steps 1 and 2 and working toward
+            step 3.
+          </p>
+          <ol class="roadmap">
+            <li class="roadmap-step is-current" aria-current="step">
+              <span class="roadmap-num" aria-hidden="true">1</span>
+              <h3>IT Support</h3>
+              <p class="roadmap-status">Where I am today</p>
+              <ul>
+                <li>User support</li>
+                <li>Microsoft 365</li>
+                <li>Identity &amp; security</li>
+                <li>IT operations</li>
+              </ul>
+            </li>
+            <li class="roadmap-step is-current" aria-current="step">
+              <span class="roadmap-num" aria-hidden="true">2</span>
+              <h3>Build foundations</h3>
+              <p class="roadmap-status">In progress</p>
+              <ul>
+                <li>HTML &amp; CSS</li>
+                <li>JavaScript</li>
+                <li>Git &amp; GitHub</li>
+                <li>REST APIs</li>
+              </ul>
+            </li>
+            <li class="roadmap-step is-next">
+              <span class="roadmap-num" aria-hidden="true">3</span>
+              <h3>Front-end development</h3>
+              <p class="roadmap-status">Next</p>
+              <ul>
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Modern web apps</li>
+                <li>UI/UX focus</li>
+              </ul>
+            </li>
+            <li class="roadmap-step">
+              <span class="roadmap-num" aria-hidden="true">4</span>
+              <h3>Front-End Developer</h3>
+              <p class="roadmap-status">The goal</p>
+            </li>
+            <li class="roadmap-step">
+              <span class="roadmap-num" aria-hidden="true">5</span>
+              <h3>Full-Stack Developer</h3>
+              <p class="roadmap-status">A longer horizon</p>
+            </li>
+          </ol>
+
+          <div class="panel-grid">
+            <article class="panel">
+              <h3>What I'm building</h3>
+              <ul class="plain-list">
+                <li>My personal portfolio (this site)</li>
+                <li>Real-world projects</li>
+                <li>IT-focused web apps</li>
+                <li>Better code quality</li>
+                <li>Growing as a developer</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>Long-term vision</h3>
+              <ul class="stack-list">
+                <li>Front-End Developer</li>
+                <li>React Specialist</li>
+                <li>TypeScript Developer</li>
+                <li>Full-Stack Developer</li>
+                <li>Secure Enterprise Solutions</li>
+              </ul>
+              <p class="panel-note">Where I want to grow, not where I am today.</p>
+            </article>
+          </div>
+        </section>
 
         <section class="stack" id="stack" aria-labelledby="stack-heading">
           <h2 id="stack-heading">My stack</h2>
           <p class="stack-intro">
-            I'm still early in my developer journey. This is what I use in my
-            projects and what I'm actively learning, not a claim of expertise.
+            I'm still early in my developer journey. This is what I use at
+            work, in my projects and what I'm learning next, not a claim of
+            expertise.
           </p>
           <div class="stack-grid">
             <div class="stack-group">
-              <h3>Front-end</h3>
-              <p class="stack-status">Actively learning</p>
+              <h3>Use at work</h3>
+              <p class="stack-status">IT support</p>
+              <ul class="stack-list">
+                <li>Microsoft 365</li>
+                <li>Teams</li>
+                <li>SharePoint</li>
+                <li>Exchange</li>
+                <li>Entra ID</li>
+                <li>PowerShell</li>
+                <li>Documentation</li>
+                <li>Support tickets</li>
+              </ul>
+            </div>
+            <div class="stack-group">
+              <h3>Use in my projects</h3>
+              <p class="stack-status">Still learning</p>
               <ul class="stack-list">
                 <li>HTML</li>
                 <li>CSS</li>
                 <li>JavaScript</li>
                 <li>Responsive design</li>
                 <li>Accessibility</li>
-              </ul>
-            </div>
-            <div class="stack-group">
-              <h3>Tools</h3>
-              <p class="stack-status">Used in my projects</p>
-              <ul class="stack-list">
+                <li>REST APIs</li>
+                <li>localStorage</li>
                 <li>Git</li>
                 <li>GitHub</li>
                 <li>GitHub Pages</li>
                 <li>GitHub Copilot</li>
+                <li>VS Code</li>
+                <li>Python basics</li>
               </ul>
             </div>
-            <div class="stack-group">
-              <h3>Other</h3>
-              <p class="stack-status">First steps and background</p>
+            <div class="stack-group is-learning">
+              <h3>Learning next</h3>
+              <p class="stack-status">Not yet in my projects</p>
               <ul class="stack-list">
-                <li>REST APIs</li>
-                <li>localStorage</li>
-                <li>Python basics</li>
-                <li>IT support</li>
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Modern JavaScript</li>
+                <li>API integration</li>
+                <li>Front-end architecture</li>
+                <li>UI/UX</li>
               </ul>
             </div>
           </div>
