@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT &amp; security quiz | Wilhelm Johansson</title>
+    <meta
+      name="description"
+      content="An IT support and cybersecurity quiz by Wilhelm Johansson: choose a category, answer questions with instant explanations and track your best score. Stats stay in your browser."
+    />
+    <meta name="theme-color" content="#090f18" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="quiz.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <script src="quiz.js" defer></script>
+  </head>
+  <body>
+    <main class="quiz-shell">
+      <a class="back-link" href="index.html">Back to profile</a>
+
+      <header class="page-heading">
+        <p class="eyebrow">Portfolio project 06</p>
+        <h1>IT &amp; security quiz</h1>
+        <p>
+          Beginner to intermediate questions on phishing, passwords, networking,
+          Windows and Microsoft 365, backups and IT support. Written by me, so
+          treat the explanations as study notes, not official training.
+        </p>
+      </header>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <p id="error" class="error-message" role="alert" hidden></p>
+
+      <section id="setup-section" class="panel" aria-labelledby="setup-heading">
+        <h2 id="setup-heading" tabindex="-1">Start a quiz</h2>
+        <form id="setup-form">
+          <div class="controls">
+            <div class="field">
+              <label for="category">Category</label>
+              <select id="category" name="category"></select>
+            </div>
+            <div class="field">
+              <label for="difficulty">Difficulty</label>
+              <select id="difficulty" name="difficulty">
+                <option value="all">All levels</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="count">Number of questions</label>
+              <select id="count" name="count">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+              </select>
+            </div>
+          </div>
+          <div class="check-field">
+            <input id="timer-toggle" type="checkbox" />
+            <label for="timer-toggle">Timer: 30 seconds per question</label>
+          </div>
+          <p id="match-info" class="hint" aria-live="polite"></p>
+          <button id="start-button" class="primary-button" type="submit">
+            Start quiz
+          </button>
+        </form>
+      </section>
+
+      <section id="quiz-section" class="panel" aria-label="Quiz question" hidden>
+        <div class="quiz-top">
+          <p id="progress-text" class="progress-text"></p>
+          <p id="timer" class="timer" hidden></p>
+        </div>
+        <div
+          id="progress-bar"
+          class="progress"
+          role="progressbar"
+          aria-label="Quiz progress"
+          aria-valuemin="0"
+          aria-valuemax="10"
+          aria-valuenow="0"
+        >
+          <span id="progress-fill" class="progress-fill"></span>
+        </div>
+        <ul id="question-badges" class="badges" aria-label="Question details"></ul>
+        <h2 id="question-text" class="question-text" tabindex="-1"></h2>
+        <p id="question-error" class="field-error" role="alert" hidden></p>
+        <div id="options" class="options" role="radiogroup" aria-labelledby="question-text"></div>
+        <div id="feedback" class="feedback" tabindex="-1" hidden>
+          <p id="feedback-result" class="feedback-result"></p>
+          <p id="feedback-explanation"></p>
+        </div>
+        <div class="button-row">
+          <button id="submit-answer" class="primary-button" type="button">
+            Check answer
+          </button>
+          <button id="next-button" class="primary-button" type="button" hidden>
+            Next question
+          </button>
+          <button id="quit-button" class="chip-button" type="button">
+            End quiz
+          </button>
+        </div>
+      </section>
+
+      <section id="results-section" class="panel" aria-labelledby="results-heading" hidden>
+        <h2 id="results-heading" tabindex="-1">Results</h2>
+        <p id="results-score" class="results-score"></p>
+        <p id="results-message"></p>
+        <p id="results-best" class="hint"></p>
+        <div class="button-row">
+          <button id="again-button" class="primary-button" type="button">
+            Play again with the same settings
+          </button>
+          <button id="settings-button" class="chip-button" type="button">
+            Change settings
+          </button>
+        </div>
+        <h3 class="review-heading">Review of wrong answers</h3>
+        <p id="review-empty" class="empty-state" hidden>
+          No wrong answers this time. Well done!
+        </p>
+        <ol id="review-list" class="review-list"></ol>
+      </section>
+
+      <section id="stats-section" class="panel" aria-labelledby="stats-heading">
+        <h2 id="stats-heading">My stats</h2>
+        <p class="hint">
+          Saved only in this browser (localStorage). Nothing is sent anywhere.
+        </p>
+        <dl class="counters" aria-label="Overall stats">
+          <div>
+            <dt>Quizzes finished</dt>
+            <dd id="stat-played">0</dd>
+          </div>
+          <div>
+            <dt>Best score</dt>
+            <dd id="stat-best">–</dd>
+          </div>
+          <div>
+            <dt>Overall accuracy</dt>
+            <dd id="stat-accuracy">–</dd>
+          </div>
+        </dl>
+        <p id="stats-empty" class="empty-state">
+          No stats yet. Finish a quiz to see your results here.
+        </p>
+        <table id="stats-table" class="stats-table" hidden>
+          <caption>
+            Accuracy per category
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Correct</th>
+              <th scope="col">Answered</th>
+              <th scope="col">Accuracy</th>
+            </tr>
+          </thead>
+          <tbody id="stats-body"></tbody>
+        </table>
+        <div class="button-row">
+          <button id="reset-stats" class="chip-button danger-button" type="button">
+            Reset stats
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

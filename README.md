@@ -1,6 +1,6 @@
 # Wilhelm Johansson | Profile
 
-A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and five interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app and a helpdesk ticket tracker. I'm still learning, and the site is written to reflect that honestly.
+A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and six interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker and an IT & security quiz. I'm still learning, and the site is written to reflect that honestly.
 
 ## Live site
 
@@ -10,6 +10,7 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 - [Memory match game](https://wjohansson94.github.io/portfolio/memory-game.html)
 - [Weather app](https://wjohansson94.github.io/portfolio/weather.html)
 - [Helpdesk tickets](https://wjohansson94.github.io/portfolio/helpdesk.html)
+- [IT & security quiz](https://wjohansson94.github.io/portfolio/quiz.html)
 
 ## Overview
 
@@ -58,12 +59,23 @@ A ticket tracker inspired by IT support work, built with vanilla JavaScript:
 - empty and error states, `aria-live` announcements and focus management after changes
 - user text is always inserted with `textContent`, never `innerHTML`
 
+### 7. IT & security quiz
+A quiz with 40 original questions (beginner and intermediate) written by me:
+
+- six categories: phishing, passwords & access, networking, Windows & Microsoft 365, data & security basics, IT support practice
+- choose category, level and number of questions; questions and answers are shuffled
+- one question at a time with keyboard-operable radio buttons, instant feedback and a short explanation (right/wrong is shown with text as well as colour)
+- progress bar and an optional 30-second timer per question
+- results with a review of wrong answers
+- best score and per-category stats saved in `localStorage` (read with `try/catch` and validated), with a reset button
+- the explanations are my own study notes, not official training
+
 ## Project structure
 
 - `index.html`, `style.css` — portfolio page
 - `theme.js`, `theme.css` — shared dark/light theme
 - `certificate-viewer.html/.js` — certificate viewer
-- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js` — the apps
+- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js` — the apps
 - `*.webp`, `profile.jpg`, `favicon.*` — images (`profile.jpg` is kept for the social preview image)
 - `certificates/` — certificate images (WebP for the page, PNG/JPEG/PDF originals)
 - `scripts/check-links.mjs` — relative link checker used in CI
