@@ -1,6 +1,6 @@
 # Wilhelm Johansson | Profile
 
-A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and six interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker and an IT & security quiz. I'm still learning, and the site is written to reflect that honestly.
+A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and seven interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz and a password checker/generator. I'm still learning, and the site is written to reflect that honestly.
 
 ## Live site
 
@@ -11,6 +11,7 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 - [Weather app](https://wjohansson94.github.io/portfolio/weather.html)
 - [Helpdesk tickets](https://wjohansson94.github.io/portfolio/helpdesk.html)
 - [IT & security quiz](https://wjohansson94.github.io/portfolio/quiz.html)
+- [Password checker & generator](https://wjohansson94.github.io/portfolio/password.html)
 
 ## Overview
 
@@ -70,12 +71,23 @@ A quiz with 40 original questions (beginner and intermediate) written by me:
 - best score and per-category stats saved in `localStorage` (read with `try/catch` and validated), with a reset button
 - the explanations are my own study notes, not official training
 
+### 8. Password checker & generator
+A privacy-friendly tool that runs entirely in the browser (nothing is sent, stored or logged):
+
+- live strength meter and an entropy estimate based on length, character variety, a small built-in common-password list, and simple checks for repeats, sequences and keyboard walks
+- a clearly labelled, rough crack-time estimate (assumes 10 billion guesses per second against a fast hash; it is a worst-case guess, not a promise)
+- feedback on what to improve, a show/hide toggle, and `aria-live` strength announcements
+- generator using `crypto.getRandomValues` (never `Math.random`) with rejection sampling to avoid bias: length slider, character sets, option to avoid look-alike characters, and a passphrase mode with a built-in wordlist
+- copy to clipboard with a fallback and feedback
+- a short security tips section (unique passwords, password manager, MFA/passkeys)
+- limits: it does not check breach databases and does not recognise every dictionary word or personal detail
+
 ## Project structure
 
 - `index.html`, `style.css` — portfolio page
 - `theme.js`, `theme.css` — shared dark/light theme
 - `certificate-viewer.html/.js` — certificate viewer
-- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js` — the apps
+- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js`, `password.html/.css/.js` — the apps
 - `*.webp`, `profile.jpg`, `favicon.*` — images (`profile.jpg` is kept for the social preview image)
 - `certificates/` — certificate images (WebP for the page, PNG/JPEG/PDF originals)
 - `scripts/check-links.mjs` — relative link checker used in CI
