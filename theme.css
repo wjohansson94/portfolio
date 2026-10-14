@@ -120,7 +120,7 @@ html[data-theme="light"] .intro h1 {
 }
 
 html[data-theme="light"]
-  :is(.profile-card, .todo-card, .lookup-shell, .game-shell, .certificate-viewer, .weather-shell, .helpdesk-shell) {
+  :is(.profile-card, .todo-card, .lookup-shell, .game-shell, .certificate-viewer, .weather-shell, .helpdesk-shell, .quiz-shell, .password-shell) {
   box-shadow: 0 18px 44px rgba(20, 33, 46, 0.12);
 }
 
