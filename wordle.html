@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word guess | Wilhelm Johansson</title>
+    <meta
+      name="description"
+      content="Word guess: a five-letter word guessing game with six attempts, on-screen and physical keyboard, colour-blind-friendly feedback and stats stored in your browser. Built by Wilhelm Johansson."
+    />
+    <meta name="theme-color" content="#090f18" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="wordle.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <script src="wordle.js" defer></script>
+  </head>
+  <body>
+    <main class="word-shell">
+      <a class="back-link" href="index.html">Back to profile</a>
+
+      <header class="page-heading">
+        <p class="eyebrow">Portfolio project 08</p>
+        <h1>Word guess</h1>
+        <p>
+          A five-letter word guessing game: you have six attempts. After each
+          guess the tiles show which letters are in the right place, in the word
+          but elsewhere, or not in the word. My own small learning project, not
+          affiliated with any other game.
+        </p>
+      </header>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <section class="panel" aria-labelledby="game-heading">
+        <h2 id="game-heading">Play</h2>
+
+        <div class="toolbar">
+          <div class="field">
+            <label for="mode">Word</label>
+            <select id="mode">
+              <option value="random">Random word</option>
+              <option value="daily">Word of the day</option>
+            </select>
+          </div>
+          <div class="check-field">
+            <input id="contrast" type="checkbox" />
+            <label for="contrast">High-contrast colours</label>
+          </div>
+          <button id="new-game" class="chip-button" type="button">New game</button>
+        </div>
+
+        <div id="board" class="board" role="grid" aria-label="Guess board, 6 rows of 5 letters"></div>
+
+        <div id="keyboard" class="keyboard" role="group" aria-label="On-screen keyboard"></div>
+
+        <ul class="legend" aria-label="Tile colour legend">
+          <li><span class="swatch" data-state="correct">✓</span> Right letter, right place</li>
+          <li><span class="swatch" data-state="present">~</span> In the word, wrong place</li>
+          <li><span class="swatch" data-state="absent">×</span> Not in the word</li>
+        </ul>
+        <p class="hint">
+          Type with your keyboard or tap the keys. Enter sends the guess,
+          Backspace deletes. Words come from a small built-in list, so a few
+          real words may be rejected. The word of the day is picked from the
+          date, no server involved.
+        </p>
+      </section>
+
+      <section class="panel" aria-labelledby="stats-heading">
+        <h2 id="stats-heading">My statistics</h2>
+        <p class="hint">Saved only in this browser (localStorage). Nothing is sent anywhere.</p>
+        <dl class="counters">
+          <div><dt>Played</dt><dd id="stat-played">0</dd></div>
+          <div><dt>Win %</dt><dd id="stat-win">0</dd></div>
+          <div><dt>Current streak</dt><dd id="stat-streak">0</dd></div>
+          <div><dt>Best streak</dt><dd id="stat-best">0</dd></div>
+        </dl>
+        <h3>Guess distribution</h3>
+        <ul id="distribution" class="distribution"></ul>
+        <div class="button-row">
+          <button id="reset-stats" class="chip-button danger-button" type="button">Reset stats</button>
+        </div>
+      </section>
+
+      <dialog id="result-dialog" class="result-dialog" aria-labelledby="result-title">
+        <h2 id="result-title"></h2>
+        <p id="result-text"></p>
+        <p id="share-text" class="share-preview"></p>
+        <p id="share-status" class="hint" role="status"></p>
+        <div class="button-row">
+          <button id="share" class="chip-button" type="button">Copy result</button>
+          <button id="play-again" type="button">Play again</button>
+          <button id="close-dialog" class="chip-button" type="button">Close</button>
+        </div>
+      </dialog>
+    </main>
+  </body>
+</html>

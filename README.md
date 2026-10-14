@@ -1,6 +1,6 @@
 # Wilhelm Johansson | Profile
 
-A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and seven interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz and a password checker/generator. I'm still learning, and the site is written to reflect that honestly.
+A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and eight interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz, a password checker/generator and a word guessing game. I'm still learning, and the site is written to reflect that honestly.
 
 ## Live site
 
@@ -12,6 +12,7 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 - [Helpdesk tickets](https://wjohansson94.github.io/portfolio/helpdesk.html)
 - [IT & security quiz](https://wjohansson94.github.io/portfolio/quiz.html)
 - [Password checker & generator](https://wjohansson94.github.io/portfolio/password.html)
+- [Word guess game](https://wjohansson94.github.io/portfolio/wordle.html)
 
 ## Overview
 
@@ -82,12 +83,25 @@ A privacy-friendly tool that runs entirely in the browser (nothing is sent, stor
 - a short security tips section (unique passwords, password manager, MFA/passkeys)
 - limits: it does not check breach databases and does not recognise every dictionary word or personal detail
 
+### 9. Word guess game
+A five-letter word guessing game (my own small project, not affiliated with any other game):
+
+- six attempts, a built-in answer list and a larger list of accepted guesses (so some real words may be rejected)
+- on-screen keyboard and physical keyboard support
+- repeated letters follow the real rules (a letter is only marked as many times as it is still unused in the answer); the scoring is a small pure function covered by tests in `tests/`
+- not colour only: every tile state also has a symbol and an `aria-label`, plus an optional high-contrast colour mode
+- flip animation that is skipped with `prefers-reduced-motion`; results, invalid words and "too short" messages are announced through an `aria-live` region
+- win/lose dialog with the answer, and a copyable emoji grid
+- random word or a "word of the day" derived from the date (no server)
+- statistics (played, win %, streaks, guess distribution) saved in `localStorage`, read with `try/catch` and validated
+
 ## Project structure
 
 - `index.html`, `style.css` — portfolio page
 - `theme.js`, `theme.css` — shared dark/light theme
 - `certificate-viewer.html/.js` — certificate viewer
-- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js`, `password.html/.css/.js` — the apps
+- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js`, `password.html/.css/.js`, `wordle.html/.css/.js` — the apps
+- `tests/` — Node tests for pure game logic (`node --test "tests/*.test.js"`)
 - `*.webp`, `profile.jpg`, `favicon.*` — images (`profile.jpg` is kept for the social preview image)
 - `certificates/` — certificate images (WebP for the page, PNG/JPEG/PDF originals)
 - `scripts/check-links.mjs` — relative link checker used in CI
@@ -99,11 +113,12 @@ No build or install needed. Serve the folder with any static server, for example
 
 ## Checks
 
-On every push to `main` and every pull request, GitHub Actions runs [html-validate](https://html-validate.org/) on all HTML files and `scripts/check-links.mjs`, which checks relative links, images, scripts and `#anchors`. To run them locally:
+On every push to `main` and every pull request, GitHub Actions runs [html-validate](https://html-validate.org/) on all HTML files and `scripts/check-links.mjs`, which checks relative links, images, scripts and `#anchors`, and the logic tests in `tests/`. To run them locally:
 
 ```
 npx html-validate@9 *.html
 node scripts/check-links.mjs
+node --test "tests/*.test.js"
 ```
 
 ## Deployment

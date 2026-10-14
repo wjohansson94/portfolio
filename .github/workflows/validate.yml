@@ -23,3 +23,6 @@ jobs:
 
       - name: Check relative links
         run: node scripts/check-links.mjs
+
+      - name: Run logic tests
+        run: node --test "tests/*.test.js"
