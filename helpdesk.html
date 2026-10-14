@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Helpdesk tickets | Wilhelm Johansson</title>
+    <meta
+      name="description"
+      content="A helpdesk ticket tracker by Wilhelm Johansson: create tickets, follow a status workflow, add notes, search, filter and export. Data stays in your browser."
+    />
+    <meta name="theme-color" content="#090f18" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="helpdesk.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <script src="helpdesk.js" defer></script>
+  </head>
+  <body>
+    <main class="helpdesk-shell">
+      <a class="back-link" href="index.html">Back to profile</a>
+
+      <header class="page-heading">
+        <p class="eyebrow">Portfolio project 05</p>
+        <h1>Helpdesk tickets</h1>
+        <p>
+          A small ticket tracker inspired by my IT support work. Everything is
+          stored in your own browser.
+        </p>
+      </header>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <p id="error" class="error-message" role="alert" hidden></p>
+
+      <dl class="counters" aria-label="Tickets by status">
+        <div>
+          <dt>Total</dt>
+          <dd id="count-total">0</dd>
+        </div>
+        <div>
+          <dt>Open</dt>
+          <dd id="count-open">0</dd>
+        </div>
+        <div>
+          <dt>In progress</dt>
+          <dd id="count-in-progress">0</dd>
+        </div>
+        <div>
+          <dt>Resolved</dt>
+          <dd id="count-resolved">0</dd>
+        </div>
+        <div>
+          <dt>Closed</dt>
+          <dd id="count-closed">0</dd>
+        </div>
+      </dl>
+
+      <section class="panel" aria-labelledby="form-heading">
+        <h2 id="form-heading" tabindex="-1">New ticket</h2>
+        <form id="ticket-form" novalidate>
+          <p id="form-error" class="field-error" role="alert" hidden></p>
+          <div class="field">
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" maxlength="100" required />
+          </div>
+          <div class="field">
+            <label for="requester">Requester name</label>
+            <input
+              id="requester"
+              name="requester"
+              type="text"
+              maxlength="60"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="category">Category</label>
+              <select id="category" name="category">
+                <option>Hardware</option>
+                <option>Software</option>
+                <option>Network</option>
+                <option>Account</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="priority">Priority</label>
+              <select id="priority" name="priority">
+                <option>Low</option>
+                <option selected>Medium</option>
+                <option>High</option>
+                <option>Critical</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="description">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              maxlength="1000"
+              required
+            ></textarea>
+          </div>
+          <div class="button-row">
+            <button id="submit-button" class="primary-button" type="submit">
+              Create ticket
+            </button>
+            <button id="cancel-edit" class="chip-button" type="button" hidden>
+              Cancel editing
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="tickets-heading">
+        <h2 id="tickets-heading" tabindex="-1">Tickets</h2>
+
+        <div class="controls">
+          <div class="field search-field">
+            <label for="search">Search</label>
+            <input
+              id="search"
+              type="search"
+              placeholder="Title, description, name, ID or note"
+              autocomplete="off"
+            />
+          </div>
+          <div class="field">
+            <label for="filter-status">Status</label>
+            <select id="filter-status">
+              <option value="">All</option>
+              <option>Open</option>
+              <option>In progress</option>
+              <option>Resolved</option>
+              <option>Closed</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filter-priority">Priority</label>
+            <select id="filter-priority">
+              <option value="">All</option>
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+              <option>Critical</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filter-category">Category</label>
+            <select id="filter-category">
+              <option value="">All</option>
+              <option>Hardware</option>
+              <option>Software</option>
+              <option>Network</option>
+              <option>Account</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sort">Sort by</label>
+            <select id="sort">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="priority">Priority (highest first)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button id="clear-filters" class="chip-button" type="button">
+            Clear filters
+          </button>
+          <button id="export-button" class="chip-button" type="button">
+            Export JSON
+          </button>
+          <button id="load-samples" class="chip-button" type="button">
+            Load sample tickets
+          </button>
+          <button id="remove-samples" class="chip-button" type="button" hidden>
+            Remove sample tickets
+          </button>
+        </div>
+
+        <p id="result-count" class="result-count" role="status" aria-live="polite"></p>
+        <p id="empty-state" class="empty-state" hidden></p>
+        <ul id="ticket-list" class="ticket-list"></ul>
+      </section>
+    </main>
+  </body>
+</html>
