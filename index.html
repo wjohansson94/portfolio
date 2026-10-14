@@ -423,6 +423,41 @@
               </a>
             </div>
           </article>
+          <article>
+            <img
+              class="project-preview"
+              src="pomodoro.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the Pomodoro timer in dark mode showing a circular progress ring at 17:30 in focus mode, with Pause, Reset and Skip buttons and today's counters"
+            />
+            <h3>Pomodoro timer</h3>
+            <p class="project-summary">A focus and break timer with a progress ring and daily focus totals.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>SVG</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I learned</summary>
+              <p><strong>What I learned:</strong> calculating the time left from a stored end timestamp instead of counting ticks, drawing a progress ring with an SVG circle and stroke-dashoffset, and keeping the logic in small pure functions that I could test in Node. I also practised validating saved settings and optional features (sound and notifications) that only start after a click.</p>
+              <p><strong>Challenge:</strong> browsers slow down timers in background tabs, so a tick counter drifts. Using Date.now and recalculating when the tab becomes visible fixed it. Deciding when to announce changes to screen readers was also tricky: only mode changes are announced, not every second.</p>
+            </details>
+            <div class="project-links">
+              <a href="pomodoro.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/pomodoro.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for Pomodoro timer on GitHub"
+              >
+                Code
+              </a>
+            </div>
+          </article>
           </div>
         </section>
 

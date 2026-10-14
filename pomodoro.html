@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro timer | Wilhelm Johansson</title>
+    <meta
+      name="description"
+      content="Pomodoro timer: focus, short break and long break with configurable durations, a circular progress ring, optional sound and notifications, and daily focus totals stored in your browser. Built by Wilhelm Johansson."
+    />
+    <meta name="theme-color" content="#090f18" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="pomodoro.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <script src="pomodoro.js" defer></script>
+  </head>
+  <body>
+    <main class="pomo-shell">
+      <a class="back-link" href="index.html">Back to profile</a>
+
+      <header class="page-heading">
+        <p class="eyebrow">Portfolio project 09</p>
+        <h1>Pomodoro timer</h1>
+        <p>
+          Work in focused rounds with breaks in between. The defaults are 25
+          minutes of focus, 5 minutes of short break and a 15 minute long break
+          after every 4 focus rounds. Everything is stored only in this browser.
+        </p>
+      </header>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <section class="panel" aria-labelledby="timer-heading">
+        <h2 id="timer-heading">Timer</h2>
+
+        <div class="mode-row" role="group" aria-label="Timer mode">
+          <button type="button" class="chip-button" data-mode="focus" aria-pressed="true">Focus</button>
+          <button type="button" class="chip-button" data-mode="short" aria-pressed="false">Short break</button>
+          <button type="button" class="chip-button" data-mode="long" aria-pressed="false">Long break</button>
+        </div>
+
+        <div class="dial">
+          <svg class="ring" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+            <circle class="ring-track" cx="100" cy="100" r="90" />
+            <circle id="ring-progress" class="ring-progress" cx="100" cy="100" r="90" />
+          </svg>
+          <div class="dial-text">
+            <p id="mode-label" class="dial-mode">Focus</p>
+            <p id="time" class="dial-time" role="timer" aria-live="off" aria-label="Time left">25:00</p>
+          </div>
+        </div>
+
+        <div class="button-row controls">
+          <button type="button" id="start">Start</button>
+          <button type="button" id="reset" class="chip-button">Reset</button>
+          <button type="button" id="skip" class="chip-button">Skip</button>
+        </div>
+
+        <p class="hint">
+          Keyboard shortcuts (when no field or button is focused):
+          <kbd>Space</kbd> start or pause, <kbd>R</kbd> reset, <kbd>S</kbd> skip.
+        </p>
+      </section>
+
+      <section class="panel" aria-labelledby="today-heading">
+        <h2 id="today-heading">Today</h2>
+        <dl class="counters">
+          <div class="counter">
+            <dt>Focus rounds</dt>
+            <dd id="stat-rounds">0</dd>
+          </div>
+          <div class="counter">
+            <dt>Focus time</dt>
+            <dd id="stat-minutes">0 min</dd>
+          </div>
+          <div class="counter">
+            <dt>Round in cycle</dt>
+            <dd id="stat-cycle">0 of 4</dd>
+          </div>
+        </dl>
+        <div class="button-row">
+          <button type="button" id="reset-stats" class="chip-button danger-button">Reset today's counters</button>
+        </div>
+        <p class="hint">Only finished focus rounds count. Skipping a round does not.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="settings-heading">
+        <h2 id="settings-heading">Settings</h2>
+        <div class="settings-grid">
+          <div class="field">
+            <label for="set-focus">Focus (minutes)</label>
+            <input id="set-focus" type="number" min="1" max="120" step="1" inputmode="numeric" />
+          </div>
+          <div class="field">
+            <label for="set-short">Short break (minutes)</label>
+            <input id="set-short" type="number" min="1" max="60" step="1" inputmode="numeric" />
+          </div>
+          <div class="field">
+            <label for="set-long">Long break (minutes)</label>
+            <input id="set-long" type="number" min="1" max="120" step="1" inputmode="numeric" />
+          </div>
+          <div class="field">
+            <label for="set-every">Long break after (rounds)</label>
+            <input id="set-every" type="number" min="2" max="8" step="1" inputmode="numeric" />
+          </div>
+        </div>
+        <div class="check-field">
+          <input id="set-sound" type="checkbox" />
+          <label for="set-sound">Play a beep when a round ends</label>
+        </div>
+        <div class="check-field">
+          <input id="set-notify" type="checkbox" />
+          <label for="set-notify">Show a browser notification when a round ends</label>
+        </div>
+        <p id="settings-note" class="hint">Sound and notifications are off by default. The browser asks for permission only when you tick the notification box.</p>
+      </section>
+    </main>
+  </body>
+</html>
