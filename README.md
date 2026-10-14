@@ -14,10 +14,13 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 ## Overview
 
 ### 1. Portfolio page
-- sticky anchor navigation (Projects / Stack / Learning / Contact) with a skip link; smooth scrolling is disabled when `prefers-reduced-motion` is set
+- hero that frames the page as a bridge: "IT Support → Front-End Developer", with links to the projects and contact
+- sticky anchor navigation (Projects / About / Path / Stack / Learning / Contact) with a skip link; smooth scrolling is disabled when `prefers-reduced-motion` is set. On small screens the header is not sticky, so it does not cover the page
 - dark/light theme toggle that follows `prefers-color-scheme` and remembers the choice in `localStorage` (shared by every page via `theme.js` and `theme.css`)
 - project cards with a short "What I learned" note and a "Challenge", based on each project's code
-- a grouped stack section (Front-end, Tools, Other) that makes clear what is still being learned
+- an "About me & my IT background" section: what I do today, the advantage of an IT/support background, a five-step IT support workflow strip, and a collapsed "At a glance" career infographic (`infographic.webp`, with alt text and a full-size link; the same content is also real HTML text on the page)
+- a "My career path" roadmap with five steps. Steps 1 and 2 are highlighted as where I am today (`aria-current="step"`), step 3 is "Next", and steps 4 and 5 are goals. Status is written out as text and shown with border style, not colour alone. Below it: what I'm building and the long-term vision
+- a stack section grouped as "Use at work" (IT support tools), "Use in my projects" and "Learning next" (dashed outline), making clear what is still being learned
 - a "My learning journey" timeline with dates and a next goal
 - compact certificate cards and a compact "Courses in progress" block (Mimo progress is maintained manually in `index.html`: update the percentage, `aria-valuenow`, fill width and date together)
 - Open Graph / Twitter / description meta tags, WebP images with width/height and lazy loading
