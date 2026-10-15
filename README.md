@@ -18,13 +18,13 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 ## Overview
 
 ### 1. Portfolio page
-- hero that frames the page as a bridge: "IT Support → Front-End Developer", with links to the projects and contact
+- hero headline "My front-end learning journey" with a beginner-honest intro (React and TypeScript are listed as curiosities, not started), plus links to the projects and contact
 - sticky anchor navigation (Projects / About / Path / Stack / Learning / Contact) with a skip link; smooth scrolling is disabled when `prefers-reduced-motion` is set. On small screens the header is not sticky, so it does not cover the page
 - dark/light theme toggle that follows `prefers-color-scheme` and remembers the choice in `localStorage` (shared by every page via `theme.js` and `theme.css`)
 - compact project cards in a 3/2/1-column grid: thumbnail, one-line summary, tech chips, "Live demo" and "Code" buttons, and a collapsible "What I learned" / "Challenge" note based on each project's code. The first four projects are shown; the rest sit behind a "Show all projects" button (all are visible if JavaScript is off)
-- an "About me & my IT background" section: what I do today, the advantage of an IT/support background, a five-step IT support workflow strip, and a collapsed "At a glance" career infographic (`infographic.webp`, with alt text and a full-size link; the same content is also real HTML text on the page)
-- a "My career path" roadmap with five steps. Steps 1 and 2 are highlighted as where I am today (`aria-current="step"`), step 3 is "Next", and steps 4 and 5 are goals. Status is written out as text and shown with border style, not colour alone. Below it: what I'm building and the long-term vision
-- a stack section grouped as "Use at work" (IT support tools), "Use in my projects" and "Learning next" (dashed outline), making clear what is still being learned
+- an "About this journey" section: what I'm practising now, what I care about, and a five-step "How I learn from each project" strip
+- a "My learning path" roadmap with five steps. Steps 1 and 2 (HTML & CSS; JavaScript, APIs & Git) are highlighted as what I'm working on now (`aria-current="step"`), step 3 (bigger projects) is "Next", and steps 4 and 5 (React & TypeScript; better structure) are curiosities for later. Status is written out as text and shown with border style, not colour alone. Below it: what I'm building and what I'd like to explore
+- a stack section grouped as "Use in my projects" and "Learning next" (dashed outline), making clear what is still being learned
 - a "My learning journey" timeline with dates and a next goal
 - compact certificate cards and a compact "Courses in progress" block (Mimo progress is maintained manually in `index.html`: update the percentage, `aria-valuenow`, fill width and date together)
 - Open Graph / Twitter / description meta tags, WebP images with width/height and lazy loading
@@ -50,7 +50,7 @@ Uses the free, no-key [Open-Meteo](https://open-meteo.com/) geocoding and foreca
 - loading and error states announced through `aria-live` regions
 
 ### 6. Helpdesk tickets
-A ticket tracker inspired by IT support work, built with vanilla JavaScript:
+A ticket tracker modelled on how IT help desks work, built with vanilla JavaScript:
 
 - create tickets with title, description, requester, category (Hardware / Software / Network / Account) and priority (Low / Medium / High / Critical)
 - IDs such as `HD-001` that are never reused after a delete
