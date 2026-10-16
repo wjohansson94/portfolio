@@ -1,6 +1,6 @@
 # Wilhelm Johansson | Profile
 
-A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and nine interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz, a password checker/generator, a word guessing game and a Pomodoro timer. I'm still learning, and the site is written to reflect that honestly.
+A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and ten interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz, a password checker/generator, a word guessing game, a Pomodoro timer and an expense tracker (the last one written by hand by me). I'm still learning, and the site is written to reflect that honestly.
 
 ## Live site
 
@@ -14,6 +14,7 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 - [Password checker & generator](https://wjohansson94.github.io/portfolio/password.html)
 - [Word guess game](https://wjohansson94.github.io/portfolio/wordle.html)
 - [Pomodoro timer](https://wjohansson94.github.io/portfolio/pomodoro.html)
+- [Expense tracker](https://wjohansson94.github.io/portfolio/expenses.html)
 
 ## Overview
 
@@ -107,12 +108,21 @@ A focus/break timer:
 - today's finished focus rounds and focus minutes plus settings saved in `localStorage` (read with `try/catch` and validated)
 - optional Web Audio beep (no sound files) and optional browser notification; both are off by default and permission is only requested when the box is ticked
 
+### 11. Expense tracker
+My own hand-written beginner project (written in VS Code, not generated):
+
+- add an expense with description, amount, category and date; delete single expenses
+- total and per-category totals worked out with `reduce`; deleting uses `filter`
+- expenses saved in `localStorage` (read with `try/catch`)
+- doughnut chart of spending per category with [Chart.js](https://www.chartjs.org/), my first library. It is loaded from the jsdelivr CDN, so the chart needs an internet connection; the rest of the page works without it. The chart legend is redrawn when the theme changes
+- labelled form fields, native validation (`required`, `min`), a per-item Delete button label and a `role="status"` total
+
 ## Project structure
 
 - `index.html`, `style.css` — portfolio page
 - `theme.js`, `theme.css` — shared dark/light theme
 - `certificate-viewer.html/.js` — certificate viewer
-- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js`, `password.html/.css/.js`, `wordle.html/.css/.js`, `pomodoro.html/.css/.js` — the apps
+- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js`, `password.html/.css/.js`, `wordle.html/.css/.js`, `pomodoro.html/.css/.js`, `expenses.html/.css/.js` — the apps
 - `tests/` — Node tests for pure game logic (`node --test "tests/*.test.js"`)
 - `*.webp`, `profile.jpg`, `favicon.*` — images (`profile.jpg` is kept for the social preview image)
 - `certificates/` — certificate images (WebP for the page, PNG/JPEG/PDF originals)

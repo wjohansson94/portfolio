@@ -453,6 +453,41 @@
               </a>
             </div>
           </article>
+          <article>
+            <img
+              class="project-preview"
+              src="expenses.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the Expense tracker in dark mode showing a list of five expenses with Delete buttons, totals per category and a doughnut chart of spending by category"
+            />
+            <h3>Expense tracker</h3>
+            <p class="project-summary">Add expenses, see the total and a chart of spending per category. Written by hand in VS Code.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Chart.js</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I learned</summary>
+              <p><strong>What I learned:</strong> this one I wrote myself, as a beginner. I practised saving data in localStorage, using reduce to add up totals and filter to delete an item, building list items with textContent, and drawing a doughnut chart with my first library, Chart.js. I also used a labelled form, native input validation and a button label for each Delete.</p>
+              <p><strong>Challenge:</strong> getting the chart to update after every change and to follow the light and dark theme. Chart.js draws on a canvas, so the legend colour has to be set again when the theme changes. The library is loaded from the jsdelivr CDN, so the chart needs an internet connection.</p>
+            </details>
+            <div class="project-links">
+              <a href="expenses.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/expenses.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for Expense tracker on GitHub"
+              >
+                Code
+              </a>
+            </div>
+          </article>
           </div>
         </section>
 
