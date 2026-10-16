@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense tracker | Wilhelm Johansson</title>
+    <meta
+      name="description"
+      content="Expense tracker: add expenses, see totals per category and a chart. Built by Wilhelm Johansson."
+    />
+    <meta name="theme-color" content="090f18" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="expenses.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="expenses.js" defer></script>
+  </head>
+  <body>
+    <main class="expense-shell">
+      <a class="back-link" href="index.html">Back to profile</a>
+
+      <header class="page-heading">
+        <p class="eyebrow">Portfolio project 10</p>
+        <h1>Expense Tracker</h1>
+        <p>
+          Add your expenses and see where the money goes. Everything is stored
+          only in this browser.
+        </p>
+      </header>
+
+      <section class="panel" aria-labelledby="add-heading">
+        <h2 id="add-heading">Add expense</h2>
+        <form id="expense-form">
+          <label for="title">Description</label>
+          <input id="title" type="text" required />
+
+          <label for="amount">Amount</label>
+          <input id="amount" type="number" min="0.01" step="0.01" required />
+
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Bills">Bills</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="date">Date</label>
+          <input id="date" type="date" required />
+
+          <button type="submit">Add</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="list-heading">
+        <h2 id="list-heading">Expenses</h2>
+        <p id="total">Total: 0</p>
+        <ul id="expense-list"></ul>
+        <h3>By category</h3>
+        <ul id="category-list"></ul>
+        <h3>Chart</h3>
+        <div class="chart-box">
+          <canvas
+            id="category-chart"
+            aria-label="Pie chart of expenses by category"
+            role="img"
+          ></canvas>
+        </div>
+        <p id="chart-empty" hidden>Add an expense to see the chart.</p>
+      </section>
+    </main>
+  </body>
+</html>
