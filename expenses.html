@@ -8,12 +8,12 @@
       name="description"
       content="Expense tracker: add expenses, see totals per category and a chart. Built by Wilhelm Johansson."
     />
-    <meta name="theme-color" content="090f18" />
+    <meta name="theme-color" content="#090f18" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <script src="theme.js"></script>
     <link rel="stylesheet" href="expenses.css" />
     <link rel="stylesheet" href="theme.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
     <script src="expenses.js" defer></script>
   </head>
   <body>
@@ -56,7 +56,7 @@
 
       <section class="panel" aria-labelledby="list-heading">
         <h2 id="list-heading">Expenses</h2>
-        <p id="total">Total: 0</p>
+        <p id="total" role="status">Total: 0</p>
         <ul id="expense-list"></ul>
         <h3>By category</h3>
         <ul id="category-list"></ul>
@@ -64,7 +64,7 @@
         <div class="chart-box">
           <canvas
             id="category-chart"
-            aria-label="Pie chart of expenses by category"
+            aria-label="Doughnut chart of expenses by category"
             role="img"
           ></canvas>
         </div>

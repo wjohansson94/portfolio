@@ -98,6 +98,12 @@ function renderCategoryTotals() {
 
 renderChart();
 
+// Chart.js draws on a canvas, so the legend colour must be re-read when the theme changes.
+new MutationObserver(renderChart).observe(document.documentElement, {
+  attributes: true,
+  attributeFilter: ["data-theme"],
+});
+
 function renderChart() {
   const totals = getCategoryTotals();
   const labels = Object.keys(totals);
