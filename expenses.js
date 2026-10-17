@@ -13,10 +13,24 @@ let expenses = loadExpenses();
 
 dateInput.valueAsDate = new Date();
 
+function isValidExpense(item) {
+  return (
+    item !== null &&
+    typeof item === "object" &&
+    typeof item.id === "number" &&
+    typeof item.title === "string" &&
+    typeof item.amount === "number" &&
+    Number.isFinite(item.amount) &&
+    typeof item.category === "string" &&
+    typeof item.date === "string"
+  );
+}
+
 function loadExpenses() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    return saved ? JSON.parse(saved) : [];
+    const parsed = saved ? JSON.parse(saved) : [];
+    return Array.isArray(parsed) ? parsed.filter(isValidExpense) : [];
   } catch {
     return [];
   }
