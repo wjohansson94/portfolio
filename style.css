@@ -443,6 +443,28 @@ h2::after {
   font-weight: bold;
 }
 
+.course-planned-intro {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+.course-planned-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.course-status {
+  padding: 1px 8px;
+  margin-right: 4px;
+  color: var(--ink);
+  border: 1px dashed var(--muted);
+  border-radius: 999px;
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
 .certificates {
   grid-column: 1 / -1;
 }
