@@ -1,6 +1,6 @@
 # Wilhelm Johansson | Profile
 
-A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and ten interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz, a password checker/generator, a word guessing game, a Pomodoro timer and an expense tracker (the last one written by hand by me). I'm still learning, and the site is written to reflect that honestly.
+A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and eleven interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz, a password checker/generator, a word guessing game, a Pomodoro timer, an expense tracker and flashcards (the last two written by hand by me). I'm still learning, and the site is written to reflect that honestly.
 
 ## Live site
 
@@ -15,6 +15,7 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 - [Word guess game](https://wjohansson94.github.io/portfolio/wordle.html)
 - [Pomodoro timer](https://wjohansson94.github.io/portfolio/pomodoro.html)
 - [Expense tracker](https://wjohansson94.github.io/portfolio/expenses.html)
+- [Flashcards](https://wjohansson94.github.io/portfolio/flashcards.html)
 
 ## Overview
 
@@ -27,7 +28,7 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 - a "My learning path" roadmap with five steps. Steps 1 and 2 (HTML & CSS; JavaScript, APIs & Git) are highlighted as what I'm working on now (`aria-current="step"`), step 3 (bigger projects) is "Next", and steps 4 and 5 (React & TypeScript; better structure) are curiosities for later. Status is written out as text and shown with border style, not colour alone. Below it: what I'm building and what I'd like to explore
 - a stack section grouped as "Use in my projects" and "Learning next" (dashed outline), making clear what is still being learned
 - a "My learning journey" timeline with dates and a next goal
-- compact certificate cards and a compact "Courses in progress" block (Mimo progress is maintained manually in `index.html`: update the percentage, `aria-valuenow`, fill width and date together). A "Projects from the Mimo course" group lists small projects built during that course (first: "My Linktree Project", then "Unit Converter", both hosted on Mimo; they are not part of the ten main projects). A separate "Planned courses & certifications" group lists courses I have not started (JavaScript Essentials 1 / JSE and Web Dev 101: HTML / WDE from Edube and JS Institute), labelled "Planned" with no progress bar
+- compact certificate cards and a compact "Courses in progress" block (Mimo progress is maintained manually in `index.html`: update the percentage, `aria-valuenow`, fill width and date together). A "Projects from the Mimo course" group lists small projects built during that course (first: "My Linktree Project", then "Unit Converter", both hosted on Mimo; they are not part of the eleven main projects). A separate "Planned courses & certifications" group lists courses I have not started (JavaScript Essentials 1 / JSE and Web Dev 101: HTML / WDE from Edube and JS Institute), labelled "Planned" with no progress bar
 - Open Graph / Twitter / description meta tags, WebP images with width/height and lazy loading
 - transparent attribution of GitHub Copilot as an AI coding assistant
 
@@ -117,12 +118,19 @@ My own hand-written beginner project (written in VS Code, not generated):
 - doughnut chart of spending per category with [Chart.js](https://www.chartjs.org/), my first library. It is loaded from the jsdelivr CDN, so the chart needs an internet connection; the rest of the page works without it. The chart legend is redrawn when the theme changes
 - labelled form fields, native validation (`required`, `min`), a per-item Delete button label and a `role="status"` total
 
+### 12. Flashcards
+My own hand-written beginner project (written in VS Code, not generated):
+
+- add question/answer cards, flip a card to see the answer, mark it "Knew it" or "Didn't know" and move to the next card (the list loops around with `%`)
+- cards saved in `localStorage`; loaded data is checked with `isValidCard` and `filter` inside `try/catch`
+- labelled inputs, buttons disabled when there are no cards, `aria-live` counter, reduced-motion respected
+
 ## Project structure
 
 - `index.html`, `style.css` — portfolio page
 - `theme.js`, `theme.css` — shared dark/light theme
 - `certificate-viewer.html/.js` — certificate viewer
-- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js`, `password.html/.css/.js`, `wordle.html/.css/.js`, `pomodoro.html/.css/.js`, `expenses.html/.css/.js` — the apps
+- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js`, `password.html/.css/.js`, `wordle.html/.css/.js`, `pomodoro.html/.css/.js`, `expenses.html/.css/.js`, `flashcards.html/.css/.js` — the apps
 - `tests/` — Node tests for pure game logic (`node --test "tests/*.test.js"`)
 - `*.webp`, `profile.jpg`, `favicon.*` — images (`profile.jpg` is kept for the social preview image)
 - `certificates/` — certificate images (WebP for the page, PNG/JPEG/PDF originals)
