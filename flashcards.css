@@ -1,0 +1,134 @@
+:root {
+    color-scheme: dark;
+    --ink: #e8eef5;
+    --muted: #a9b6c5;
+    --paper: #111a26;
+    --accent: #79e1e7;
+    --accent-dark: #a7eaf0;
+    --violet: #a58bff;
+    --line: #2a3b4e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px 20px;
+    color: var(--ink);
+    background: #090f18;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.6;
+}
+
+.flash-shell {
+    max-width: 900px;
+    padding: clamp(24px, 6vw, 56px);
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--accent);
+    border-radius: 14px;
+}
+
+.back-link {
+    color: var(--accent-dark);
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.page-heading {
+    padding: 30px 0 24px;
+    border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: var(--violet);
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.panel {
+    margin-top: 24px;
+}
+
+form {
+    display: grid;
+    gap: 8px;
+    max-width: 420px;
+}
+
+label {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    color: var(--ink);
+    background: #0c1420;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px 16px;
+    margin-top: 8px;
+    color: #07151d;
+    background: var(--accent);
+    border: 0;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #b4f4f5;
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.card {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    min-height: 160px;
+    padding: 24px;
+    margin: 8px 0 0;
+    color: var(--ink);
+    background: #0c1420;
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    font-family: Georgia, serif;
+    font-size: 1.3rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    background: #101c2c;
+}
+
+.card.flipped {
+    color: #07151d;
+    background: var(--accent);
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        transition: none;
+    }
+}
