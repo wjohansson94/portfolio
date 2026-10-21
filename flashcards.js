@@ -71,7 +71,7 @@ form.addEventListener("submit", (event) => {
     saveCards();
     index = cards.length - 1;
     showingAnswer = false;
-    form.requestFullscreen();
+    form.reset();
     questionInput.focus();
     render();
 });
