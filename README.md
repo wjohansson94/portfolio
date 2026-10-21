@@ -1,6 +1,6 @@
 # Wilhelm Johansson | Profile
 
-A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and eleven interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz, a password checker/generator, a word guessing game, a Pomodoro timer, an expense tracker and flashcards (the last two written by hand by me). I'm still learning, and the site is written to reflect that honestly.
+A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and eleven interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz, a password checker/generator, a word guessing game, a Pomodoro timer, an expense tracker and flashcards (the last two typed in by hand in VS Code while following step-by-step guidance from an AI assistant). I'm still learning, and the site is written to reflect that honestly.
 
 ## Live site
 
@@ -110,7 +110,7 @@ A focus/break timer:
 - optional Web Audio beep (no sound files) and optional browser notification; both are off by default and permission is only requested when the box is ticked
 
 ### 11. Expense tracker
-My own hand-written beginner project (written in VS Code, not generated):
+Typed in by hand in VS Code while following step-by-step guidance from an AI assistant; I fixed my own typos and bugs along the way:
 
 - add an expense with description, amount, category and date; delete single expenses
 - total and per-category totals worked out with `reduce`; deleting uses `filter`
@@ -119,7 +119,7 @@ My own hand-written beginner project (written in VS Code, not generated):
 - labelled form fields, native validation (`required`, `min`), a per-item Delete button label and a `role="status"` total
 
 ### 12. Flashcards
-My own hand-written beginner project (written in VS Code, not generated):
+Typed in by hand in VS Code while following step-by-step guidance from an AI assistant; I fixed my own typos and bugs along the way:
 
 - add question/answer cards, flip a card to see the answer, mark it "Knew it" or "Didn't know" and move to the next card (the list loops around with `%`)
 - cards saved in `localStorage`; loaded data is checked with `isValidCard` and `filter` inside `try/catch`
