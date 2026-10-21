@@ -24,7 +24,7 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 - sticky anchor navigation (Projects / About / Path / Stack / Learning / Contact) with a skip link; smooth scrolling is disabled when `prefers-reduced-motion` is set. On small screens the header is not sticky, so it does not cover the page
 - dark/light theme toggle that follows `prefers-color-scheme` and remembers the choice in `localStorage` (shared by every page via `theme.js` and `theme.css`)
 - compact project cards in a 3/2/1-column grid: thumbnail, one-line summary, tech chips, "Live demo" and "Code" buttons, and a collapsible "What I learned" / "Challenge" note based on each project's code. The first four projects are shown; the rest sit behind a "Show all projects" button (all are visible if JavaScript is off)
-- an "About this journey" section: what I'm practising now, what I care about, and a five-step "How I learn from each project" strip
+- an "About this journey" section: what I'm practising now, what I care about, a "How I learn" note (guided by an AI assistant and courses, typed and debugged by me, with the AI help stated openly), and a five-step "How I learn from each project" strip
 - a "My learning path" roadmap with five steps. Steps 1 and 2 (HTML & CSS; JavaScript, APIs & Git) are highlighted as what I'm working on now (`aria-current="step"`), step 3 (bigger projects) is "Next", and steps 4 and 5 (React & TypeScript; better structure) are curiosities for later. Status is written out as text and shown with border style, not colour alone. Below it: what I'm building and what I'd like to explore
 - a stack section grouped as "Use in my projects" and "Learning next" (dashed outline), making clear what is still being learned
 - a "My learning journey" timeline with dates and a next goal
@@ -65,7 +65,7 @@ A ticket tracker modelled on how IT help desks work, built with vanilla JavaScri
 - user text is always inserted with `textContent`, never `innerHTML`
 
 ### 7. IT & security quiz
-A quiz with 40 original questions (beginner and intermediate) written by me:
+A quiz with 40 questions and explanations (beginner and intermediate) created with an AI assistant and reviewed and studied by me:
 
 - six categories: phishing, passwords & access, networking, Windows & Microsoft 365, data & security basics, IT support practice
 - choose category, level and number of questions; questions and answers are shuffled
@@ -73,7 +73,7 @@ A quiz with 40 original questions (beginner and intermediate) written by me:
 - progress bar and an optional 30-second timer per question
 - results with a review of wrong answers
 - best score and per-category stats saved in `localStorage` (read with `try/catch` and validated), with a reset button
-- the explanations are my own study notes, not official training
+- the explanations are study notes, not official training
 
 ### 8. Password checker & generator
 A privacy-friendly tool that runs entirely in the browser (nothing is sent, stored or logged):
@@ -87,7 +87,7 @@ A privacy-friendly tool that runs entirely in the browser (nothing is sent, stor
 - limits: it does not check breach databases and does not recognise every dictionary word or personal detail
 
 ### 9. Word guess game
-A five-letter word guessing game (my own small project, not affiliated with any other game):
+A five-letter word guessing game (a small learning project built with AI assistance, not affiliated with any other game):
 
 - six attempts, a built-in answer list and a larger list of accepted guesses (so some real words may be rejected)
 - on-screen keyboard and physical keyboard support
