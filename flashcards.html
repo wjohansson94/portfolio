@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Flashcards | Wilhelm Johansson</title>
+        <meta
+         name="description"
+         content="Flashcards: create cards, flip them and track what you know. Built by Wilhelm Johansson."
+        />
+        <meta name="theme-color" content="#090f18" />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <script src="theme.js"></script>
+        <link rel="stylesheet" href="flashcards.css" />
+        <link rel="stylesheet" href="theme.css" />
+        <script src="flashcards.js" defer></script>
+    </head>
+    <body>
+        <main class="flash-shell">
+            <a class="back-link" href="index.html">Back to profile</a>
+
+            <header class="page-heading">
+                <p class="eyebrow">Portfolio project 11</p>
+                <h1>Flashcards</h1>
+                <p>Create cards, flip them and mark what you know. Stored only in this browser.</p>
+            </header>
+
+            <section class="panel" aria-labelledby="add-heading">
+                <h2 id="add-heading">Add card</h2>
+                <form id="card-form">
+                    <label for="question">Question</label>
+                    <input id="question" type="text" required />
+
+                    <label for="answer">Answer</label>
+                    <input id="answer" type="text" required />
+
+                    <button type="submit">Add card</button>
+                </form>
+            </section>
+
+            <section class="panel" aria-labelledby="study-heading">
+                <h2 id="study-heading">Study</h2>
+                <p id="counter" aria-live="polite"></p>
+                <button id="card" class="card" type="button" aria-live="polite">No cards yet</button>
+                <div class="actions">
+                    <button id="knew" type="button">Knew it</button>
+                    <button id="didnt" type="button">Didn't know</button>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
