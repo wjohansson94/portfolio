@@ -1,6 +1,6 @@
 # Wilhelm Johansson | Profile
 
-A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and eleven interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz, a password checker/generator, a word guessing game, a Pomodoro timer, an expense tracker and flashcards (the last two typed in by hand in VS Code while following step-by-step guidance from an AI assistant). I'm still learning, and the site is written to reflect that honestly.
+A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and eleven interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz, a password checker/generator, a word guessing game, a Pomodoro timer, an expense tracker and flashcards (the last two typed in by hand in VS Code while following step-by-step guidance from an AI assistant). Most projects here were built with a lot of AI help (GitHub Copilot); I read and test the code to understand it, but I didn't write it unaided. I'm still learning, and the site is written to reflect that honestly.
 
 ## Live site
 
@@ -115,7 +115,7 @@ Typed in by hand in VS Code while following step-by-step guidance from an AI ass
 - add an expense with description, amount, category and date; delete single expenses
 - total and per-category totals worked out with `reduce`; deleting uses `filter`
 - expenses saved in `localStorage` (read with `try/catch`)
-- doughnut chart of spending per category with [Chart.js](https://www.chartjs.org/), my first library. It is loaded from the jsdelivr CDN, so the chart needs an internet connection; the rest of the page works without it. The chart legend is redrawn when the theme changes
+- doughnut chart of spending per category with [Chart.js](https://www.chartjs.org/), my first library. Chart.js 4.4.7 is vendored in `vendor/` (MIT licence included), so no CDN or internet connection is needed. The chart legend is redrawn when the theme changes
 - labelled form fields, native validation (`required`, `min`), a per-item Delete button label and a `role="status"` total
 
 ### 12. Flashcards
@@ -134,6 +134,7 @@ Typed in by hand in VS Code while following step-by-step guidance from an AI ass
 - `tests/` — Node tests for pure game logic (`node --test "tests/*.test.js"`)
 - `*.webp`, `profile.jpg`, `favicon.*` — images (`profile.jpg` is kept for the social preview image)
 - `certificates/` — certificate images (WebP for the page, PNG/JPEG/PDF originals)
+- `vendor/` — Chart.js 4.4.7 (MIT) used by the expense tracker, with its licence
 - `scripts/check-links.mjs` — relative link checker used in CI
 - `.github/workflows/validate.yml`, `.htmlvalidate.json` — CI configuration
 
