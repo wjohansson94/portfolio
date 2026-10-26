@@ -130,7 +130,9 @@
         <section class="projects" id="projects" aria-labelledby="projects-heading">
           <h2 id="projects-heading" tabindex="-1">My projects</h2>
 
-          <article>
+          <h3 class="projects-subheading">Featured projects</h3>
+
+          <article class="project-featured">
             <img
               class="project-preview"
               src="helpdesk.webp"
@@ -140,7 +142,8 @@
               decoding="async"
               alt="Screenshot of the helpdesk ticket app showing search, filters and a critical sample ticket with status and note controls"
             />
-            <h3>Helpdesk tickets</h3>
+            <p class="project-badge">Built with AI</p>
+            <h4>Helpdesk tickets</h4>
             <p class="project-summary">Ticket tracker with status workflow, notes, filters and JSON export.</p>
             <ul class="project-tech" aria-label="Technologies used">
               <li>HTML</li>
@@ -149,9 +152,9 @@
               <li>localStorage</li>
             </ul>
             <details class="project-notes">
-              <summary>What I learned</summary>
-              <p><strong>What I learned:</strong> structuring data as objects in an array, checking saved data before trusting it, building the page with createElement and textContent instead of innerHTML, and moving keyboard focus after changes.</p>
-              <p><strong>Challenge:</strong> keeping the list, counters and filters in sync after every change, and making sure ticket numbers like HD-001 are never reused after a delete.</p>
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> how the tickets are stored as objects in an array, why saved data is checked before it is used, why the page is built with createElement and textContent instead of innerHTML, and how keyboard focus is moved after changes.</p>
+              <p><strong>What was tricky to understand:</strong> keeping the list, counters and filters in sync after every change, and why ticket numbers like HD-001 are never reused after a delete.</p>
             </details>
             <div class="project-links">
               <a href="helpdesk.html">Live demo</a>
@@ -166,188 +169,7 @@
             </div>
           </article>
 
-          <article>
-            <img
-              class="project-preview"
-              src="weather.webp"
-              width="1000"
-              height="563"
-              loading="lazy"
-              decoding="async"
-              alt="Screenshot of the weather app showing current conditions and a seven-day forecast"
-            />
-            <h3>Weather app</h3>
-            <p class="project-summary">City search, current weather and a 7-day forecast from Open-Meteo.</p>
-            <ul class="project-tech" aria-label="Technologies used">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>Open-Meteo API</li>
-            </ul>
-            <details class="project-notes">
-              <summary>What I learned</summary>
-              <p><strong>What I learned:</strong> chaining two API calls (geocoding first, then the forecast), turning weather codes into readable text, and announcing results to screen readers with aria-live.</p>
-              <p><strong>Challenge:</strong> handling every state: loading, no match for a city, network errors, and denied location permission.</p>
-            </details>
-            <div class="project-links">
-              <a href="weather.html">Live demo</a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/weather.js"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Code for Weather app on GitHub"
-              >
-                Code
-              </a>
-            </div>
-          </article>
-
-          <article>
-            <img
-              class="project-preview"
-              src="github-finder.webp"
-              width="1000"
-              height="563"
-              loading="lazy"
-              decoding="async"
-              alt="Screenshot of the GitHub repository explorer showing search and filter controls with repository results"
-            />
-            <h3>GitHub repository explorer</h3>
-            <p class="project-summary">Search a GitHub user and browse, filter and favourite their repos.</p>
-            <ul class="project-tech" aria-label="Technologies used">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>GitHub REST API</li>
-            </ul>
-            <details class="project-notes">
-              <summary>What I learned</summary>
-              <p><strong>What I learned:</strong> fetching data from a public REST API with async/await, showing loading, not-found and rate-limit messages, and paging through results.</p>
-              <p><strong>Challenge:</strong> slow or repeated searches. Requests time out after 15 seconds and an older response is ignored when a newer search has started.</p>
-            </details>
-            <div class="project-links">
-              <a href="github.html">Live demo</a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/github.js"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Code for GitHub repository explorer on GitHub"
-              >
-                Code
-              </a>
-            </div>
-          </article>
-
-          <article>
-            <img
-              class="project-preview"
-              src="quiz.webp"
-              width="1000"
-              height="563"
-              loading="lazy"
-              decoding="async"
-              alt="Screenshot of the IT and security quiz start screen in dark mode with category, difficulty and number-of-questions options"
-            />
-            <h3>IT &amp; security quiz</h3>
-            <p class="project-summary">40 IT and security questions with explanations and saved stats.</p>
-            <ul class="project-tech" aria-label="Technologies used">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>localStorage</li>
-            </ul>
-            <details class="project-notes">
-              <summary>What I learned</summary>
-              <p><strong>What I learned:</strong> storing questions as an array of objects, shuffling with the Fisher-Yates method, filtering by category and level, and saving stats in localStorage after checking that the saved data has the right shape.</p>
-              <p><strong>Challenge:</strong> making the quiz work with a keyboard and screen reader, using radio buttons, moving focus to the feedback, and not relying on colour alone to show right and wrong answers.</p>
-            </details>
-            <div class="project-links">
-              <a href="quiz.html">Live demo</a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/quiz.js"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Code for IT and security quiz on GitHub"
-              >
-                Code
-              </a>
-            </div>
-          </article>
-
-          <div class="project-more" id="more-projects">
-          <article>
-            <img
-              class="project-preview"
-              src="todo-list.webp"
-              width="1000"
-              height="563"
-              loading="lazy"
-              decoding="async"
-              alt="Screenshot of the to-do list app showing its task input and filters"
-            />
-            <h3>JavaScript to-do list</h3>
-            <p class="project-summary">Add, edit, filter and save tasks in the browser.</p>
-            <ul class="project-tech" aria-label="Technologies used">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>localStorage</li>
-            </ul>
-            <details class="project-notes">
-              <summary>What I learned</summary>
-              <p><strong>What I learned:</strong> saving data as JSON in localStorage and rebuilding the list from it, including converting older saved tasks to the newer format. Also combining a filter, search and sort at the same time.</p>
-              <p><strong>Challenge:</strong> edit and delete have to act on the right task even when the visible list is filtered or sorted, so each task keeps track of its original position.</p>
-            </details>
-            <div class="project-links">
-              <a href="todo.html">Live demo</a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/todo.js"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Code for JavaScript to-do list on GitHub"
-              >
-                Code
-              </a>
-            </div>
-          </article>
-
-          <article>
-            <img
-              class="project-preview"
-              src="memory-game.webp"
-              width="1000"
-              height="563"
-              loading="lazy"
-              decoding="async"
-              alt="Preview of the neon-themed memory match game with a grid of cards"
-            />
-            <h3>Memory match</h3>
-            <p class="project-summary">Card matching game with three levels, timer and best scores.</p>
-            <ul class="project-tech" aria-label="Technologies used">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>localStorage</li>
-            </ul>
-            <details class="project-notes">
-              <summary>What I learned</summary>
-              <p><strong>What I learned:</strong> keeping game state in variables, using timers (setInterval and setTimeout), shuffling the cards, and saving a best score per difficulty.</p>
-              <p><strong>Challenge:</strong> resetting everything cleanly. Timers must be cleared on restart, and the board is locked briefly after a mismatch so a third card can't be flipped.</p>
-            </details>
-            <div class="project-links">
-              <a href="memory-game.html">Live demo</a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/memory-game.js"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Code for Memory match on GitHub"
-              >
-                Code
-              </a>
-            </div>
-          </article>
-
-          <article>
+          <article class="project-featured">
             <img
               class="project-preview"
               src="password.webp"
@@ -357,7 +179,8 @@
               decoding="async"
               alt="Screenshot of the password checker showing a weak password, the strength meter, an entropy estimate and the privacy note"
             />
-            <h3>Password checker &amp; generator</h3>
+            <p class="project-badge">Built with AI</p>
+            <h4>Password checker &amp; generator</h4>
             <p class="project-summary">Password strength checker and secure generator, all in your browser.</p>
             <ul class="project-tech" aria-label="Technologies used">
               <li>HTML</li>
@@ -366,9 +189,9 @@
               <li>Web Crypto API</li>
             </ul>
             <details class="project-notes">
-              <summary>What I learned</summary>
-              <p><strong>What I learned:</strong> why generators should use crypto.getRandomValues instead of Math.random, how entropy (length times the size of the character pool) gives a rough strength estimate, and how to copy to the clipboard with a fallback.</p>
-              <p><strong>Challenge:</strong> picking random characters fairly (a plain modulo favours some values, so I used rejection sampling) and writing pattern checks that do not count the same characters twice. The strength result is only an estimate.</p>
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> why a generator should use crypto.getRandomValues instead of Math.random, how entropy (length times the size of the character pool) gives a rough strength estimate, and how copying to the clipboard has a fallback.</p>
+              <p><strong>What was tricky to understand:</strong> picking random characters fairly (a plain modulo favours some values, so the code uses rejection sampling) and pattern checks that do not count the same characters twice. The strength result is only an estimate.</p>
             </details>
             <div class="project-links">
               <a href="password.html">Live demo</a>
@@ -383,6 +206,227 @@
             </div>
           </article>
 
+          <article class="project-featured">
+            <img
+              class="project-preview"
+              src="pomodoro.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the Pomodoro timer in dark mode showing a circular progress ring at 17:30 in focus mode, with Pause, Reset and Skip buttons and today's counters"
+            />
+            <p class="project-badge">Built with AI</p>
+            <h4>Pomodoro timer</h4>
+            <p class="project-summary">A focus and break timer with a progress ring and daily focus totals.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>SVG</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> how the time left is calculated from a stored end timestamp instead of counting ticks, how a progress ring is drawn with an SVG circle and stroke-dashoffset, and how the logic is kept in small pure functions that can be tested in Node. Saved settings are validated, and sound and notifications only start after a click.</p>
+              <p><strong>What was tricky to understand:</strong> browsers slow down timers in background tabs, so a tick counter drifts. Using Date.now and recalculating when the tab becomes visible avoids that. Deciding when to announce changes to screen readers was also tricky: only mode changes are announced, not every second.</p>
+            </details>
+            <div class="project-links">
+              <a href="pomodoro.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/pomodoro.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for Pomodoro timer on GitHub"
+              >
+                Code
+              </a>
+            </div>
+          </article>
+
+          <h3 class="projects-subheading">More projects</h3>
+          <p class="projects-subintro">The rest of my projects, including small projects from the Mimo course. Most were built with a lot of AI help, and each card says so.</p>
+
+          <div class="project-more" id="more-projects">
+          <article>
+            <img
+              class="project-preview"
+              src="weather.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the weather app showing current conditions and a seven-day forecast"
+            />
+            <p class="project-badge">Built with AI</p>
+            <h4>Weather app</h4>
+            <p class="project-summary">City search, current weather and a 7-day forecast from Open-Meteo.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Open-Meteo API</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> how two API calls are chained (geocoding first, then the forecast), how weather codes are turned into readable text, and how aria-live announces results to screen readers.</p>
+              <p><strong>What was tricky to understand:</strong> handling every state: loading, no match for a city, network errors, and denied location permission.</p>
+            </details>
+            <div class="project-links">
+              <a href="weather.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/weather.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for Weather app on GitHub"
+              >
+                Code
+              </a>
+            </div>
+          </article>
+          <article>
+            <img
+              class="project-preview"
+              src="github-finder.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the GitHub repository explorer showing search and filter controls with repository results"
+            />
+            <p class="project-badge">Built with AI</p>
+            <h4>GitHub repository explorer</h4>
+            <p class="project-summary">Search a GitHub user and browse, filter and favourite their repos.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>GitHub REST API</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> how data is fetched from a public REST API with async/await, how loading, not-found and rate-limit messages are shown, and how results are paged.</p>
+              <p><strong>What was tricky to understand:</strong> slow or repeated searches. Requests time out after 15 seconds, and an older response is ignored when a newer search has started.</p>
+            </details>
+            <div class="project-links">
+              <a href="github.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/github.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for GitHub repository explorer on GitHub"
+              >
+                Code
+              </a>
+            </div>
+          </article>
+          <article>
+            <img
+              class="project-preview"
+              src="quiz.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the IT and security quiz start screen in dark mode with category, difficulty and number-of-questions options"
+            />
+            <p class="project-badge">Built with AI</p>
+            <h4>IT &amp; security quiz</h4>
+            <p class="project-summary">40 IT and security questions with explanations and saved stats.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>localStorage</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> how the questions are stored as an array of objects, how the standard Fisher-Yates method shuffles them, how they are filtered by category and level, and how stats are saved in localStorage after checking that the saved data has the right shape.</p>
+              <p><strong>What was tricky to understand:</strong> making the quiz work with a keyboard and screen reader: radio buttons, moving focus to the feedback, and not relying on colour alone to show right and wrong answers.</p>
+            </details>
+            <div class="project-links">
+              <a href="quiz.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/quiz.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for IT and security quiz on GitHub"
+              >
+                Code
+              </a>
+            </div>
+          </article>
+          <article>
+            <img
+              class="project-preview"
+              src="todo-list.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the to-do list app showing its task input and filters"
+            />
+            <p class="project-badge">Built with AI</p>
+            <h4>JavaScript to-do list</h4>
+            <p class="project-summary">Add, edit, filter and save tasks in the browser.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>localStorage</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> how tasks are saved as JSON in localStorage and the list is rebuilt from it, how older saved tasks are converted to the newer format, and how a filter, search and sort work together.</p>
+              <p><strong>What was tricky to understand:</strong> edit and delete have to act on the right task even when the visible list is filtered or sorted, so each task keeps track of its original position.</p>
+            </details>
+            <div class="project-links">
+              <a href="todo.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/todo.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for JavaScript to-do list on GitHub"
+              >
+                Code
+              </a>
+            </div>
+          </article>
+          <article>
+            <img
+              class="project-preview"
+              src="memory-game.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Preview of the neon-themed memory match game with a grid of cards"
+            />
+            <p class="project-badge">Built with AI</p>
+            <h4>Memory match</h4>
+            <p class="project-summary">Card matching game with three levels, timer and best scores.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>localStorage</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> how game state is kept in variables, how timers (setInterval and setTimeout) work, how the cards are shuffled, and how a best score per difficulty is saved.</p>
+              <p><strong>What was tricky to understand:</strong> resetting everything cleanly. Timers must be cleared on restart, and the board is locked briefly after a mismatch so a third card can't be flipped.</p>
+            </details>
+            <div class="project-links">
+              <a href="memory-game.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/memory-game.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for Memory match on GitHub"
+              >
+                Code
+              </a>
+            </div>
+          </article>
           <article>
             <img
               class="project-preview"
@@ -393,7 +437,8 @@
               decoding="async"
               alt="Screenshot of the Word guess game in dark mode with three guesses coloured green, amber and grey and an on-screen keyboard"
             />
-            <h3>Word guess game</h3>
+            <p class="project-badge">Built with AI</p>
+            <h4>Word guess game</h4>
             <p class="project-summary">A five-letter word guessing game with six attempts and saved stats.</p>
             <ul class="project-tech" aria-label="Technologies used">
               <li>HTML</li>
@@ -402,9 +447,9 @@
               <li>localStorage</li>
             </ul>
             <details class="project-notes">
-              <summary>What I learned</summary>
-              <p><strong>What I learned:</strong> splitting game logic into small pure functions (scoring a guess, validating saved stats) that I could test in Node, building the board and keyboard with createElement, and making a game usable with both keyboard and screen readers through aria-labels and a live status message.</p>
-              <p><strong>Challenge:</strong> marking repeated letters correctly (a letter can only be yellow as many times as it is still unused in the answer) and stopping the physical Enter key from also pressing a focused on-screen button. The word lists are small, so some real words are rejected.</p>
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> how the game logic is split into small pure functions (scoring a guess, validating saved stats) that can be tested in Node, how the board and keyboard are built with createElement, and how aria-labels and a live status message make it usable with a keyboard and screen reader.</p>
+              <p><strong>What was tricky to understand:</strong> marking repeated letters correctly (a letter can only be yellow as many times as it is still unused in the answer) and stopping the physical Enter key from also pressing a focused on-screen button. The word lists are small, so some real words are rejected.</p>
             </details>
             <div class="project-links">
               <a href="wordle.html">Live demo</a>
@@ -421,41 +466,6 @@
           <article>
             <img
               class="project-preview"
-              src="pomodoro.webp"
-              width="1000"
-              height="563"
-              loading="lazy"
-              decoding="async"
-              alt="Screenshot of the Pomodoro timer in dark mode showing a circular progress ring at 17:30 in focus mode, with Pause, Reset and Skip buttons and today's counters"
-            />
-            <h3>Pomodoro timer</h3>
-            <p class="project-summary">A focus and break timer with a progress ring and daily focus totals.</p>
-            <ul class="project-tech" aria-label="Technologies used">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>SVG</li>
-            </ul>
-            <details class="project-notes">
-              <summary>What I learned</summary>
-              <p><strong>What I learned:</strong> calculating the time left from a stored end timestamp instead of counting ticks, drawing a progress ring with an SVG circle and stroke-dashoffset, and keeping the logic in small pure functions that I could test in Node. I also practised validating saved settings and optional features (sound and notifications) that only start after a click.</p>
-              <p><strong>Challenge:</strong> browsers slow down timers in background tabs, so a tick counter drifts. Using Date.now and recalculating when the tab becomes visible fixed it. Deciding when to announce changes to screen readers was also tricky: only mode changes are announced, not every second.</p>
-            </details>
-            <div class="project-links">
-              <a href="pomodoro.html">Live demo</a>
-              <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/pomodoro.js"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Code for Pomodoro timer on GitHub"
-              >
-                Code
-              </a>
-            </div>
-          </article>
-          <article>
-            <img
-              class="project-preview"
               src="expenses.webp"
               width="1000"
               height="563"
@@ -463,7 +473,8 @@
               decoding="async"
               alt="Screenshot of the Expense tracker in dark mode showing a list of five expenses with Delete buttons, totals per category and a doughnut chart of spending by category"
             />
-            <h3>Expense tracker</h3>
+            <p class="project-badge">AI-generated, typed by hand</p>
+            <h4>Expense tracker</h4>
             <p class="project-summary">Add expenses, see the total and a chart of spending per category.</p>
             <ul class="project-tech" aria-label="Technologies used">
               <li>HTML</li>
@@ -472,9 +483,9 @@
               <li>Chart.js</li>
             </ul>
             <details class="project-notes">
-              <summary>What I learned</summary>
-              <p>              <strong>What I learned:</strong> typed in by hand in VS Code with step-by-step AI guidance, fixing my own typos and bugs. I practised saving data in localStorage, using reduce for totals and filter to delete, building list items with textContent, and drawing a doughnut chart with my first library, Chart.js (kept in the repo, so no CDN is needed).</p>
-              <p><strong>Challenge:</strong> getting the chart to update after every change and to follow the light and dark theme. Chart.js draws on a canvas, so the legend colour has to be set again when the theme changes.</p>
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> how expenses are saved in localStorage, how reduce gives the totals and filter deletes an item, how list items are built with textContent, and how a doughnut chart is drawn with Chart.js, the first library I used (kept in the repo, so no CDN is needed). I fixed my own typos while typing it in.</p>
+              <p><strong>What was tricky to understand:</strong> the chart has to update after every change and follow the light and dark theme. Chart.js draws on a canvas, so the legend colour has to be set again when the theme changes.</p>
             </details>
             <div class="project-links">
               <a href="expenses.html">Live demo</a>
@@ -498,7 +509,8 @@
               decoding="async"
               alt="Screenshot of the Flashcards app in dark mode showing the add card form and a flipped card with the answer Cascading Style Sheets, with Knew it and Didn't know buttons"
             />
-            <h3>Flashcards</h3>
+            <p class="project-badge">AI-generated, typed by hand</p>
+            <h4>Flashcards</h4>
             <p class="project-summary">Create question and answer cards, flip them and mark which ones you know.</p>
             <ul class="project-tech" aria-label="Technologies used">
               <li>HTML</li>
@@ -507,9 +519,9 @@
               <li>localStorage</li>
             </ul>
             <details class="project-notes">
-              <summary>What I learned</summary>
-              <p>              <strong>What I learned:</strong> typed in by hand in VS Code with step-by-step AI guidance, fixing my own typos and bugs. I practised saving cards in localStorage and checking the saved data before using it (isValidCard with filter), flipping a card with a true/false variable, and looping to the next card with the % operator. I also used labelled inputs, disabled buttons when there are no cards, and aria-live text for the counter.</p>
-                            <p><strong>Challenge:</strong> keeping the card number, the flipped state and the saved list in sync, so that one render function redraws everything after each change.</p>
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> how cards are saved in localStorage and checked before use (isValidCard with filter), how a card is flipped with a true/false variable, how the % operator loops to the next card, and how labelled inputs, disabled buttons and aria-live text for the counter help accessibility. I fixed my own typos while typing it in.</p>
+              <p><strong>What was tricky to understand:</strong> keeping the card number, the flipped state and the saved list in sync, so that one render function redraws everything after each change.</p>
             </details>
             <div class="project-links">
               <a href="flashcards.html">Live demo</a>
@@ -521,6 +533,48 @@
               >
                 Code
               </a>
+            </div>
+          </article>
+          <article>
+            <p class="project-badge">Built with Mimo</p>
+            <h4>My Linktree Project</h4>
+            <p class="project-summary">Built in the Mimo Front-End Development course. A beginner course project, the first Mimo course project.</p>
+            <div class="project-links">
+              <a
+                href="https://vd2b7c.mimo.run/index.html"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="My Linktree Project live demo, built with Mimo (opens in a new tab)"
+                >Live demo</a
+              >
+            </div>
+          </article>
+          <article>
+            <p class="project-badge">Built with Mimo</p>
+            <h4>Unit Converter</h4>
+            <p class="project-summary">Built in the Mimo Front-End Development course. A beginner course project, the second Mimo course project.</p>
+            <div class="project-links">
+              <a
+                href="https://167ip5.mimo.run/index.html"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Unit Converter live demo, built with Mimo (opens in a new tab)"
+                >Live demo</a
+              >
+            </div>
+          </article>
+          <article>
+            <p class="project-badge">Built with Mimo</p>
+            <h4>Coffee Shop Menu</h4>
+            <p class="project-summary">Built in the Mimo Front-End Development course. A beginner course project, the third Mimo course project.</p>
+            <div class="project-links">
+              <a
+                href="https://4ryhae.mimo.run/index.html"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Coffee Shop Menu live demo, built with Mimo (opens in a new tab)"
+                >Live demo</a
+              >
             </div>
           </article>
           </div>
@@ -864,7 +918,7 @@
             <h3 class="learning-subheading" id="current-courses-heading">Courses in progress</h3>
             <article class="course-card">
               <h4>Front-End Development · Mimo</h4>
-              <p>Currently studying HTML, CSS, and JavaScript.</p>
+              <p>Currently studying HTML, CSS, and JavaScript. The small projects I build during the course are listed under <a href="#projects">More projects</a>.</p>
               <div class="course-progress-copy">
                 <span>Overall course progress</span>
                 <span>20%</span>
@@ -884,54 +938,6 @@
                 <a href="https://mimo.org" target="_blank" rel="noreferrer">Mimo</a>
               </p>
             </article>
-          </section>
-
-          <section class="current-courses" aria-labelledby="mimo-projects-heading">
-            <h3 class="learning-subheading" id="mimo-projects-heading">Projects from the Mimo course</h3>
-            <p class="course-planned-intro">
-              Small projects built while following the Mimo Front-End Development course. More will be added as the course goes on.
-            </p>
-            <div class="course-planned-grid">
-              <article class="course-card">
-                <h4>My Linktree Project</h4>
-                <p>Built in the Mimo Front-End Development course. It is the first of several course projects.</p>
-                <p class="course-progress-note">
-                  <a
-                    href="https://vd2b7c.mimo.run/index.html"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="My Linktree Project live demo, built with Mimo (opens in a new tab)"
-                    >Live demo</a
-                  >
-                </p>
-              </article>
-              <article class="course-card">
-                <h4>Unit Converter</h4>
-                <p>Built in the Mimo Front-End Development course. A beginner course project, the second Mimo course project.</p>
-                <p class="course-progress-note">
-                  <a
-                    href="https://167ip5.mimo.run/index.html"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Unit Converter live demo, built with Mimo (opens in a new tab)"
-                    >Live demo</a
-                  >
-                </p>
-              </article>
-              <article class="course-card">
-                <h4>Coffee Shop Menu</h4>
-                <p>Built in the Mimo Front-End Development course. A beginner course project, the third Mimo course project.</p>
-                <p class="course-progress-note">
-                  <a
-                    href="https://4ryhae.mimo.run/index.html"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Coffee Shop Menu live demo, built with Mimo (opens in a new tab)"
-                    >Live demo</a
-                  >
-                </p>
-              </article>
-            </div>
           </section>
 
           <section class="current-courses" aria-labelledby="planned-courses-heading">

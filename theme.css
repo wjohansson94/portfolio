@@ -148,7 +148,7 @@ html[data-theme="light"] :is(.projects article, .course-card, .certificate-card)
   box-shadow: 0 10px 24px rgba(20, 33, 46, 0.1);
 }
 
-html[data-theme="light"] :is(.skills li, .project-tech li, .stack-list li) {
+html[data-theme="light"] :is(.skills li, .project-tech li, .stack-list li, .project-badge) {
   color: var(--chip-ink);
   background: var(--chip-bg);
   border-color: var(--chip-border);
