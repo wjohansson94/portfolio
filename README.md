@@ -20,7 +20,7 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 ## Overview
 
 ### 1. Portfolio page
-- hero headline "My front-end learning journey" with a beginner-honest intro (React and TypeScript are listed as curiosities, not started), plus links to the projects and contact
+- hero headline "IT enthusiast building front-end projects" framed as a hobby and a place to document learning (React and TypeScript are listed as curiosities, not started), with "View projects" and "Contact" buttons that jump to the Projects and Contact sections
 - sticky anchor navigation (Projects / About / Path / Stack / Learning / Contact) with a skip link; smooth scrolling is disabled when `prefers-reduced-motion` is set. On small screens the header is not sticky, so it does not cover the page
 - dark/light theme toggle that follows `prefers-color-scheme` and remembers the choice in `localStorage` (shared by every page via `theme.js` and `theme.css`)
 - compact project cards in a 3/2/1-column grid: thumbnail, one-line summary, tech chips, "Live demo" and "Code" buttons, and a collapsible "What I learned" / "Challenge" note based on each project's code. The first four projects are shown; the rest sit behind a "Show all projects" button (all are visible if JavaScript is off)
