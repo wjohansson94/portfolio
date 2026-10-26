@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Show search | Wilhelm Johansson</title>
+        <meta
+            name="description"
+            content="Show search: search TV shows with the TVMaze API. Built by Wilhelm Johansson."
+        />
+        <meta name="theme-color" content="#090f18" />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <script src="theme.js"></script>
+        <link rel="stylesheet" href="shows.css" />
+        <link rel="stylesheet" href="theme.css" />
+        <script src="shows.js" defer></script>
+    </head>
+    <body>
+        <main class="shows-shell">
+            <a class="back-link" href="index.html">Back to profile</a>
+
+            <header class="page-heading">
+                <p class="eyebrow">Portfolio project 12</p>
+                <h1>Show search</h1>
+                <p>Search TV shows using the free TVMaze API.</p>
+            </header>
+
+            <section class="panel" aria-labelledby="search-heading">
+                <h2 id="search-heading">Search</h2>
+                <form id="search-form">
+                    <label for="query">Show title</label>
+                    <input id="query" type="search" required />
+                    <button type="submit">Search</button>
+                </form>
+            </section>
+
+            <section class="panel" aria-labelledby="results-heading">
+                <h2 id="results-heading">Results</h2>
+                <p id="status" role="status">Search for a show to get started</p>
+                <ul id="results" class="results"></ul>
+            </section>
+        </main>
+    </body>
+</html>
