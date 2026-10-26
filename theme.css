@@ -24,9 +24,9 @@
   --ok-ink: #91e6b0;
   --ok-bg: rgba(145, 230, 176, 0.1);
   --ok-border: rgba(145, 230, 176, 0.55);
-  --wip-ink: #ffd47a;
-  --wip-bg: rgba(255, 212, 122, 0.1);
-  --wip-border: rgba(255, 212, 122, 0.55);
+  --wip-ink: #ffb8cd;
+  --wip-bg: rgba(255, 150, 185, 0.1);
+  --wip-border: rgba(255, 150, 185, 0.55);
 }
 
 html[data-theme="light"] {
@@ -65,9 +65,9 @@ html[data-theme="light"] {
   --ok-ink: #14653a;
   --ok-bg: #e4f5ea;
   --ok-border: #8fc9a6;
-  --wip-ink: #7a4b00;
-  --wip-bg: #fff3d6;
-  --wip-border: #d9b36a;
+  --wip-ink: #9c1f4d;
+  --wip-bg: #ffe8ef;
+  --wip-border: #e59ab3;
 }
 
 /* Theme toggle button (used on every page) */
