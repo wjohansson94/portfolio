@@ -17,6 +17,16 @@
   --success: #91e6b0;
   --focus: #79e1e7;
   --focus-alt: #a58bff;
+  --cta-bg: #a58bff;
+  --cta-bg-hover: #c2b2ff;
+  --cta-ink: #120c2b;
+  --cta-link: #c2b2ff;
+  --ok-ink: #91e6b0;
+  --ok-bg: rgba(145, 230, 176, 0.1);
+  --ok-border: rgba(145, 230, 176, 0.55);
+  --wip-ink: #ffd47a;
+  --wip-bg: rgba(255, 212, 122, 0.1);
+  --wip-border: rgba(255, 212, 122, 0.55);
 }
 
 html[data-theme="light"] {
@@ -48,6 +58,16 @@ html[data-theme="light"] {
   --success: #16703c;
   --focus: #0a6a7e;
   --focus-alt: #5a3db8;
+  --cta-bg: #5a3db8;
+  --cta-bg-hover: #472f96;
+  --cta-ink: #ffffff;
+  --cta-link: #5a3db8;
+  --ok-ink: #14653a;
+  --ok-bg: #e4f5ea;
+  --ok-border: #8fc9a6;
+  --wip-ink: #7a4b00;
+  --wip-bg: #fff3d6;
+  --wip-border: #d9b36a;
 }
 
 /* Theme toggle button (used on every page) */
