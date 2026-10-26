@@ -124,6 +124,24 @@ Typed in by hand in VS Code while following step-by-step guidance from an AI ass
 - cards saved in `localStorage`; loaded data is checked with `isValidCard` and `filter` inside `try/catch`
 - labelled inputs, buttons disabled when there are no cards, `aria-live` counter, reduced-motion respected
 
+## Project READMEs
+
+Each of the eleven main projects has a short README in `docs/projects/` (screenshot, what it does, how it's built, how to run it, what I understood, what was tricky, accessibility notes and tests). The pages themselves stay flat files in the repository root, so the live URLs do not change.
+
+| Project | README | Authorship |
+| --- | --- | --- |
+| Helpdesk tickets | [helpdesk.md](docs/projects/helpdesk.md) | Built with AI |
+| Password checker & generator | [password-checker.md](docs/projects/password-checker.md) | Built with AI |
+| Pomodoro timer | [pomodoro.md](docs/projects/pomodoro.md) | Built with AI (11 tests) |
+| Weather app | [weather.md](docs/projects/weather.md) | Built with AI |
+| GitHub repository explorer | [github-explorer.md](docs/projects/github-explorer.md) | Built with AI |
+| IT & security quiz | [quiz.md](docs/projects/quiz.md) | Built with AI |
+| JavaScript to-do list | [todo.md](docs/projects/todo.md) | Built with AI |
+| Memory match | [memory-game.md](docs/projects/memory-game.md) | Built with AI |
+| Word guess game | [word-guess.md](docs/projects/word-guess.md) | Built with AI (11 tests) |
+| Expense tracker | [expense-tracker.md](docs/projects/expense-tracker.md) | AI-generated, typed by hand |
+| Flashcards | [flashcards.md](docs/projects/flashcards.md) | AI-generated, typed by hand |
+
 ## Project structure
 
 - `index.html`, `style.css` — portfolio page
@@ -131,6 +149,7 @@ Typed in by hand in VS Code while following step-by-step guidance from an AI ass
 - `certificate-viewer.html/.js` — certificate viewer
 - `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js`, `password.html/.css/.js`, `wordle.html/.css/.js`, `pomodoro.html/.css/.js`, `expenses.html/.css/.js`, `flashcards.html/.css/.js` — the apps
 - `tests/` — Node tests for pure game logic (`node --test "tests/*.test.js"`)
+- `docs/projects/` — one short README per main project (screenshot, how it works, how to run it)
 - `*.webp`, `social-preview.png`, `favicon.*` — images (`social-preview.png` is the 1200×630 share image used by `og:image` / `twitter:image`)
 - `certificates/` — certificate images (WebP for the page, PNG/JPEG/PDF originals)
 - `vendor/` — Chart.js 4.4.7 (MIT) used by the expense tracker, with its licence
@@ -150,6 +169,21 @@ npx html-validate@9 *.html
 node scripts/check-links.mjs
 node --test "tests/*.test.js"
 ```
+
+## Tests
+
+The tests use Node's built-in test runner (`node:test`), so there is nothing to install. They need Node 18 or newer (CI uses Node 22). Run them from the repository root, the same command CI uses:
+
+```
+node --test "tests/*.test.js"
+```
+
+There are 22 tests, all for pure logic that is exported with `module.exports` from the page scripts:
+
+- `tests/pomodoro.test.js` (11): time formatting, remaining time from timestamps (including a long background pause), the next mode after each round, progress, the page title text, settings and stats validation, and adding a focus round
+- `tests/wordle.test.js` (11): scoring a guess (including repeated letters), keeping the best keyboard state, the word lists, the word of the day, stats validation and updates, and the share text
+
+The other projects have no automated tests; they are checked by hand, with axe and with Lighthouse.
 
 ## Deployment
 
