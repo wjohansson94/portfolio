@@ -138,12 +138,12 @@ html[data-theme="light"] .back-link:hover {
 
 /* Index */
 html[data-theme="light"] .details > div:not(.projects),
-html[data-theme="light"] :is(.projects article, .course-card, .certificate-card, .stack-group) {
+html[data-theme="light"] :is(.projects article, .course-card, .certificate-list li) {
   background: var(--surface);
   border-color: var(--border);
 }
 
-html[data-theme="light"] :is(.projects article, .course-card, .certificate-card):hover {
+html[data-theme="light"] :is(.projects article, .course-card):hover {
   border-color: var(--border-strong);
   box-shadow: 0 10px 24px rgba(20, 33, 46, 0.1);
 }
@@ -159,13 +159,8 @@ html[data-theme="light"] .links a {
   border-color: var(--border-strong);
 }
 
-html[data-theme="light"] .project-preview,
-html[data-theme="light"] .certificate-preview-link {
+html[data-theme="light"] .project-preview {
   border-color: var(--border);
-}
-
-html[data-theme="light"] .certificate-preview-link {
-  background: var(--soft);
 }
 
 html[data-theme="light"] .course-progress {
