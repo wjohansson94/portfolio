@@ -28,7 +28,7 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 - one "About & how I learn" section: two short panels ("What I use in my projects", a chip list of the tools and topics, still learning and not a claim of expertise; and "How I learn": guided by an AI assistant and courses, typed and debugged by me, with the AI help stated openly), a five-step "My project routine" strip, and a "Next goals" list of two one-liners (React and TypeScript not started; JavaScript Essentials 1 / JSE and Web Dev 101: HTML / WDE from Edube and JS Institute are planned, not started, with links)
 - a "Certificates & courses" section: the four certificates as a compact list with "View certificate" links to `certificate-viewer.html`, and a compact "Courses in progress" block (Mimo progress is maintained manually in `index.html`: update the percentage, `aria-valuenow`, fill width and date together). The small projects built during the Mimo course ("My Linktree Project", "Unit Converter" and "Coffee Shop Menu", all hosted on Mimo) are listed as compact cards under "More projects" with a "Built with Mimo" badge; they are not part of the eleven main projects
 - a "Want to follow my journey? Let's connect." contact section: prominent GitHub, LinkedIn and Email buttons (the existing email address), and Instagram, Threads and Bluesky as smaller icon links under "Also find me on"
-- Open Graph / Twitter / description meta tags, WebP images with width/height and lazy loading
+- Open Graph / Twitter (`summary_large_image`, with a 1200×630 share image and alt text) / description meta tags, WebP images with width/height and lazy loading
 - transparent attribution of GitHub Copilot as an AI coding assistant
 
 ### 2. JavaScript to-do list
@@ -131,7 +131,7 @@ Typed in by hand in VS Code while following step-by-step guidance from an AI ass
 - `certificate-viewer.html/.js` — certificate viewer
 - `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js`, `password.html/.css/.js`, `wordle.html/.css/.js`, `pomodoro.html/.css/.js`, `expenses.html/.css/.js`, `flashcards.html/.css/.js` — the apps
 - `tests/` — Node tests for pure game logic (`node --test "tests/*.test.js"`)
-- `*.webp`, `profile.jpg`, `favicon.*` — images (`profile.jpg` is kept for the social preview image)
+- `*.webp`, `social-preview.png`, `favicon.*` — images (`social-preview.png` is the 1200×630 share image used by `og:image` / `twitter:image`)
 - `certificates/` — certificate images (WebP for the page, PNG/JPEG/PDF originals)
 - `vendor/` — Chart.js 4.4.7 (MIT) used by the expense tracker, with its licence
 - `scripts/check-links.mjs` — relative link checker used in CI
