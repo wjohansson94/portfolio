@@ -729,6 +729,23 @@ h2::after {
   font-size: 1rem;
 }
 
+.projects .projects-legend {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  padding: 0;
+  margin: -4px 0 0;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+  list-style: none;
+}
+
+.projects-legend .project-badge {
+  margin: 0 6px 0 0;
+}
+
 .projects .projects-subheading {
   grid-column: 1 / -1;
   margin: 8px 0 0;
@@ -753,6 +770,18 @@ h2::after {
   font-family: Arial, sans-serif;
   font-size: 0.75rem;
   font-weight: bold;
+}
+
+.project-badge.badge-typed {
+  color: #cfc3ff;
+  background: rgba(165, 139, 255, 0.16);
+  border-color: rgba(165, 139, 255, 0.6);
+}
+
+.project-badge.badge-mimo {
+  color: #ffd47a;
+  background: rgba(255, 212, 122, 0.1);
+  border-color: rgba(255, 212, 122, 0.55);
 }
 
 .projects .project-featured {
