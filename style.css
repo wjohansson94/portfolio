@@ -283,21 +283,82 @@ h2::after {
 }
 
 .links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 20px;
   padding-top: 24px;
   border-top: 1px solid var(--line);
 }
 
-.links h2 {
-  flex-basis: 100%;
+.contact-intro {
+  margin: 0 0 16px;
+  color: var(--muted);
 }
 
-.links a {
+.contact-primary,
+.contact-secondary,
+.contact-secondary ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact-button {
   display: inline-flex;
-  width: 42px;
-  height: 42px;
+  min-height: 44px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  color: var(--on-accent);
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-bg);
+  border-radius: 999px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.contact-button:hover,
+.contact-button:focus-visible {
+  color: var(--on-accent);
+  background: var(--btn-bg-hover);
+  border-color: var(--btn-bg-hover);
+  transform: translateY(-2px);
+}
+
+.contact-button.is-outline {
+  color: var(--ink);
+  background: transparent;
+  border-color: var(--border-strong);
+}
+
+.contact-button.is-outline:hover,
+.contact-button.is-outline:focus-visible {
+  color: var(--ink);
+  background: var(--soft, #182838);
+  border-color: var(--link);
+}
+
+.contact-secondary {
+  align-items: center;
+  margin-top: 22px;
+}
+
+.contact-secondary h3 {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.contact-secondary ul {
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+  list-style: none;
+}
+
+.contact-secondary a {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
   align-items: center;
   justify-content: center;
   color: var(--accent-dark);
@@ -309,8 +370,8 @@ h2::after {
   transition: color 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
-.links a:hover,
-.links a:focus-visible {
+.contact-secondary a:hover,
+.contact-secondary a:focus-visible {
   color: #07151d;
   background: #79e1e7;
   border-color: #79e1e7;
@@ -320,8 +381,8 @@ h2::after {
 
 .social-icon {
   display: block;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 @media (max-width: 760px) {
