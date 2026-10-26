@@ -154,7 +154,7 @@ html[data-theme="light"] :is(.skills li, .project-tech li, .stack-list li, .proj
   border-color: var(--chip-border);
 }
 
-html[data-theme="light"] .links a {
+html[data-theme="light"] .contact-secondary a {
   background: var(--soft);
   border-color: var(--border-strong);
 }
