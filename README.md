@@ -1,6 +1,6 @@
 # Wilhelm Johansson | Profile
 
-A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and eleven interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz, a password checker/generator, a word guessing game, a Pomodoro timer, an expense tracker and flashcards (the last two typed in by hand in VS Code while following step-by-step guidance from an AI assistant). Most projects here were built with a lot of AI help (GitHub Copilot); I read and test the code to understand it, but I didn't write it unaided. I'm still learning, and the site is written to reflect that honestly.
+A small static portfolio built with plain HTML, CSS and JavaScript (no build step). It shows a profile page and twelve interactive browser apps: a to-do list, a GitHub profile finder, a memory match game, a weather app, a helpdesk ticket tracker, an IT & security quiz, a password checker/generator, a word guessing game, a Pomodoro timer, an expense tracker, flashcards and a TV show search (the last three typed in by hand in VS Code while following step-by-step guidance from an AI assistant). Most projects here were built with a lot of AI help (GitHub Copilot); I read and test the code to understand it, but I didn't write it unaided. I'm still learning, and the site is written to reflect that honestly.
 
 ## Live site
 
@@ -16,6 +16,7 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 - [Pomodoro timer](https://wjohansson94.github.io/portfolio/pomodoro.html)
 - [Expense tracker](https://wjohansson94.github.io/portfolio/expenses.html)
 - [Flashcards](https://wjohansson94.github.io/portfolio/flashcards.html)
+- [Show search](https://wjohansson94.github.io/portfolio/shows.html)
 
 ## Overview
 
@@ -23,10 +24,10 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 - hero headline "IT enthusiast building front-end projects" framed as a hobby and a place to document learning, with "View projects" (violet accent) and "Contact" buttons that jump to the Projects and Contact sections, and small GitHub and LinkedIn links underneath. React and TypeScript (not started) are mentioned only under "Next goals"
 - sticky anchor navigation (Projects / About / Learning / Contact) with a skip link; smooth scrolling is disabled when `prefers-reduced-motion` is set. On small screens the header is not sticky, so it does not cover the page
 - dark/light theme toggle that follows `prefers-color-scheme` and remembers the choice in `localStorage` (shared by every page via `theme.js` and `theme.css`)
-- three featured projects (Helpdesk tickets, Password checker & generator, Pomodoro timer) shown prominently, and a compact "More projects" grid with the other eight main projects plus the three Mimo course projects (eleven main + three Mimo). The "More projects" grid sits behind a "Show all projects" button (all are visible if JavaScript is off)
-- each project card has a thumbnail, one-line summary, tech chips, a small badge ("Built with AI", "AI-generated, typed by hand" for the Expense tracker and Flashcards, or "Built with Mimo"), "Live demo" and "Code" buttons, and a collapsible "What I understood" / "What was tricky to understand" note describing what I understood from each project's code (not a claim that I wrote it unaided)
+- three featured projects (Helpdesk tickets, Password checker & generator, Show search) shown prominently, and a compact "More projects" grid with the other nine main projects (including the Pomodoro timer) plus the three Mimo course projects (twelve main + three Mimo). The "More projects" grid sits behind a "Show all projects" button (all are visible if JavaScript is off)
+- each project card has a thumbnail, one-line summary, tech chips, a small badge ("Built with AI", "AI-generated, typed by hand" for the Expense tracker, Flashcards and Show search, or "Built with Mimo"), "Live demo" and "Code" buttons, and a collapsible "What I understood" / "What was tricky to understand" note describing what I understood from each project's code (not a claim that I wrote it unaided)
 - one "About & how I learn" section: two short panels ("What I use in my projects", a chip list of the tools and topics, still learning and not a claim of expertise; and "How I learn": guided by an AI assistant and courses, typed and debugged by me, with the AI help stated openly), a five-step "My project routine" strip, and a "Next goals" list of two one-liners (React and TypeScript not started; JavaScript Essentials 1 / JSE and Web Dev 101: HTML / WDE from Edube and JS Institute are planned, not started, with links)
-- a "Certificates & courses" section: the four certificates as a compact list, each with a text "Completed" badge and a "View certificate" link to `certificate-viewer.html`, and a compact "Courses in progress" block with an "In progress" badge (Mimo progress is maintained manually in `index.html`: update the percentage, `aria-valuenow`, fill width and date together). The small projects built during the Mimo course ("My Linktree Project", "Unit Converter" and "Coffee Shop Menu", all hosted on Mimo) are listed as compact cards under "More projects" with a "Built with Mimo" badge; they are not part of the eleven main projects
+- a "Certificates & courses" section: the four certificates as a compact list, each with a text "Completed" badge and a "View certificate" link to `certificate-viewer.html`, and a compact "Courses in progress" block with an "In progress" badge (Mimo progress is maintained manually in `index.html`: update the percentage, `aria-valuenow`, fill width and date together). The small projects built during the Mimo course ("My Linktree Project", "Unit Converter" and "Coffee Shop Menu", all hosted on Mimo) are listed as compact cards under "More projects" with a "Built with Mimo" badge; they are not part of the twelve main projects
 - a "Want to follow my journey? Let's connect." contact section: prominent violet GitHub and LinkedIn buttons plus an outlined Email button (the existing email address), and Instagram, Threads and Bluesky as smaller icon links under "Also find me on"
 - Open Graph / Twitter (`summary_large_image`, with a 1200×630 share image and alt text) / description meta tags, WebP images with width/height and lazy loading
 - transparent attribution of GitHub Copilot as an AI coding assistant
@@ -124,9 +125,17 @@ Typed in by hand in VS Code while following step-by-step guidance from an AI ass
 - cards saved in `localStorage`; loaded data is checked with `isValidCard` and `filter` inside `try/catch`
 - labelled inputs, buttons disabled when there are no cards, `aria-live` counter, reduced-motion respected
 
+### 13. Show search
+Typed in by hand in VS Code while following step-by-step guidance from an AI assistant:
+
+- search TV shows by title with the free [TVMaze](https://www.tvmaze.com/api) search API (no key); each result shows a poster, year, rating and a shortened summary
+- `async`/`await` with `fetch`, a `response.ok` check, and separate loading, empty and error messages in a `role="status"` region
+- the search text goes into the URL with `encodeURIComponent`; results are built with `createElement` and `textContent` (not `innerHTML`), and the HTML in each API summary is turned into plain text with `DOMParser`
+- data and posters come from TVMaze, so the page needs an internet connection
+
 ## Project READMEs
 
-Each of the eleven main projects has a short README in `docs/projects/` (screenshot, what it does, how it's built, how to run it, what I understood, what was tricky, accessibility notes and tests). The pages themselves stay flat files in the repository root, so the live URLs do not change.
+Each of the twelve main projects has a short README in `docs/projects/` (screenshot, what it does, how it's built, how to run it, what I understood, what was tricky, accessibility notes and tests). The pages themselves stay flat files in the repository root, so the live URLs do not change.
 
 | Project | README | Authorship |
 | --- | --- | --- |
@@ -141,13 +150,14 @@ Each of the eleven main projects has a short README in `docs/projects/` (screens
 | Word guess game | [word-guess.md](docs/projects/word-guess.md) | Built with AI (11 tests) |
 | Expense tracker | [expense-tracker.md](docs/projects/expense-tracker.md) | AI-generated, typed by hand |
 | Flashcards | [flashcards.md](docs/projects/flashcards.md) | AI-generated, typed by hand |
+| Show search | [show-search.md](docs/projects/show-search.md) | AI-generated, typed by hand |
 
 ## Project structure
 
 - `index.html`, `style.css` — portfolio page
 - `theme.js`, `theme.css` — shared dark/light theme
 - `certificate-viewer.html/.js` — certificate viewer
-- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js`, `password.html/.css/.js`, `wordle.html/.css/.js`, `pomodoro.html/.css/.js`, `expenses.html/.css/.js`, `flashcards.html/.css/.js` — the apps
+- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js`, `password.html/.css/.js`, `wordle.html/.css/.js`, `pomodoro.html/.css/.js`, `expenses.html/.css/.js`, `flashcards.html/.css/.js`, `shows.html/.css/.js` — the apps
 - `tests/` — Node tests for pure game logic (`node --test "tests/*.test.js"`)
 - `docs/projects/` — one short README per main project (screenshot, how it works, how to run it)
 - `*.webp`, `social-preview.png`, `favicon.*` — images (`social-preview.png` is the 1200×630 share image used by `og:image` / `twitter:image`)
