@@ -140,7 +140,7 @@ html[data-theme="light"] .intro h1 {
 }
 
 html[data-theme="light"]
-  :is(.profile-card, .todo-card, .lookup-shell, .game-shell, .certificate-viewer, .weather-shell, .helpdesk-shell, .quiz-shell, .password-shell, .word-shell, .pomo-shell, .expense-shell, .flash-shell) {
+  :is(.profile-card, .todo-card, .lookup-shell, .game-shell, .certificate-viewer, .weather-shell, .helpdesk-shell, .quiz-shell, .password-shell, .word-shell, .pomo-shell, .expense-shell, .flash-shell, .shows-shell) {
   box-shadow: 0 18px 44px rgba(20, 33, 46, 0.12);
 }
 
@@ -211,15 +211,15 @@ html[data-theme="light"] button {
 }
 
 html[data-theme="light"]
-  :is(.form-row button, .search-row button, .restart-button, .win-panel button, .primary-button) {
+  :is(.form-row button, .search-row button, .restart-button, .win-panel button, .primary-button, .shows-shell form button) {
   background: var(--btn-bg);
   border-color: var(--btn-bg);
 }
 
 html[data-theme="light"]
-  :is(.form-row button, .search-row button, .restart-button, .win-panel button, .primary-button):hover,
+  :is(.form-row button, .search-row button, .restart-button, .win-panel button, .primary-button, .shows-shell form button):hover,
 html[data-theme="light"]
-  :is(.form-row button, .search-row button, .restart-button, .win-panel button, .primary-button):focus-visible {
+  :is(.form-row button, .search-row button, .restart-button, .win-panel button, .primary-button, .shows-shell form button):focus-visible {
   background: var(--btn-bg-hover);
   border-color: var(--btn-bg-hover);
 }
@@ -289,6 +289,12 @@ html[data-theme="light"] .repo-details h3 a {
 
 html[data-theme="light"] .repo-list li:hover {
   border-bottom-color: var(--border-strong);
+}
+
+/* Show search */
+html[data-theme="light"] .show-card {
+  background: var(--surface);
+  border-color: var(--border);
 }
 
 /* Memory game */

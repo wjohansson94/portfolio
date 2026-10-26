@@ -31,7 +31,7 @@
     <meta property="og:image:type" content="image/png" />
     <meta
       property="og:image:alt"
-      content="Wilhelm Johansson, IT enthusiast building front-end projects as a hobby, with screenshots of the helpdesk, password and Pomodoro apps"
+      content="Wilhelm Johansson, IT enthusiast building front-end projects as a hobby, with screenshots of the helpdesk, password and show search apps"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
@@ -48,7 +48,7 @@
     />
     <meta
       name="twitter:image:alt"
-      content="Wilhelm Johansson, IT enthusiast building front-end projects as a hobby, with screenshots of the helpdesk, password and Pomodoro apps"
+      content="Wilhelm Johansson, IT enthusiast building front-end projects as a hobby, with screenshots of the helpdesk, password and show search apps"
     />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <script src="theme.js"></script>
@@ -274,43 +274,43 @@
           <article class="project-featured">
             <img
               class="project-preview"
-              src="pomodoro.webp"
+              src="shows.webp"
               width="1000"
               height="563"
               loading="lazy"
               decoding="async"
-              alt="Screenshot of the Pomodoro timer in dark mode showing a circular progress ring at 17:30 in focus mode, with Pause, Reset and Skip buttons and today's counters"
+              alt="Screenshot of the Show search app in dark mode with a search for office, showing a Show title field and result cards with posters, years, ratings and short summaries"
             />
-            <p class="project-badge">Built with AI</p>
-            <h4>Pomodoro timer</h4>
-            <p class="project-summary">A focus and break timer with a progress ring and daily focus totals.</p>
+            <p class="project-badge">AI-generated, typed by hand</p>
+            <h4>Show search</h4>
+            <p class="project-summary">Search TV shows by title and see posters, years, ratings and short summaries from TVMaze.</p>
             <ul class="project-tech" aria-label="Technologies used">
               <li>HTML</li>
               <li>CSS</li>
               <li>JavaScript</li>
-              <li>SVG</li>
+              <li>TVMaze API</li>
             </ul>
             <details class="project-notes">
               <summary>What I understood</summary>
-              <p><strong>What I understood:</strong> how the time left is calculated from a stored end timestamp instead of counting ticks, how a progress ring is drawn with an SVG circle and stroke-dashoffset, and how the logic is kept in small pure functions that can be tested in Node. Saved settings are validated, and sound and notifications only start after a click.</p>
-              <p><strong>What was tricky to understand:</strong> browsers slow down timers in background tabs, so a tick counter drifts. Using Date.now and recalculating when the tab becomes visible avoids that. Deciding when to announce changes to screen readers was also tricky: only mode changes are announced, not every second.</p>
+              <p><strong>What I understood:</strong> how fetch with async/await calls a public API that needs no key, how the search text is added to the URL with encodeURIComponent, why the results are built with createElement and textContent instead of innerHTML, and how the HTML in each show summary is turned into plain text with DOMParser. Loading, empty and error messages each get their own status text. The data and posters come from TVMaze, so the page needs an internet connection.</p>
+              <p><strong>What was tricky to understand:</strong> fetch only rejects on network problems, so a response with an error status has to be caught by checking response.ok and throwing an error myself. Both cases then end up in the same catch block.</p>
             </details>
             <div class="project-links">
-              <a href="pomodoro.html">Live demo</a>
+              <a href="shows.html">Live demo</a>
               <a
-                href="https://github.com/wjohansson94/portfolio/blob/main/pomodoro.js"
+                href="https://github.com/wjohansson94/portfolio/blob/main/shows.js"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Code for Pomodoro timer on GitHub"
+                aria-label="Code for Show search on GitHub"
               >
                 Code
               </a>
               <a
                 class="project-readme"
-                href="https://github.com/wjohansson94/portfolio/blob/main/docs/projects/pomodoro.md"
+                href="https://github.com/wjohansson94/portfolio/blob/main/docs/projects/show-search.md"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Project README for Pomodoro timer on GitHub"
+                aria-label="Project README for Show search on GitHub"
               >
                 README
               </a>
@@ -586,6 +586,51 @@
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Project README for Word guess game on GitHub"
+              >
+                README
+              </a>
+            </div>
+          </article>
+          <article>
+            <img
+              class="project-preview"
+              src="pomodoro.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the Pomodoro timer in dark mode showing a circular progress ring at 17:30 in focus mode, with Pause, Reset and Skip buttons and today's counters"
+            />
+            <p class="project-badge">Built with AI</p>
+            <h4>Pomodoro timer</h4>
+            <p class="project-summary">A focus and break timer with a progress ring and daily focus totals.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>SVG</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> how the time left is calculated from a stored end timestamp instead of counting ticks, how a progress ring is drawn with an SVG circle, and how the logic is kept in small pure functions that can be tested in Node.</p>
+              <p><strong>What was tricky to understand:</strong> browsers slow down timers in background tabs, so a tick counter drifts. Recalculating from Date.now avoids that.</p>
+            </details>
+            <div class="project-links">
+              <a href="pomodoro.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/pomodoro.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for Pomodoro timer on GitHub"
+              >
+                Code
+              </a>
+              <a
+                class="project-readme"
+                href="https://github.com/wjohansson94/portfolio/blob/main/docs/projects/pomodoro.md"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Project README for Pomodoro timer on GitHub"
               >
                 README
               </a>
