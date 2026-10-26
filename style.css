@@ -197,6 +197,21 @@ h1 {
     background 160ms ease;
 }
 
+.button-cta {
+  color: #120c2b;
+  background: linear-gradient(135deg, #c2b2ff, #a58bff);
+  border-color: #c2b2ff;
+  box-shadow: 0 6px 18px rgba(165, 139, 255, 0.25);
+}
+
+.button-cta:hover,
+.button-cta:focus-visible {
+  color: #120c2b;
+  background: linear-gradient(135deg, #d7ccff, #b9a6ff);
+  border-color: #d7ccff;
+  box-shadow: 0 8px 26px rgba(165, 139, 255, 0.4);
+}
+
 .button-icon {
   display: block;
   width: 18px;
@@ -322,6 +337,19 @@ h2::after {
   background: var(--btn-bg-hover);
   border-color: var(--btn-bg-hover);
   transform: translateY(-2px);
+}
+
+.contact-button.is-cta {
+  color: var(--cta-ink);
+  background: var(--cta-bg);
+  border-color: var(--cta-bg);
+}
+
+.contact-button.is-cta:hover,
+.contact-button.is-cta:focus-visible {
+  color: var(--cta-ink);
+  background: var(--cta-bg-hover);
+  border-color: var(--cta-bg-hover);
 }
 
 .contact-button.is-outline {
@@ -559,9 +587,39 @@ h2::after {
   font-size: 0.8rem;
 }
 
+.status-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 8px;
+  border: 1px solid;
+  border-radius: 999px;
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.status-badge.is-complete {
+  color: var(--ok-ink);
+  background: var(--ok-bg);
+  border-color: var(--ok-border);
+}
+
+.status-badge.is-progress {
+  color: var(--wip-ink);
+  background: var(--wip-bg);
+  border-color: var(--wip-border);
+}
+
+.status-line {
+  margin: 0 0 8px;
+}
+
 .certificate-list a {
   margin-top: 4px;
-  color: var(--accent-dark);
+  color: var(--cta-link, var(--accent-dark));
   font-family: Arial, sans-serif;
   font-size: 0.8rem;
   font-weight: bold;
@@ -912,6 +970,39 @@ html {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 16px 0 0;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.hero-links a {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 8px;
+  color: #d7ccff;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: rgba(215, 204, 255, 0.5);
+  text-underline-offset: 3px;
+}
+
+.hero-links a:hover,
+.hero-links a:focus-visible {
+  color: #fff;
+  text-decoration-color: currentColor;
+}
+
+.hero-link-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
 }
 
 .button-secondary {

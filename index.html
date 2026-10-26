@@ -95,14 +95,13 @@
           <p class="bio">
             I build small projects with HTML, CSS and JavaScript for fun, and
             I enjoy making pages that are responsive, accessible and
-            user-friendly. React and TypeScript are on my curiosity list, but
-            I haven't started them yet.
+            user-friendly.
           </p>
           <div class="hero-actions">
-          <a class="button button-secondary" href="#projects">
+          <a class="button button-cta" href="#projects">
             View projects <span class="button-arrow" aria-hidden="true">↓</span>
           </a>
-          <a class="button" href="#contact">
+          <a class="button button-secondary" href="#contact">
             <svg
               class="button-icon"
               viewBox="0 0 24 24"
@@ -131,6 +130,46 @@
             Contact <span class="button-arrow" aria-hidden="true">↓</span>
           </a>
           </div>
+          <p class="hero-links">
+            <a
+              href="https://github.com/wjohansson94"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub profile (opens in a new tab)"
+            >
+              <svg
+                class="hero-link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                />
+              </svg>
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/wilhelm-johansson94"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn profile (opens in a new tab)"
+            >
+              <svg
+                class="hero-link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill="currentColor"
+                  d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.45H4.96V9.02h2.97v9.43ZM6.45 7.73a1.72 1.72 0 1 1 0-3.44 1.72 1.72 0 0 1 0 3.44Zm12 10.72h-2.96v-4.59c0-1.09-.02-2.49-1.52-2.49-1.52 0-1.75 1.18-1.75 2.41v4.67H9.26V9.02h2.84v1.29h.04c.4-.74 1.36-1.52 2.8-1.52 2.99 0 3.54 1.97 3.54 4.53v5.13Z"
+                />
+              </svg>
+              LinkedIn
+            </a>
+          </p>
         </div>
       </section>
 
@@ -661,6 +700,7 @@
           <h3 class="learning-subheading" id="certificates-heading">Certificates</h3>
           <ul class="certificate-list" aria-labelledby="certificates-heading">
             <li>
+              <span class="status-badge is-complete">Completed</span>
               <span class="certificate-title">Introduction to Software Engineering</span>
               <span class="certificate-meta">IBM · Coursera · Nov 27, 2025</span>
               <a
@@ -672,6 +712,7 @@
               >
             </li>
             <li>
+              <span class="status-badge is-complete">Completed</span>
               <span class="certificate-title">Python Basics</span>
               <span class="certificate-meta">University of Michigan · Coursera · Nov 22, 2025</span>
               <a
@@ -683,6 +724,7 @@
               >
             </li>
             <li>
+              <span class="status-badge is-complete">Completed</span>
               <span class="certificate-title">Understanding Agentic AI</span>
               <span class="certificate-meta">Agent Academy · October 2025</span>
               <a
@@ -694,6 +736,7 @@
               >
             </li>
             <li>
+              <span class="status-badge is-complete">Completed</span>
               <span class="certificate-title">Microsoft IT Support Specialist</span>
               <span class="certificate-meta">Microsoft · Coursera · Dec 10, 2025</span>
               <a
@@ -710,6 +753,7 @@
             <h3 class="learning-subheading" id="current-courses-heading">Courses in progress</h3>
             <article class="course-card">
               <h4>Front-End Development · Mimo</h4>
+              <p class="status-line"><span class="status-badge is-progress">In progress</span></p>
               <p>Currently studying HTML, CSS, and JavaScript. The small projects I build during the course are listed under <a href="#projects">More projects</a>.</p>
               <div class="course-progress-copy">
                 <span>Overall course progress</span>
@@ -741,7 +785,7 @@
           </p>
           <div class="contact-primary">
             <a
-              class="contact-button"
+              class="contact-button is-cta"
               href="https://github.com/wjohansson94"
               target="_blank"
               rel="noreferrer"
@@ -761,7 +805,7 @@
               GitHub
             </a>
             <a
-              class="contact-button"
+              class="contact-button is-cta"
               href="https://www.linkedin.com/in/wilhelm-johansson94"
               target="_blank"
               rel="noreferrer"
