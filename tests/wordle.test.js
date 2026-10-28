@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const game = require("../wordle.js");
+const game = require("../js/wordle.js");
 
 test("scoreGuess: all letters correct", () => {
   assert.deepEqual(game.scoreGuess("apple", "apple"), ["correct", "correct", "correct", "correct", "correct"]);

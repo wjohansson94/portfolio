@@ -2,7 +2,7 @@
 
 [Live demo](https://wjohansson94.github.io/portfolio/password.html) · [Back to the main README](../../README.md)
 
-![Screenshot of the password checker showing a weak password, the strength meter and the privacy note](../../password.webp)
+![Screenshot of the password checker showing a weak password, the strength meter and the privacy note](../../images/password.webp)
 
 **Authorship:** Built with AI. Made with a lot of help from an AI assistant (GitHub Copilot). I read and tested the code to understand it, but I did not write it unaided.
 
@@ -10,7 +10,7 @@
 Checks how strong a password looks (strength meter, entropy estimate, a rough crack-time guess and tips) and generates random passwords or passphrases. Everything runs in the browser; nothing is sent, stored or logged. The result is only an estimate: it does not check breach databases and does not recognise every dictionary word.
 
 ## How it's built
-- Files: `password.html`, `password.css`, `password.js` (plus the shared `theme.js` and `theme.css`)
+- Files: `password.html`, `css/password.css`, `js/password.js` (plus the shared `js/theme.js` and `css/theme.css`)
 - Plain HTML, CSS and JavaScript
 - The generator uses the Web Crypto API (`crypto.getRandomValues`, never `Math.random`) with rejection sampling to avoid bias
 - The checker uses length, character variety, a small built-in common-password list and simple checks for repeats, sequences and keyboard walks

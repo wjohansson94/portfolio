@@ -2,7 +2,7 @@
 
 [Live demo](https://wjohansson94.github.io/portfolio/shows.html) · [Back to the main README](../../README.md)
 
-![Screenshot of the Show search app in dark mode with a search for office and result cards with posters, years, ratings and summaries](../../shows.webp)
+![Screenshot of the Show search app in dark mode with a search for office and result cards with posters, years, ratings and summaries](../../images/shows.webp)
 
 **Authorship:** AI-generated, typed by hand. The code was provided step by step by an AI assistant and I typed it in by hand in VS Code, then learned from it.
 
@@ -10,7 +10,7 @@
 Search TV shows by title. Each result shows a poster, the premiere year, the rating and a shortened summary. There are separate messages for loading, no results and errors.
 
 ## How it's built
-- Files: `shows.html`, `shows.css`, `shows.js` (plus the shared `theme.js` and `theme.css`)
+- Files: `shows.html`, `css/shows.css`, `js/shows.js` (plus the shared `js/theme.js` and `css/theme.css`)
 - Plain HTML, CSS and JavaScript, no libraries
 - Data: the free [TVMaze](https://www.tvmaze.com/api) search API (`https://api.tvmaze.com/search/shows?q=`), no key needed. Nothing is stored in `localStorage`
 - `async`/`await` with `fetch`; the search text is added to the URL with `encodeURIComponent`

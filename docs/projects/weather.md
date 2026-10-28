@@ -2,7 +2,7 @@
 
 [Live demo](https://wjohansson94.github.io/portfolio/weather.html) · [Back to the main README](../../README.md)
 
-![Screenshot of the weather app showing current conditions and a seven-day forecast](../../weather.webp)
+![Screenshot of the weather app showing current conditions and a seven-day forecast](../../images/weather.webp)
 
 **Authorship:** Built with AI. Made with a lot of help from an AI assistant (GitHub Copilot). I read and tested the code to understand it, but I did not write it unaided.
 
@@ -10,7 +10,7 @@
 Search for a city and see the current conditions and a 7-day forecast. It has a °C / °F toggle, a "My location" button (browser geolocation), a list of other matching places to choose from, and the last 5 searches.
 
 ## How it's built
-- Files: `weather.html`, `weather.css`, `weather.js` (plus the shared `theme.js` and `theme.css`)
+- Files: `weather.html`, `css/weather.css`, `js/weather.js` (plus the shared `js/theme.js` and `css/theme.css`)
 - Plain HTML, CSS and JavaScript with `fetch` and async/await
 - Data: the free, no-key [Open-Meteo](https://open-meteo.com/) geocoding API (`geocoding-api.open-meteo.com`) and forecast API (`api.open-meteo.com`). Two calls are chained: geocoding first, then the forecast
 - Weather codes are turned into readable text in the code

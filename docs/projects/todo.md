@@ -2,7 +2,7 @@
 
 [Live demo](https://wjohansson94.github.io/portfolio/todo.html) · [Back to the main README](../../README.md)
 
-![Screenshot of the to-do list app showing its task input and filters](../../todo-list.webp)
+![Screenshot of the to-do list app showing its task input and filters](../../images/todo-list.webp)
 
 **Authorship:** Built with AI. Made with a lot of help from an AI assistant (GitHub Copilot). I read and tested the code to understand it, but I did not write it unaided.
 
@@ -10,7 +10,7 @@
 Add, edit, complete and delete tasks; filter, search and sort them; optional due dates with overdue highlighting. Tasks stay in the browser between visits.
 
 ## How it's built
-- Files: `todo.html`, `todo.css`, `todo.js` (plus the shared `theme.js` and `theme.css`)
+- Files: `todo.html`, `css/todo.css`, `js/todo.js` (plus the shared `js/theme.js` and `css/theme.css`)
 - Plain HTML, CSS and JavaScript
 - Storage: tasks are saved as JSON in `localStorage` under `profileTasks`, and the list is rebuilt from it. Older saved tasks are converted to the newer format
 - Each task keeps track of its original position so edit and delete act on the right task even when the list is filtered or sorted
