@@ -2,7 +2,7 @@
 
 [Live demo](https://wjohansson94.github.io/portfolio/flashcards.html) · [Back to the main README](../../README.md)
 
-![Screenshot of the Flashcards app in dark mode with the add card form and a flipped card](../../flashcards.webp)
+![Screenshot of the Flashcards app in dark mode with the add card form and a flipped card](../../images/flashcards.webp)
 
 **Authorship:** AI-generated, typed by hand. The code was provided step by step by an AI assistant and I typed it in by hand in VS Code, then fixed my own typos and bugs and learned from them.
 
@@ -10,7 +10,7 @@
 Create question and answer cards, flip a card to see the answer, mark it "Knew it" or "Didn't know" and move to the next card. The list loops around after the last card.
 
 ## How it's built
-- Files: `flashcards.html`, `flashcards.css`, `flashcards.js` (plus the shared `theme.js` and `theme.css`)
+- Files: `flashcards.html`, `css/flashcards.css`, `js/flashcards.js` (plus the shared `js/theme.js` and `css/theme.css`)
 - Plain HTML, CSS and JavaScript, no libraries
 - Storage: cards are saved in `localStorage` under `flashcards`; loaded data is checked with `isValidCard` and `filter` inside `try/catch`
 - A card is flipped with a true/false variable, the `%` operator loops to the next card, and one render function redraws everything after each change

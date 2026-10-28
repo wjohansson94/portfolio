@@ -2,7 +2,7 @@
 
 [Live demo](https://wjohansson94.github.io/portfolio/pomodoro.html) · [Back to the main README](../../README.md)
 
-![Screenshot of the Pomodoro timer in dark mode with a circular progress ring and today's counters](../../pomodoro.webp)
+![Screenshot of the Pomodoro timer in dark mode with a circular progress ring and today's counters](../../images/pomodoro.webp)
 
 **Authorship:** Built with AI. Made with a lot of help from an AI assistant (GitHub Copilot). I read and tested the code to understand it, but I did not write it unaided.
 
@@ -10,7 +10,7 @@
 A focus and break timer with focus, short break and long break modes (defaults 25/5/15 minutes, long break after 4 focus rounds), start, pause, reset and skip, an SVG progress ring, the time left in the page title, and today's finished focus rounds and minutes. Sound and browser notifications are optional and off by default.
 
 ## How it's built
-- Files: `pomodoro.html`, `pomodoro.css`, `pomodoro.js` (plus the shared `theme.js` and `theme.css`), and `tests/pomodoro.test.js`
+- Files: `pomodoro.html`, `css/pomodoro.css`, `js/pomodoro.js` (plus the shared `js/theme.js` and `css/theme.css`), and `tests/pomodoro.test.js`
 - Plain HTML, CSS and JavaScript
 - Time left is calculated from an end timestamp (`Date.now`), not by counting ticks, so it stays correct in background tabs
 - The logic is kept in small pure functions that are also exported with `module.exports`, so Node can test them

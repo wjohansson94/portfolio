@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const p = require("../pomodoro.js");
+const p = require("../js/pomodoro.js");
 
 test("formatTime rounds up to whole seconds", () => {
   assert.equal(p.formatTime(25 * 60 * 1000), "25:00");

@@ -2,7 +2,7 @@
 
 [Live demo](https://wjohansson94.github.io/portfolio/wordle.html) · [Back to the main README](../../README.md)
 
-![Screenshot of the Word guess game in dark mode with three coloured guesses and an on-screen keyboard](../../wordle.webp)
+![Screenshot of the Word guess game in dark mode with three coloured guesses and an on-screen keyboard](../../images/wordle.webp)
 
 **Authorship:** Built with AI. A small learning project made with a lot of help from an AI assistant (GitHub Copilot), not affiliated with any other game. I read and tested the code to understand it, but I did not write it unaided.
 
@@ -10,7 +10,7 @@
 A five-letter word guessing game with six attempts, an on-screen and physical keyboard, a win/lose dialog, a copyable emoji grid, a random word or a "word of the day" derived from the date, and saved statistics. The word lists are small, so some real words are rejected.
 
 ## How it's built
-- Files: `wordle.html`, `wordle.css`, `wordle.js` (plus the shared `theme.js` and `theme.css`), and `tests/wordle.test.js`
+- Files: `wordle.html`, `css/wordle.css`, `js/wordle.js` (plus the shared `js/theme.js` and `css/theme.css`), and `tests/wordle.test.js`
 - Plain HTML, CSS and JavaScript
 - The scoring and stats logic are small pure functions, also exported with `module.exports`, so Node can test them
 - The board and keyboard are built with `createElement`

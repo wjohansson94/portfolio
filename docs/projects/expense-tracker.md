@@ -2,7 +2,7 @@
 
 [Live demo](https://wjohansson94.github.io/portfolio/expenses.html) · [Back to the main README](../../README.md)
 
-![Screenshot of the Expense tracker in dark mode with a list of expenses, totals per category and a doughnut chart](../../expenses.webp)
+![Screenshot of the Expense tracker in dark mode with a list of expenses, totals per category and a doughnut chart](../../images/expenses.webp)
 
 **Authorship:** AI-generated, typed by hand. The code was provided step by step by an AI assistant and I typed it in by hand in VS Code, then fixed my own typos and bugs and learned from them.
 
@@ -10,7 +10,7 @@
 Add an expense (description, amount, category and date), delete single expenses, and see the total, totals per category and a doughnut chart of spending per category.
 
 ## How it's built
-- Files: `expenses.html`, `expenses.css`, `expenses.js` (plus the shared `theme.js` and `theme.css`) and `vendor/chart.umd.js`
+- Files: `expenses.html`, `css/expenses.css`, `js/expenses.js` (plus the shared `js/theme.js` and `css/theme.css`) and `vendor/chart.umd.js`
 - Plain HTML, CSS and JavaScript, plus [Chart.js](https://www.chartjs.org/) 4.4.7, my first library. It is vendored in `vendor/` (MIT licence included), so no CDN or internet connection is needed
 - Totals use `reduce`; deleting uses `filter`; list items are built with `textContent`
 - Storage: expenses are saved in `localStorage` under `expenses`, read with `try/catch`

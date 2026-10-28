@@ -2,7 +2,7 @@
 
 [Live demo](https://wjohansson94.github.io/portfolio/github.html) · [Back to the main README](../../README.md)
 
-![Screenshot of the GitHub repository explorer showing search and filter controls with repository results](../../github-finder.webp)
+![Screenshot of the GitHub repository explorer showing search and filter controls with repository results](../../images/github-finder.webp)
 
 **Authorship:** Built with AI. Made with a lot of help from an AI assistant (GitHub Copilot). I read and tested the code to understand it, but I did not write it unaided.
 
@@ -10,7 +10,7 @@
 Searches for a public GitHub user, shows profile details, loads their repositories in pages, filters by language, sorts, and lets you save favourite repositories. It shows loading, empty, timeout, network, not-found and rate-limit states.
 
 ## How it's built
-- Files: `github.html`, `github.css`, `github.js` (plus the shared `theme.js` and `theme.css`)
+- Files: `github.html`, `css/github.css`, `js/github.js` (plus the shared `js/theme.js` and `css/theme.css`)
 - Plain HTML, CSS and JavaScript with `fetch` and async/await
 - Data: the public GitHub REST API (`api.github.com/users/...`), without a token, so GitHub's rate limits apply
 - Requests time out after 15 seconds, and an older response is ignored when a newer search has started

@@ -23,7 +23,7 @@ A small static portfolio built with plain HTML, CSS and JavaScript (no build ste
 ### 1. Portfolio page
 - hero headline "IT enthusiast building front-end projects" framed as a hobby and a place to document learning, with "View projects" (violet accent) and "Contact" buttons that jump to the Projects and Contact sections, and small GitHub and LinkedIn links underneath. React and TypeScript (not started) are mentioned only under "Next goals"
 - sticky anchor navigation (Projects / About / Learning / Contact) with a skip link; smooth scrolling is disabled when `prefers-reduced-motion` is set. On small screens the header is not sticky, so it does not cover the page
-- dark/light theme toggle that follows `prefers-color-scheme` and remembers the choice in `localStorage` (shared by every page via `theme.js` and `theme.css`)
+- dark/light theme toggle that follows `prefers-color-scheme` and remembers the choice in `localStorage` (shared by every page via `js/theme.js` and `css/theme.css`)
 - three featured projects (Helpdesk tickets, Password checker & generator, Show search) shown prominently, and a compact "More projects" grid with the other nine main projects (including the Pomodoro timer) plus the three Mimo course projects (twelve main + three Mimo). The "More projects" grid sits behind a "Show all projects" button (all are visible if JavaScript is off)
 - each project card has a thumbnail, one-line summary, tech chips, a small badge ("Built with AI" in cyan, "AI-generated, typed by hand" in violet for the Expense tracker, Flashcards and Show search, or "Built with Mimo" in amber; the meaning is always in the text), "Live demo" and "Code" buttons, and a collapsible "What I understood" / "What was tricky to understand" note describing what I understood from each project's code (not a claim that I wrote it unaided)
 - one "About & how I learn" section: two short panels ("What I use in my projects", a chip list of the tools and topics, still learning and not a claim of expertise; and "How I learn": guided by an AI assistant and courses, typed and debugged by me, with the AI help stated openly), a five-step "My project routine" strip, and a "Next goals" list of two one-liners (React and TypeScript not started; JavaScript Essentials 1 / JSE and Web Dev 101: HTML / WDE from Edube and JS Institute are planned, not started, with links)
@@ -154,13 +154,15 @@ Each of the twelve main projects has a short README in `docs/projects/` (screens
 
 ## Project structure
 
-- `index.html`, `style.css` — portfolio page
-- `theme.js`, `theme.css` — shared dark/light theme
-- `certificate-viewer.html/.js` — certificate viewer
-- `todo.html/.css/.js`, `github.html/.css/.js`, `memory-game.html/.css/.js`, `weather.html/.css/.js`, `helpdesk.html/.css/.js`, `quiz.html/.css/.js`, `password.html/.css/.js`, `wordle.html/.css/.js`, `pomodoro.html/.css/.js`, `expenses.html/.css/.js`, `flashcards.html/.css/.js`, `shows.html/.css/.js` — the apps
+- the root holds only the HTML pages (so page URLs stay the same), `README.md`, `social-preview.png` and config files
+- `index.html`, `css/style.css`, `js/projects.js` — portfolio page
+- `js/theme.js`, `css/theme.css` — shared dark/light theme
+- `certificate-viewer.html`, `js/certificate-viewer.js` — certificate viewer
+- `todo`, `github`, `memory-game`, `weather`, `helpdesk`, `quiz`, `password`, `wordle`, `pomodoro`, `expenses`, `flashcards` and `shows` — the apps: `<name>.html` in the root, `css/<name>.css` and `js/<name>.js`
+- `css/` — all stylesheets, `js/` — all page scripts
 - `tests/` — Node tests for pure game logic (`node --test "tests/*.test.js"`)
 - `docs/projects/` — one short README per main project (screenshot, how it works, how to run it)
-- `*.webp`, `social-preview.png`, `favicon.*` — images (`social-preview.png` is the 1200×630 share image used by `og:image` / `twitter:image`)
+- `images/` — project thumbnails, profile picture and favicons (WebP/PNG/SVG); `social-preview.png` stays in the root because it is the 1200×630 share image used by `og:image` / `twitter:image` (its URL is shared and cached)
 - `certificates/` — certificate images (WebP for the page, PNG/JPEG/PDF originals)
 - `vendor/` — Chart.js 4.4.7 (MIT) used by the expense tracker, with its licence
 - `scripts/check-links.mjs` — relative link checker used in CI
