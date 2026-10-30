@@ -167,6 +167,7 @@ Each of the twelve main projects has a short README in `docs/projects/` (screens
 - `vendor/` — Chart.js 4.4.7 (MIT) used by the expense tracker, with its licence
 - `scripts/check-links.mjs` — relative link checker used in CI
 - `.github/workflows/validate.yml`, `.htmlvalidate.json` — CI configuration
+- `cspell.json` — Code Spell Checker (VS Code) settings: British English plus project-specific words (not part of CI)
 
 ## Getting started
 
