@@ -167,6 +167,7 @@ Each of the twelve main projects has a short README in `docs/projects/` (screens
 - `vendor/` — Chart.js 4.4.7 (MIT) used by the expense tracker, with its licence
 - `scripts/check-links.mjs` — relative link checker used in CI
 - `.github/workflows/validate.yml`, `.htmlvalidate.json` — CI configuration
+- `package.json` — npm scripts only (`npm test`, `npm run validate`, `npm run check` ...); no dependencies
 - `cspell.json` — Code Spell Checker (VS Code) settings: British English plus project-specific words (not part of CI)
 
 ## Getting started
@@ -190,6 +191,18 @@ The tests use Node's built-in test runner (`node:test`), so there is nothing to 
 ```
 node --test "tests/*.test.js"
 ```
+
+The same commands are available as npm scripts in `package.json` (it has no dependencies, so there is no `npm install` step):
+
+| Command | What it runs |
+| --- | --- |
+| `npm test` | the tests (22, described below) |
+| `npm run validate` | html-validate on the root HTML files (same command as CI) |
+| `npm run links` | the relative link checker |
+| `npm run spell` | cspell over the project files (uses `npx`, nothing is installed) |
+| `npm run check` | tests, validate and links in one go |
+
+CI still calls the underlying commands directly.
 
 There are 22 tests, all for pure logic that is exported with `module.exports` from the page scripts:
 
