@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Accessibility checker | Wilhelm Johansson</title>
+        <meta
+            name="description"
+            content="Accessibility checker: paste HTML and check alt text, heading order and form labels. Built by Wilhelm Johansson."
+        />
+        <meta name="theme-color" content="#090f18" />
+        <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+        <script src="js/theme.js"></script>
+        <link rel="stylesheet" href="css/a11y.css" />
+        <link rel="stylesheet" href="css/theme.css" />
+        <script src="js/a11y.js" defer></script>
+    </head>
+    <body>
+        <main class="a11y-shell">
+            <a class="back-link" href="index.html">Back to profile</a>
+
+            <header class="page-heading">
+                <p class="eyebrow">Portfolio project 13</p>
+                <h1>Accessibility checker</h1>
+                <p>Paste HTML and check alt text, heading order and form labels.</p>
+            </header>
+
+            <section class="panel" aria-labelledby="input-heading">
+                <h2 id="input-heading">HTML to check</h2>
+                <form id="check-form">
+                    <label for="html-input">Paste your HTML here</label>
+                    <textarea id="html-input" rows="10" spellcheck="false" required></textarea>
+                    <button type="submit">Check</button>
+                </form>
+            </section>
+
+            <section class="panel" aria-labelledby="results-heading">
+                <h2 id="results-heading">Results</h2>
+                <p id="status" role="status">Paste some HTML and press Check</p>
+                <ul id="results" class="results"></ul>
+            </section>
+        </main>
+    </body>
+</html>
