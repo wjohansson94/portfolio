@@ -43,7 +43,7 @@ function render() {
 
     if (!hasCards) {
         counter.textContent = "No cards yet. Add one above.";
-        cardButton.textContent = "";
+        cardButton.textContent = "No cards yet";
         cardButton.classList.remove("flipped");
         return;
     }
