@@ -727,6 +727,51 @@
             </div>
           </article>
           <article>
+            <img
+              class="project-preview"
+              src="images/a11y.webp"
+              width="1000"
+              height="563"
+              loading="lazy"
+              decoding="async"
+              alt="Screenshot of the Accessibility checker in dark mode with pasted HTML and results: problems found for image alt text and heading order, form labels OK"
+            />
+            <p class="project-badge badge-typed">AI-generated, typed by hand</p>
+            <h4>Accessibility checker</h4>
+            <p class="project-summary">Paste HTML and check alt text, heading order and form labels. A simple checker with three rules.</p>
+            <ul class="project-tech" aria-label="Technologies used">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>DOMParser</li>
+            </ul>
+            <details class="project-notes">
+              <summary>What I understood</summary>
+              <p><strong>What I understood:</strong> how DOMParser turns pasted text into a document without running its scripts, how querySelectorAll plus spreading the list into an array lets me use filter, why hasAttribute("alt") is used (alt="" is valid for decorative images), and how results are built with textContent instead of innerHTML. Each result says "OK:" or "Problem:", so colour is not the only signal. It only covers three rules and does not replace axe, Lighthouse or manual testing.</p>
+              <p><strong>What was tricky to understand:</strong> that a form field can be labelled in several ways (a wrapping label, label for/id, aria-label or aria-labelledby), and why CSS.escape is needed when an id goes into a selector.</p>
+            </details>
+            <div class="project-links">
+              <a href="a11y.html">Live demo</a>
+              <a
+                href="https://github.com/wjohansson94/portfolio/blob/main/js/a11y.js"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Code for Accessibility checker on GitHub"
+              >
+                Code
+              </a>
+              <a
+                class="project-readme"
+                href="https://github.com/wjohansson94/portfolio/blob/main/docs/projects/accessibility-checker.md"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Project README for Accessibility checker on GitHub"
+              >
+                README
+              </a>
+            </div>
+          </article>
+          <article>
             <p class="project-badge badge-mimo">Built with Mimo</p>
             <h4>My Linktree Project</h4>
             <p class="project-summary">Built in the Mimo Front-End Development course. A beginner course project, the first Mimo course project.</p>

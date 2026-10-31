@@ -140,7 +140,7 @@ html[data-theme="light"] .intro h1 {
 }
 
 html[data-theme="light"]
-  :is(.profile-card, .todo-card, .lookup-shell, .game-shell, .certificate-viewer, .weather-shell, .helpdesk-shell, .quiz-shell, .password-shell, .word-shell, .pomo-shell, .expense-shell, .flash-shell, .shows-shell) {
+  :is(.profile-card, .todo-card, .lookup-shell, .game-shell, .certificate-viewer, .weather-shell, .helpdesk-shell, .quiz-shell, .password-shell, .word-shell, .pomo-shell, .expense-shell, .flash-shell, .shows-shell, .a11y-shell) {
   box-shadow: 0 18px 44px rgba(20, 33, 46, 0.12);
 }
 
@@ -229,15 +229,15 @@ html[data-theme="light"] button {
 }
 
 html[data-theme="light"]
-  :is(.form-row button, .search-row button, .restart-button, .win-panel button, .primary-button, .shows-shell form button) {
+  :is(.form-row button, .search-row button, .restart-button, .win-panel button, .primary-button, .shows-shell form button, .a11y-shell form button) {
   background: var(--btn-bg);
   border-color: var(--btn-bg);
 }
 
 html[data-theme="light"]
-  :is(.form-row button, .search-row button, .restart-button, .win-panel button, .primary-button, .shows-shell form button):hover,
+  :is(.form-row button, .search-row button, .restart-button, .win-panel button, .primary-button, .shows-shell form button, .a11y-shell form button):hover,
 html[data-theme="light"]
-  :is(.form-row button, .search-row button, .restart-button, .win-panel button, .primary-button, .shows-shell form button):focus-visible {
+  :is(.form-row button, .search-row button, .restart-button, .win-panel button, .primary-button, .shows-shell form button, .a11y-shell form button):focus-visible {
   background: var(--btn-bg-hover);
   border-color: var(--btn-bg-hover);
 }
@@ -368,4 +368,23 @@ html[data-theme="light"] :is(.error-message, .field-error) {
 
 html[data-theme="light"] .attribution a {
   color: var(--link);
+}
+
+/* Accessibility checker */
+html[data-theme="light"] .a11y-shell .result-item {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+html[data-theme="light"] .a11y-shell .result-fail {
+  border-left-color: var(--danger);
+}
+
+html[data-theme="light"] .a11y-shell .result-pass {
+  border-left-color: var(--success);
+}
+
+html[data-theme="light"] .a11y-shell .result-item code {
+  color: var(--accent-bright);
 }
